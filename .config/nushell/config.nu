@@ -1,9 +1,9 @@
-$env.config.buffer_editor = "hx"
-$env.config.show_banner = false
+source-env ($nu.default-config-dir | path join "custom-commands.nu")
+source-env ($nu.default-config-dir | path join "env.nu")
 
-mkdir ($nu.data-dir | path join "vendor/autoload")
-starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
-
-def latest-file [] {
-    ls | sort-by modified | last
+$env.config = {
+    show_banner: false
+    buffer_editor: "hx"
 }
+
+source ($nu.data-dir | path join "vendor/autoload/starship.nu")
