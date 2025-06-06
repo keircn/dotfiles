@@ -54,3 +54,39 @@ ls
 git st
 git init
 git st
+git add .
+git commit -m 'Initial commit'
+git remote add origin git@github.com:keircn/dotfiles.git
+git push
+ls
+cp -r ~/.config/fastfetch/ .config/
+rm -r ~/.config/fastfetch/
+ls .config/
+cp -r ~/.config/htop/ .config/
+rm -r ~/.config/htop/
+cp -r ~/.config/vim/ .config/
+rm -r ~/.config/vim/
+stow .
+config
+config nu
+source ~/.config/nushell/config.nu
+ls
+~
+ls
+starship
+starship print-config
+starship
+$nu.config-path
+vim ~/.config/nushell/config.nu
+vim ~/.config/nushell/env.nu
+vim ~/.config/nushell/config.nu
+$nu.data-dir
+vim ~/.local/share/nushell/vendor/autoload/starship.nu
+overlay use starship
+overlay use starship.rs
+vim ~/.local/share/nushell/vendor/autoload/starship.nu
+overlay use starship.nu
+exit
+overlay use starship.nu
+ls
+git st
