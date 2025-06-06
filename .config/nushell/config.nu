@@ -17,11 +17,9 @@ $env.config = {
     }
     cursor_shape: {
         emacs: line
-        vi_insert: line
-        vi_normal: block
     }
     use_ansi_coloring: true
-    edit_mode: vi
+    edit_mode: emacs
     use_kitty_protocol: false
     highlight_resolved_externals: true
     recursion_limit: 50
