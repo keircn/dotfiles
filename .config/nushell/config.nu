@@ -1,5 +1,10 @@
 source-env ($nu.default-config-dir | path join "env.nu")
-source ($nu.data-dir | path join "vendor/autoload/starship.nu")
+let starship_path = ($nu.data-dir | path join "vendor/autoload/starship.nu")
+if ($starship_path | path exists) {
+    source-env $starship_path | catch {
+        echo "Failed to source Starship configuration: $_"
+    }
+}
 
 $env.config = {
     show_banner: false
