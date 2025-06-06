@@ -1,5 +1,5 @@
-source-env ($nu.default-config-dir | path join "custom-commands.nu")
 source-env ($nu.default-config-dir | path join "env.nu")
+source ($nu.data-dir | path join "vendor/autoload/starship.nu")
 
 $env.config = {
     show_banner: false
@@ -27,7 +27,19 @@ $env.config = {
     recursion_limit: 50
 }
 
-source ($nu.data-dir | path join "vendor/autoload/starship.nu")
+def weather [city?: string = "London"] {
+    if ($city | is-empty) {
+        curl -s "wttr.in/?format=3"
+    } else {
+        curl -s $"wttr.in/($city)?format=3"
+    }
+}
+
+def disk-usage [] {
+    ls | where type == dir | each { |it| 
+        {name: $it.name, size: (du $it.name | math sum)}
+    } | sort-by size | reverse
+}
 
 alias ll = ls -la
 alias la = ls -a
