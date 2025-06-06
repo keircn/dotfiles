@@ -1,0 +1,56 @@
+mkdir ~/dotfiles
+ls
+l
+config nu
+$env.config.buffer_editor = "vim"
+config nu
+source ~/.config/nushell/config.nu
+config nu
+exit
+ls
+cd dotfiles/
+^ls
+ls
+~
+^ls
+ls
+eza
+cd dotfiles/
+ls ~/.config/nushell
+ls ~/.config/
+rm -rf ~/.config/zellij/ ~/.config/zed/ ~/.config/vivaldi/ ~/.config/unity3d/ ~/.config/turborepo/ ~/.config/slop/
+ls ~/.config/
+rm -rf ~/.config/user-dirs.*
+rm -rf ~/.config/ow-electron/
+rm -rf ~/.config/jj/ 
+rm -rf ~/.config/kdeglobals
+rm -rf ~/.config/legcord/
+rm -rf ~/.config/microsoft-edge/
+ls ~/.config/
+rm -rf ~/.config/QtProject.conf
+rm -rf ~/.config/qt5ct/
+rm -rf ~/.config/mpv/
+rm -rf ~/.config/helix/
+rm -rf ~/.config/google-chrome/
+ls ~/.config/
+rm -rf ~/.config/dolphinrc
+rm -rf ~/.config/github-copilot
+rm -rf ~/.config/glow
+rm -rf ~/.config/Cursor/
+rm -rf `~/.config/Code - OSS/`
+rm -rf ~/.config/configstore/
+rm -rf ~/.config/cfg_backups
+rm -rf ~/.config/GIMP/
+rm -rf `~/.config/Raspberry Pi/`
+ls
+cp -r ~/.config/fish/ .config/
+rm -rf ~/.config/fish/
+stow .
+ls
+ls -a
+vim README.md
+vim .config/fish/config.fish
+ls
+git st
+git init
+git st
