@@ -2,18 +2,17 @@
 
 ## Dependencies
 
-I use GNU stow to manage my dots, which is a dependency. Git is obviously needed too.
+I use GNU stow to symlink my dotfiles and sync them to the git repo
 
 ```
-pacman -S --needed git stow
+# i use arch btw
+sudo pacman -S --needed git stow
 ```
 
 ## Installation
 
 ```
-cd $HOME
-git clone git@github.com:keircn/dotfiles.git
-cd dotfiles
-# then symlink the configs
+git clone git@github.com:keircn/dotfiles.git $HOME/.dotfiles
+cd $HOME/.dotfiles
 stow .
 ```
