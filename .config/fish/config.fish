@@ -14,28 +14,95 @@ end
 
 set fish_pager_color_prefix cyan
 set fish_color_autosuggestion brblack
-set GOPATH /home/keiran/Documents/go
+set GOPATH $HOME/Documents/go
 set EDITOR vim
 
-alias l='eza -lh   --icons=auto' # long list
-alias ls='eza      --icons=auto' # short list
-alias ll='eza -lha --icons=auto --sort=name --group-directories-first' # long list all
-alias ld='eza -lhD --icons=auto' # long list dirs
-alias lt='eza --tree --icons=auto' # list folder as tree
+alias l='eza -lh --icons=auto'
+alias ls='eza --icons=auto'
+alias ll='eza -lha --icons=auto --sort=name --group-directories-first'
+alias ld='eza -lhD --icons=auto'
+alias lt='eza --tree --icons=auto'
+alias la='eza -la --icons=auto'
+alias lsd='eza -ld --icons=auto */'
 
 abbr c code
-
 abbr .. 'cd ..'
 abbr ... 'cd ../..'
 abbr .3 'cd ../../..'
 abbr .4 'cd ../../../..'
 abbr .5 'cd ../../../../..'
-
 abbr mkdir 'mkdir -p'
+abbr please 'sudo'
 
-# pnpm
-set -gx PNPM_HOME "/home/keiran/.local/share/pnpm"
+abbr g 'git'
+abbr ga 'git add'
+abbr gb 'git branch'
+abbr gc 'git commit'
+abbr gca 'git commit --amend'
+abbr gco 'git checkout'
+abbr gd 'git diff'
+abbr gl 'git pull'
+abbr gp 'git push'
+abbr gst 'git status'
+abbr grv 'git remote -v'
+abbr glg 'git log --oneline --graph --decorate --all'
+
+abbr df 'df -h'
+abbr du 'du -h --max-depth=1'
+abbr free 'free -h'
+
+function up
+    set -l count (math (count $argv) + 1)
+    set -l path .
+    for i in (seq $count)
+        set path "../$path"
+    end
+    cd $path
+end
+
+function extract
+    for f in $argv
+        if test -f $f
+            switch $f
+                case '*.tar.bz2'
+                    tar xjf $f
+                case '*.tar.gz'
+                    tar xzf $f
+                case '*.tar.xz'
+                    tar xJf $f
+                case '*.tar'
+                    tar xf $f
+                case '*.bz2'
+                    bunzip2 $f
+                case '*.rar'
+                    unrar x $f
+                case '*.gz'
+                    gunzip $f
+                case '*.zip'
+                    unzip $f
+                case '*.Z'
+                    uncompress $f
+                case '*.7z'
+                    7z x $f
+                case '*'
+                    echo "extract: '$f' cannot be extracted via extract()"
+            end
+        else
+            echo "extract: '$f' is not a valid file"
+        end
+    end
+end
+
+set -gx PNPM_HOME "$HOME/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
     set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
+
+if not contains -- "$HOME/.local/bin" $PATH
+    set -gx PATH "$HOME/.local/bin" $PATH
+end
+
+if not contains -- "$GOPATH/bin" $PATH
+    set -gx PATH "$GOPATH/bin" $PATH
+end
