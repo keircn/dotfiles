@@ -1,0 +1,21 @@
+[user]
+    name = Keiran
+    email = keircn@proton.me
+[init]
+    defaultBranch = main
+[core]
+    editor = helix
+    autocrlf = input
+[pull]
+    rebase = true
+[push]
+    autoSetupRemote = true
+[alias]
+    co = checkout
+    br = branch
+    ci = commit
+    st = status
+    unstage = reset HEAD --
+    last = log -1 HEAD
+    visual = log --oneline --decorate --all --graph
+    hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
