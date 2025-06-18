@@ -32,9 +32,9 @@ abbr .3 'cd ../../..'
 abbr .4 'cd ../../../..'
 abbr .5 'cd ../../../../..'
 abbr mkdir 'mkdir -p'
-abbr please 'sudo'
+abbr please sudo
 
-abbr g 'git'
+abbr g git
 abbr ga 'git add'
 abbr gb 'git branch'
 abbr gc 'git commit'
