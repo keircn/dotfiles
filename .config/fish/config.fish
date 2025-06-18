@@ -50,6 +50,7 @@ abbr glg 'git log --oneline --graph --decorate --all'
 abbr df 'df -h'
 abbr du 'du -h --max-depth=1'
 abbr free 'free -h'
+abbr paru -R 'paru -Rns'
 
 function up
     set -l count (math (count $argv) + 1)
