@@ -46,11 +46,11 @@ abbr gp 'git push'
 abbr gst 'git status'
 abbr grv 'git remote -v'
 abbr glg 'git log --oneline --graph --decorate --all'
+abbr gci 'git commit -a -m "Initial commit"'
 
 abbr df 'df -h'
 abbr du 'du -h --max-depth=1'
 abbr free 'free -h'
-abbr paru -R 'paru -Rns'
 
 function up
     set -l count (math (count $argv) + 1)
