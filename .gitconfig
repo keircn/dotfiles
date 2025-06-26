@@ -1,15 +1,31 @@
 [user]
     name = Keiran
     email = keircn@proton.me
+
 [init]
     defaultBranch = main
+
 [core]
     editor = helix
     autocrlf = input
+    pager = delta
+
 [pull]
     rebase = true
+
 [push]
     autoSetupRemote = true
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+    dark = true
+
+[merge]
+    conflictstyle = zdiff3
+
 [alias]
     co = checkout
     br = branch
