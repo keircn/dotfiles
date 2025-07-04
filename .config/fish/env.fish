@@ -1,18 +1,5 @@
 #!/usr/bin/env fish
-#!          ░▒▓         
-#!        ░▒▒░▓▓         
-#!      ░▒▒▒░░░▓▓           ___________
-#!    ░░▒▒▒░░░░░▓▓        //___________/
-#!   ░░▒▒▒░░░░░▓▓     _   _ _    _ _____
-#!   ░░▒▒░░░░░▓▓▓▓▓▓ | | | | |  | |  __/
-#!    ░▒▒░░░░▓▓   ▓▓ | |_| | |_/ /| |___
-#!     ░▒▒░░▓▓   ▓▓   \__  |____/ |____/  █▀▀ █ █▀ █░█
-#!       ░▒▓▓   ▓▓  //____/               █▀  █ ▄█ █▀█
 
-# HyDE's fish env configuration
-# This file is sourced by fish on startup
-
-# ensure that the XDG variables are set
 if test -z "$XDG_CONFIG_HOME"
     set -gx XDG_CONFIG_HOME "$HOME/.config"
 end
