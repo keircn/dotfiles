@@ -2,8 +2,8 @@
 
 set -g fish_greeting
 
-if test -f ~/.config/fish/hyde_config.fish
-    source ~/.config/fish/hyde_config.fish
+if test -f ~/.config/fish/env.fish
+    source ~/.config/fish/env.fish
 end
 
 if type -q starship
