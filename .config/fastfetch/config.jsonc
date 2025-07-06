@@ -19,7 +19,7 @@ fastfetch --config hyde/*.jsonc
       "type": "command",
       "key": "  ",
       "keyColor": "blue",
-      "text": "me=$(hostnameuser);echo $me"
+      "text": "very simple very nice"
     },
     {
       "type": "custom",
