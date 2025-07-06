@@ -47,6 +47,7 @@ abbr gst 'git status'
 abbr grv 'git remote -v'
 abbr glg 'git log --oneline --graph --decorate --all'
 abbr gci 'git commit -a -m "Initial commit"'
+alias lg lazygit
 
 abbr df 'df -h'
 abbr du 'du -h --max-depth=1'
