@@ -35,3 +35,5 @@
     last = log -1 HEAD
     visual = log --oneline --decorate --all --graph
     hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+[advice]
+	addEmptyPathspec = false
