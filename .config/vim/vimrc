@@ -1,12 +1,24 @@
-" Load the hyde config
-let s:VIM_DIR = fnamemodify($MYVIMRC, ':h')
-execute 'source ' . s:VIM_DIR . '/hyde.vim'
-
-" Adding your custom colorschem
-"colorscheme zaibatsu "the only nice built-in colorscheme 
-
-" remaps
-"inoremap <C-c> <Esc>
-"nnoremap <leader>ff :w<CR>
-"nnoremap ; :
-"vnoremap ; :
+syntax on
+set fileformat=unix
+set encoding=UTF-8
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set autoindent
+set smartindent
+set smarttab
+set expandtab
+set nowrap
+set number
+set relativenumber
+set showcmd
+set conceallevel=1
+set noerrorbells visualbell t_vb=
+set noswapfile
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch

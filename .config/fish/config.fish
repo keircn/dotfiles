@@ -15,7 +15,7 @@ end
 set fish_pager_color_prefix cyan
 set fish_color_autosuggestion brblack
 set GOPATH $HOME/Documents/go
-set EDITOR vim
+set EDITOR hx
 
 alias l='eza -lh --icons=auto'
 alias ls='eza --icons=auto'
@@ -24,15 +24,16 @@ alias ld='eza -lhD --icons=auto'
 alias lt='eza --tree --icons=auto'
 alias la='eza -la --icons=auto'
 alias lsd='eza -ld --icons=auto */'
+alias lg lazygit
+alias npm bun
+alias pnpm bun
+alias yarn bun
 
-abbr c code
 abbr .. 'cd ..'
 abbr ... 'cd ../..'
 abbr .3 'cd ../../..'
 abbr .4 'cd ../../../..'
 abbr .5 'cd ../../../../..'
-abbr mkdir 'mkdir -p'
-abbr please sudo
 
 abbr g git
 abbr ga 'git add'
@@ -47,11 +48,13 @@ abbr gst 'git status'
 abbr grv 'git remote -v'
 abbr glg 'git log --oneline --graph --decorate --all'
 abbr gci 'git commit -a -m "Initial commit"'
-alias lg lazygit
 
+abbr mkdir 'mkdir -p'
 abbr df 'df -h'
 abbr du 'du -h --max-depth=1'
 abbr free 'free -h'
+abbr please sudo
+abbr c code
 
 function up
     set -l count (math (count $argv) + 1)
@@ -107,4 +110,8 @@ end
 
 if not contains -- "$GOPATH/bin" $PATH
     set -gx PATH "$GOPATH/bin" $PATH
+end
+
+if status is-interactive
+    eval (zellij setup --generate-auto-start fish | string collect)
 end
