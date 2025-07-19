@@ -25,7 +25,6 @@ alias lt='eza --tree --icons=auto'
 alias la='eza -la --icons=auto'
 alias lsd='eza -ld --icons=auto */'
 alias lg lazygit
-alias npm bun
 alias pnpm bun
 alias yarn bun
 
@@ -112,6 +111,6 @@ if not contains -- "$GOPATH/bin" $PATH
     set -gx PATH "$GOPATH/bin" $PATH
 end
 
-if status is-interactive
-    eval (zellij setup --generate-auto-start fish | string collect)
-end
+# if status is-interactive
+#     eval (zellij setup --generate-auto-start fish | string collect)
+# end
