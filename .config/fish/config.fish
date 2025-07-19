@@ -111,6 +111,20 @@ if not contains -- "$GOPATH/bin" $PATH
     set -gx PATH "$GOPATH/bin" $PATH
 end
 
-# if status is-interactive
-#     eval (zellij setup --generate-auto-start fish | string collect)
-# end
+if status is-interactive
+    set ZELLIJ_AUTO_ATTACH true
+    set ZELLIJ_AUTO_EXIT true
+    eval (zellij setup --generate-auto-start fish | string collect)
+end
+
+if not set -q ZELLIJ
+    if test "$ZELLIJ_AUTO_ATTACH" = true
+        zellij --layout ~/.config/zellij/layout.kdl attach -c
+    else
+        zellij --layout ~/.config/zellij/layout.kdl
+    end
+
+    if test "$ZELLIJ_AUTO_EXIT" = true
+        kill $fish_pid
+    end
+end
