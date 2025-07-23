@@ -6,6 +6,10 @@ if test -f ~/.config/fish/env.fish
     source ~/.config/fish/env.fish
 end
 
+if test -f ~/.config/fish/code.fish
+    source ~/.config/fish/code.fish
+end
+
 if type -q starship
     starship init fish | source
     set -gx STARSHIP_CACHE $XDG_CACHE_HOME/starship
