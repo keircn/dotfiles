@@ -1,5 +1,5 @@
 set -gx XDG_CACHE_HOME "$HOME/code/.cache"
-set -gx XDG_CONFIG_HOME "$HOME/code/.config"
+set -gx XDG_CONFIG_HOME "$HOME/.config"
 set -gx XDG_DATA_HOME "$HOME/code/.local/share"
 set -gx XDG_STATE_HOME "$HOME/code/.local/state"
 set -gx GOCACHE "$XDG_CACHE_HOME/go-build"
