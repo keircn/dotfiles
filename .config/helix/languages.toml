@@ -10,10 +10,10 @@ auto-format = true
 
 [[language]]
 name = "tsx"
-language-servers = ["typescript-language-server", "tailwindcss-language-server"]
+language-servers = ["typescript-language-server"]
 auto-format = true
 
 [[language]]
 name = "jsx"
-language-servers = ["typescript-language-server", "tailwindcss-language-server"]
+language-servers = ["typescript-language-server"]
 auto-format = true
