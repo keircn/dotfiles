@@ -2,4 +2,17 @@
 
 <channel name="xfce4-desktop" version="1.0">
   <property name="last-settings-migration-version" type="uint" value="1"/>
+  <property name="backdrop" type="empty">
+    <property name="screen0" type="empty">
+      <property name="monitoreDP-1" type="empty">
+        <property name="workspace0" type="empty">
+          <property name="last-image" type="string" value="/home/keiran/Pictures/Wallpapers/Arch-Base.png"/>
+        </property>
+      </property>
+    </property>
+  </property>
+  <property name="last" type="empty">
+    <property name="window-width" type="int" value="597"/>
+    <property name="window-height" type="int" value="473"/>
+  </property>
 </channel>
