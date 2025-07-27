@@ -58,6 +58,7 @@ abbr du 'du -h --max-depth=1'
 abbr free 'free -h'
 abbr please sudo
 abbr c code
+abbr klte 'bun create next-app@latest --example https://github.com/keircn/klte'
 
 function up
     set -l count (math (count $argv) + 1)

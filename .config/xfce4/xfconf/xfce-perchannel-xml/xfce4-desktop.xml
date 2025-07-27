@@ -6,13 +6,20 @@
     <property name="screen0" type="empty">
       <property name="monitoreDP-1" type="empty">
         <property name="workspace0" type="empty">
-          <property name="last-image" type="string" value="/home/keiran/Pictures/Wallpapers/Arch-Base.png"/>
+          <property name="last-image" type="string" value="/home/keiran/Pictures/Wallpapers/Arch-Crust.png"/>
+        </property>
+      </property>
+      <property name="monitorHDMI-1" type="empty">
+        <property name="workspace0" type="empty">
+          <property name="color-style" type="int" value="3"/>
+          <property name="backdrop-cycle-enable" type="bool" value="false"/>
+          <property name="last-image" type="string" value="/usr/share/backgrounds/xfce/CleanBlue.jpg"/>
         </property>
       </property>
     </property>
   </property>
   <property name="last" type="empty">
-    <property name="window-width" type="int" value="597"/>
-    <property name="window-height" type="int" value="473"/>
+    <property name="window-width" type="int" value="604"/>
+    <property name="window-height" type="int" value="539"/>
   </property>
 </channel>

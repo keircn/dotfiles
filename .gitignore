@@ -5,7 +5,7 @@
 .config/pavucontrol.ini
 .config/dconf
 .config/open*
-.config/nextjs*
+.config/*next*
 .config/autostart
 .config/go
 .config/Thunar
