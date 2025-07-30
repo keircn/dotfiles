@@ -4,6 +4,8 @@
   <property name="log-max-size-enabled" type="bool" value="true"/>
   <property name="applications" type="empty">
     <property name="known_applications" type="array">
+      <value type="string" value="notify-send"/>
+      <value type="string" value="org.qbittorrent.qBittorrent"/>
       <value type="string" value="xfce4-power-manager"/>
       <value type="string" value="xfce4-settings-helper"/>
     </property>

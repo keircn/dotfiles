@@ -22,12 +22,46 @@ configs:
       width: 1366
       height: 768
   icons:
-    "/":
-      row: 1
+    "368bc018-6cad-43a0-9112-50a7d14deaac":
+      row: 5
       col: 0
+      last_seen: 1753885140569239
     "trash:///":
       row: 2
       col: 0
+    "41611ad0-4556-4f9b-8c30-b8e9d7a70fb0":
+      row: 5
+      col: 0
+      last_seen: 1753885219514150
+    "4FF3-5C1B":
+      row: 3
+      col: 0
+      last_seen: 1753763641686864
+    "/home/keiran/Desktop/Terraria.desktop":
+      row: 4
+      col: 0
+    "c9f5f00e-5798-4a81-951f-e5edfe2db34d":
+      row: 6
+      col: 0
+      last_seen: 1753885140574944
+    "fd7c3ba2-5969-4910-bb00-2d38706a9749":
+      row: 5
+      col: 0
+      last_seen: 1753885306653876
     "/home/keiran":
       row: 0
+      col: 0
+    "0cd3323a-ff98-4c54-96f1-cdc228ed8a82":
+      row: 6
+      col: 0
+      last_seen: 1753885219519827
+    "1a5d2e7e-6486-49d2-9a99-2b70d92ff497":
+      row: 6
+      col: 0
+      last_seen: 1753885306660094
+    "/":
+      row: 1
+      col: 0
+    "/home/keiran/Desktop/steam.desktop":
+      row: 3
       col: 0

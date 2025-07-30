@@ -10,3 +10,6 @@
 .config/go
 .config/Thunar
 .config/zellij/*bak*
+.config/qBittorrent
+.config/cmus
+.config/user-*

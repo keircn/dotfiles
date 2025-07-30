@@ -17,3 +17,19 @@ auto-format = true
 name = "jsx"
 language-servers = ["typescript-language-server"]
 auto-format = true
+
+[[language]]
+name = "python"
+language-servers = ["pyright"]
+auto-format = true
+formatter = { command = "black", args = ["-"] }
+
+[language-server.pyright.config]
+venvPath = "."
+venv = ".venv"
+
+[[language]]
+name = "rust"
+language-servers = ["rust-analyzer"]
+auto-format = true
+formatter = { command = "rustfmt", args = ["--emit=stdout"] }

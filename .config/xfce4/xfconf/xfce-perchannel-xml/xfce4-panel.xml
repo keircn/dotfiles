@@ -89,8 +89,18 @@
     <property name="plugin-6" type="string" value="systray">
       <property name="square-icons" type="bool" value="true"/>
       <property name="known-legacy-items" type="array">
+        <value type="string" value="caffeine-indicator"/>
         <value type="string" value="clipman"/>
         <value type="string" value="blueberry-tray.py"/>
+      </property>
+      <property name="known-items" type="array">
+        <value type="string" value="caffeine-cup-empty"/>
+        <value type="string" value="98mXKRKIey"/>
+        <value type="string" value="steam"/>
+        <value type="string" value="proton-vpn-app"/>
+        <value type="string" value="qBittorrent"/>
+        <value type="string" value="p4GSPlnE6s"/>
+        <value type="string" value="doo6m3-yWY"/>
       </property>
     </property>
     <property name="plugin-7" type="string" value="separator">
@@ -108,7 +118,7 @@
   <property name="configver" type="int" value="2"/>
   <property name="panels" type="array">
     <value type="int" value="1"/>
-    <property name="dark-mode" type="bool" value="false"/>
+    <property name="dark-mode" type="bool" value="true"/>
     <property name="panel-1" type="empty">
       <property name="position" type="string" value="p=6;x=0;y=0"/>
       <property name="length" type="uint" value="100"/>
