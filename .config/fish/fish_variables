@@ -1,8 +1,14 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export CODESTATS_API_KEY:SFMyNTY\x2eYTJWcGNtRnUjI01qVTVORFk9\x2e7m2NmaIm8m8h__K9_bgj_OrvbhO7F3N\x2ddLbidh5Hnd8
+SETUVAR --export CODESTATS_API_URL:https\x3a//codestats\x2enet/api
+SETUVAR __codestats_last_pulse:1754255211
+SETUVAR __codestats_pulse_lock:0
+SETUVAR __codestats_xp:55
 SETUVAR __fish_initialized:3800
 SETUVAR _fisher_jorgebucaran_2F_nvm_2E_fish_files:\x7e/\x2econfig/fish/functions/_nvm_index_update\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_list\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_version_activate\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_version_deactivate\x2efish\x1e\x7e/\x2econfig/fish/functions/nvm\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/nvm\x2efish\x1e\x7e/\x2econfig/fish/completions/nvm\x2efish
-SETUVAR _fisher_plugins:jorgebucaran/nvm\x2efish
+SETUVAR _fisher_nyaa8_2F_codestats_2D_fish_files:\x7e/\x2econfig/fish/conf\x2ed/__codestats\x2efish
+SETUVAR _fisher_plugins:jorgebucaran/nvm\x2efish\x1enyaa8/codestats\x2dfish
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:normal

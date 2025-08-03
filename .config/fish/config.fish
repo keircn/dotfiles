@@ -1,5 +1,3 @@
-# ~/.config/fish/config.fish
-
 set -g fish_greeting
 
 if test -f ~/.config/fish/env.fish
@@ -20,6 +18,7 @@ set fish_pager_color_prefix cyan
 set fish_color_autosuggestion brblack
 set GOPATH $HOME/Documents/go
 set EDITOR hx
+set CODESTATS_API_KEY "SFMyNTY.YTJWcGNtRnUjI01qVTVORFk9.7m2NmaIm8m8h__K9_bgj_OrvbhO7F3N-dLbidh5Hnd8"
 
 alias l='eza -lh --icons=auto'
 alias ls='eza --icons=auto'
