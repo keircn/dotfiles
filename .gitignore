@@ -1,15 +1,1 @@
-.config/nushell/history.txt
-.config/vim/.netrwhist
-.config/pulse
-.config/gtk*
-.config/pavucontrol.ini
-.config/dconf
-.config/open*
-.config/*next*
-.config/autostart
-.config/go
-.config/Thunar
-.config/zellij/*bak*
-.config/qBittorrent
-.config/cmus
-.config/user-*
+.config/fish/fish_variables
