@@ -1,21 +1,26 @@
+[language-server.ts]
+command = "typescript-language-server"
+args = ["--stdio"]
+language-id = "javascript"
+
 [[language]]
 name = "typescript"
-language-servers = ["typescript-language-server"]
 auto-format = true
+language-servers = ["ts"]
 
 [[language]]
 name = "javascript"
-language-servers = ["typescript-language-server"]
+language-servers = ["ts"]
 auto-format = true
 
 [[language]]
 name = "tsx"
-language-servers = ["typescript-language-server"]
+language-servers = ["ts"]
 auto-format = true
 
 [[language]]
 name = "jsx"
-language-servers = ["typescript-language-server"]
+language-servers = ["ts"]
 auto-format = true
 
 [[language]]
@@ -27,9 +32,3 @@ formatter = { command = "black", args = ["-"] }
 [language-server.pyright.config]
 venvPath = "."
 venv = ".venv"
-
-[[language]]
-name = "rust"
-language-servers = ["rust-analyzer"]
-auto-format = true
-formatter = { command = "rustfmt", args = ["--emit=stdout"] }
