@@ -17,7 +17,7 @@ end
 set fish_pager_color_prefix cyan
 set fish_color_autosuggestion brblack
 set GOPATH $HOME/Documents/go
-set EDITOR hx
+set EDITOR nvim
 set CODESTATS_API_KEY "SFMyNTY.YTJWcGNtRnUjI01qVTVORFk9.7m2NmaIm8m8h__K9_bgj_OrvbhO7F3N-dLbidh5Hnd8"
 
 alias l='eza -lh --icons=auto'
@@ -30,6 +30,9 @@ alias lsd='eza -ld --icons=auto */'
 alias lg lazygit
 alias pnpm bun
 alias yarn bun
+alias vim nvim
+alias vi nvim
+alias n nvim
 
 abbr .. 'cd ..'
 abbr ... 'cd ../..'
