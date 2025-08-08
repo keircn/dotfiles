@@ -27,6 +27,7 @@ alias ld='eza -lhD --icons=auto'
 alias lt='eza --tree --icons=auto'
 alias la='eza -la --icons=auto'
 alias lsd='eza -ld --icons=auto */'
+alias nd="nix develop --command fish"
 alias lg lazygit
 alias pnpm bun
 alias yarn bun
