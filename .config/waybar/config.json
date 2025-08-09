@@ -1,18 +1,23 @@
 {
   "layer": "top",
   "position": "top",
-  "mod": "dock",
   "spacing": 4,
-  "modules-left": ["hyprland/workspaces"],
+
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+
   "modules-right": [
     "cpu",
     "memory",
+    "temperature",
+    "disk",
     "network",
     "pulseaudio",
     "battery",
+    "uptime",
     "clock",
     "custom/powermenu"
   ],
+
   "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
@@ -21,30 +26,50 @@
       "urgent": ""
     }
   },
+
   "hyprland/window": {
     "format": "{title}",
     "max-length": 50
   },
+
   "cpu": {
     "interval": 5,
-    "format": "  {}%",
+    "format": "  {usage}%",
     "tooltip": true,
     "on-click": "kitty htop"
   },
+
   "memory": {
     "interval": 5,
-    "format": "󰍛  {}%",
+    "format": "󰍛  {used:.1f}G/{total:.1f}G",
     "tooltip": true,
     "on-click": "kitty htop"
   },
+
+  "temperature": {
+    "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
+    "critical-threshold": 80,
+    "format": "󰔏 {temperatureC}°C",
+    "tooltip": true
+  },
+
+  "disk": {
+    "interval": 60,
+    "format": "󰋊 {used}/{total}",
+    "path": "/home",
+    "tooltip": true,
+    "on-click": "kitty ncdu /home"
+  },
+
   "network": {
-    "format-wifi": "󰤨  Wi-Fi",
+    "format-wifi": "󰤨  {signalStrength}%",
     "format-ethernet": "󰈀  {ifname}",
     "format-disconnected": "󰤮  Disconnected",
-    "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+    "tooltip-format-wifi": "Signal: {signalStrength}%",
     "tooltip-format-ethernet": "{ifname} connected",
     "on-click-right": "nm-connection-editor"
   },
+
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-muted": "󰝟 Muted",
@@ -53,9 +78,10 @@
     },
     "on-click": "pavucontrol"
   },
+
   "battery": {
     "bat": "BAT0",
-    "format": " {icon} {capacity}%",
+    "format": "{icon} {capacity}%",
     "format-charging": "󰂄 {capacity}%",
     "format-plugged": "󰚥 {capacity}%",
     "format-full": "󰁹 {capacity}%",
@@ -63,9 +89,18 @@
     "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
     "tooltip": true
   },
-  "clock": {
-    "format": "󰃰 {:%H:%M}"
+
+  "uptime": {
+    "interval": 60,
+    "format": "󰅐 {days}d {hours}h",
+    "tooltip": true
   },
+
+  "clock": {
+    "format": "󰃰 {:%H:%M}",
+    "tooltip-format": "{:%A, %d %B %Y}"
+  },
+
   "custom/powermenu": {
     "format": "󰐥",
     "tooltip": "Power Menu",

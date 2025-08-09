@@ -39,21 +39,10 @@
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-#waybar .modules-left > widget > * {
-  margin-left: 10px;
-}
-#waybar .modules-left {
-  padding-left: 10px;
-}
-#waybar .modules-right > widget > * {
-  margin-right: 10px;
-}
-#waybar .modules-right {
-  padding-right: 10px;
-}
-#waybar .modules-center > widget > * {
-  margin-left: 10px;
-  margin-right: 10px;
+#waybar .modules-left,
+#waybar .modules-right,
+#waybar .modules-center {
+  padding: 0 10px;
 }
 
 #clock,
@@ -61,16 +50,16 @@
 #pulseaudio,
 #network,
 #custom-powermenu,
-#hyprland-language,
-#keyboard-state,
 #memory,
-#cpu {
+#cpu,
+#temperature,
+#disk,
+#uptime {
   background-color: @mantle;
   padding: 0px 10px;
   margin: 5px 0px;
   border-radius: 8px;
   color: @text;
-  font-weight: normal;
   transition: all 0.3s ease-in-out;
 }
 
@@ -78,7 +67,12 @@
 #battery:hover,
 #pulseaudio:hover,
 #network:hover,
-#custom-powermenu:hover {
+#custom-powermenu:hover,
+#memory:hover,
+#cpu:hover,
+#temperature:hover,
+#disk:hover,
+#uptime:hover {
   background-color: @surface0;
   color: @lavender;
 }
@@ -86,7 +80,6 @@
 #workspaces {
   background-color: @base;
   padding: 0 5px;
-  margin: 0px 0px;
 }
 
 #workspaces button {
@@ -96,9 +89,9 @@
   color: @subtext0;
   border-radius: 8px;
   transition:
-    background-color 0.25s ease-in-out,
-    color 0.25s ease-in-out,
-    border-color 0.25s ease-in-out;
+    background-color 0.25s,
+    color 0.25s,
+    border-color 0.25s;
 }
 
 #workspaces button:hover {
@@ -110,11 +103,6 @@
   background-color: @surface1;
   color: @lavender;
   border: 2px solid @blue;
-  border-radius: 8px;
-  transition:
-    background-color 0.25s ease-in-out,
-    color 0.25s ease-in-out,
-    border-color 0.25s ease-in-out;
 }
 
 #workspaces button.active:hover {
@@ -126,33 +114,6 @@
   background-color: @red;
   color: @text;
   box-shadow: 0px 0px 8px @red;
-}
-
-#workspaces button.urgent:hover {
-  background-color: @red;
-  color: @text;
-  box-shadow: 0px 0px 10px @red;
-}
-
-#workspaces button:not(.active):not(.urgent) {
-  color: @subtext0;
-}
-
-#workspaces button.active {
-  color: @lavender;
-}
-
-#workspaces button.urgent {
-  color: @peach;
-}
-
-#hyprland-window {
-  background-color: @mantle;
-  padding: 0px 15px;
-  margin: 5px 0px;
-  border-radius: 8px;
-  color: @text;
-  font-weight: normal;
 }
 
 #battery.charging,
@@ -167,11 +128,7 @@
 
 #battery.critical:not(.charging) {
   color: @red;
-  animation-name: blink;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  animation: blink 1s linear infinite alternate;
 }
 
 @keyframes blink {
