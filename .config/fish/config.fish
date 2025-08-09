@@ -4,10 +4,6 @@ if test -f ~/.config/fish/env.fish
     source ~/.config/fish/env.fish
 end
 
-if test -f ~/.config/fish/code.fish
-    source ~/.config/fish/code.fish
-end
-
 if type -q starship
     starship init fish | source
     set -gx STARSHIP_CACHE $XDG_CACHE_HOME/starship
@@ -18,7 +14,6 @@ set fish_pager_color_prefix cyan
 set fish_color_autosuggestion brblack
 set GOPATH $HOME/Documents/go
 set EDITOR nvim
-set CODESTATS_API_KEY "SFMyNTY.YTJWcGNtRnUjI01qVTVORFk9.7m2NmaIm8m8h__K9_bgj_OrvbhO7F3N-dLbidh5Hnd8"
 
 alias l='eza -lh --icons=auto'
 alias ls='eza --icons=auto'
@@ -117,21 +112,4 @@ end
 
 if not contains -- "$GOPATH/bin" $PATH
     set -gx PATH "$GOPATH/bin" $PATH
-end
-
-if status is-interactive
-    set ZELLIJ_AUTO_ATTACH true
-    set ZELLIJ_AUTO_EXIT true
-end
-
-if not set -q ZELLIJ
-    if test "$ZELLIJ_AUTO_ATTACH" = true
-        zellij --layout ~/.config/zellij/layout.kdl attach -c
-    else
-        zellij --layout ~/.config/zellij/layout.kdl
-    end
-
-    if test "$ZELLIJ_AUTO_EXIT" = true
-        kill $fish_pid
-    end
 end
