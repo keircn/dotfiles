@@ -2,11 +2,8 @@
   "layer": "top",
   "position": "top",
   "mod": "dock",
-  "height": 30,
   "spacing": 4,
-  "modules-left": [
-    "hyprland/workspaces"
-  ],
+  "modules-left": ["hyprland/workspaces"],
   "modules-right": [
     "cpu",
     "memory",
@@ -19,9 +16,9 @@
   "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
-      "active": "",
-      "default": "󰊠",
-      "urgent": "  alert"
+      "active": "",
+      "default": "",
+      "urgent": ""
     }
   },
   "hyprland/window": {
@@ -30,20 +27,20 @@
   },
   "cpu": {
     "interval": 5,
-    "format": " {}%",
+    "format": "  {}%",
     "tooltip": true,
     "on-click": "kitty htop"
   },
   "memory": {
     "interval": 5,
-    "format": "󰍛 {}%",
+    "format": "󰍛  {}%",
     "tooltip": true,
     "on-click": "kitty htop"
   },
   "network": {
-    "format-wifi": "󰤨 Wi-Fi",
-    "format-ethernet": "󰈀 {ifname}",
-    "format-disconnected": "󰤮 Disconnected",
+    "format-wifi": "󰤨  Wi-Fi",
+    "format-ethernet": "󰈀  {ifname}",
+    "format-disconnected": "󰤮  Disconnected",
     "tooltip-format-wifi": "{essid} ({signalStrength}%)",
     "tooltip-format-ethernet": "{ifname} connected",
     "on-click-right": "nm-connection-editor"
@@ -52,11 +49,7 @@
     "format": "{icon} {volume}%",
     "format-muted": "󰝟 Muted",
     "format-icons": {
-      "default": [
-        "󰕿",
-        "󰖀",
-        "󰕾"
-      ]
+      "default": ["󰕿", "󰖀", "󰕾"]
     },
     "on-click": "pavucontrol"
   },
@@ -64,21 +57,10 @@
     "bat": "BAT0",
     "format": " {icon} {capacity}%",
     "format-charging": "󰂄 {capacity}%",
-    "format-plugged": "   ភ្ល {capacity}%",
+    "format-plugged": "󰚥 {capacity}%",
     "format-full": "󰁹 {capacity}%",
     "format-alt": "{time} {icon}",
-    "format-icons": [
-      "󰁺",
-      "󰁻",
-      "󰁼",
-      "󰁽",
-      "󰁾",
-      "󰁿",
-      "󰂀",
-      "󰂁",
-      "󰂂",
-      "  ładowany"
-    ],
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
     "tooltip": true
   },
   "clock": {

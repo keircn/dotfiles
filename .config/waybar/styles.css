@@ -42,8 +42,14 @@
 #waybar .modules-left > widget > * {
   margin-left: 10px;
 }
+#waybar .modules-left {
+  padding-left: 10px;
+}
 #waybar .modules-right > widget > * {
   margin-right: 10px;
+}
+#waybar .modules-right {
+  padding-right: 10px;
 }
 #waybar .modules-center > widget > * {
   margin-left: 10px;
@@ -89,7 +95,10 @@
   background-color: @surface1;
   color: @subtext0;
   border-radius: 8px;
-  transition: all 0.3s ease-in-out;
+  transition:
+    background-color 0.25s ease-in-out,
+    color 0.25s ease-in-out,
+    border-color 0.25s ease-in-out;
 }
 
 #workspaces button:hover {
@@ -98,15 +107,43 @@
 }
 
 #workspaces button.active {
-  background-color: @blue;
-  color: @crust;
-  box-shadow: 0px 0px 4px @blue;
+  background-color: @surface1;
+  color: @lavender;
+  border: 2px solid @blue;
+  border-radius: 8px;
+  transition:
+    background-color 0.25s ease-in-out,
+    color 0.25s ease-in-out,
+    border-color 0.25s ease-in-out;
+}
+
+#workspaces button.active:hover {
+  background-color: @surface2;
+  border-color: @sapphire;
 }
 
 #workspaces button.urgent {
   background-color: @red;
-  color: @crust;
+  color: @text;
   box-shadow: 0px 0px 8px @red;
+}
+
+#workspaces button.urgent:hover {
+  background-color: @red;
+  color: @text;
+  box-shadow: 0px 0px 10px @red;
+}
+
+#workspaces button:not(.active):not(.urgent) {
+  color: @subtext0;
+}
+
+#workspaces button.active {
+  color: @lavender;
+}
+
+#workspaces button.urgent {
+  color: @peach;
 }
 
 #hyprland-window {
