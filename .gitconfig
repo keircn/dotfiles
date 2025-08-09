@@ -19,9 +19,15 @@
 [interactive]
     diffFilter = delta --color-only
 
+[include]
+	path = /home/keiran/.config/delta/themes/catppuccin.gitconfig
+
+[delta]
+
 [delta]
     navigate = true
     dark = true
+	  features = catppuccin-mocha
 
 [merge]
     conflictstyle = zdiff3
