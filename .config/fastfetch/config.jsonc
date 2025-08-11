@@ -24,12 +24,6 @@
       "keyColor": "green"
     },
     {
-      "type": "gpu",
-      "key": "│ ├",
-      "detectionMethod": "pci",
-      "keyColor": "green"
-    },
-    {
       "type": "display",
       "key": "│ ├󱄄",
       "keyColor": "green"
@@ -77,42 +71,6 @@
       "type": "shell",
       "key": "└ └",
       "keyColor": "yellow"
-    },
-    "break",
-    {
-      "type": "de",
-      "key": " DE",
-      "keyColor": "blue"
-    },
-    {
-      "type": "wm",
-      "key": "│ ├",
-      "keyColor": "blue"
-    },
-    {
-      "type": "wmtheme",
-      "key": "│ ├󰉼",
-      "keyColor": "blue"
-    },
-    {
-      "type": "icons",
-      "key": "│ ├󰀻",
-      "keyColor": "blue"
-    },
-    {
-      "type": "cursor",
-      "key": "│ ├",
-      "keyColor": "blue"
-    },
-    {
-      "type": "terminalfont",
-      "key": "│ ├",
-      "keyColor": "blue"
-    },
-    {
-      "type": "terminal",
-      "key": "└ └",
-      "keyColor": "blue"
     },
     {
       "type": "custom",
