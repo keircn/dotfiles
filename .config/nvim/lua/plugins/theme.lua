@@ -1,1 +1,0 @@
-/home/keiran/.config/omarchy/current/theme/neovim.lua
