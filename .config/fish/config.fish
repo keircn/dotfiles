@@ -100,6 +100,18 @@ function extract
     end
 end
 
+function fullcharge
+    sudo tlp setcharge 100 100 BAT0
+    sudo tlp setcharge 100 100 BAT1
+    echo "Both batteries set to charge to 100%."
+end
+
+function normalcharge
+    sudo tlp setcharge 45 55 BAT0
+    sudo tlp setcharge 75 80 BAT1
+    echo "Battery thresholds restored to normal."
+end
+
 set -gx PNPM_HOME "$HOME/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
     set -gx PATH "$PNPM_HOME" $PATH
