@@ -102,11 +102,10 @@
 #workspaces button.active {
   background-color: @surface1;
   color: @lavender;
-  border: 2px solid @blue;
+  border: 2px solid @lavender;
 }
 
 #workspaces button.active:hover {
-  background-color: @surface2;
   border-color: @sapphire;
 }
 
