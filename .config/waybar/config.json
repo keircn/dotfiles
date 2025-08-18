@@ -3,20 +3,22 @@
   "position": "top",
   "spacing": 4,
 
-  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-left": ["hyprland/workspaces"],
 
   "modules-right": [
     "cpu",
     "memory",
     "temperature",
-    "disk",
-    "network",
-    "pulseaudio",
     "battery",
-    "uptime",
-    "clock",
     "custom/powermenu"
   ],
+
+  "modules-center": ["clock"],
+
+  "clock": {
+    "format": "󰃰 {:%H:%M}",
+    "tooltip-format": "{:%A, %d %B %Y}"
+  },
 
   "hyprland/workspaces": {
     "format": "{icon}",
@@ -41,7 +43,7 @@
 
   "memory": {
     "interval": 5,
-    "format": "󰍛  {used:.1f}G/{total:.1f}G",
+    "format": "  {used:.1f}G",
     "tooltip": true,
     "on-click": "kitty htop"
   },
@@ -62,7 +64,7 @@
   },
 
   "network": {
-    "format-wifi": "󰤨  {signalStrength}%",
+    "format-wifi": "󰤨 ",
     "format-ethernet": "󰈀  {ifname}",
     "format-disconnected": "󰤮  Disconnected",
     "tooltip-format-wifi": "Signal: {signalStrength}%",
@@ -81,12 +83,13 @@
 
   "battery": {
     "bat": "BAT0",
-    "format": "{icon} {capacity}%",
-    "format-charging": "󰂄 {capacity}%",
-    "format-plugged": "󰚥 {capacity}%",
-    "format-full": "󰁹 {capacity}%",
+    "format": "{icon}",
+    "format-charging": "󰂄",
+    "format-plugged": "󰚥",
+    "format-full": "󰁹",
     "format-alt": "{time} {icon}",
     "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "tooltip-format": "{capacity}%",
     "tooltip": true
   },
 
@@ -94,11 +97,6 @@
     "interval": 60,
     "format": "󰅐 {days}d {hours}h",
     "tooltip": true
-  },
-
-  "clock": {
-    "format": "󰃰 {:%H:%M}",
-    "tooltip-format": "{:%A, %d %B %Y}"
   },
 
   "custom/powermenu": {
