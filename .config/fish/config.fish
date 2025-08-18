@@ -42,3 +42,16 @@ abbr df 'df -h'
 abbr du 'du -h --max-depth=1'
 abbr free 'free -h'
 abbr please sudo
+
+if set -q HYPRLAND_INSTANCE_SIGNATURE
+  if status is-interactive
+    if not set -q ZELLIJ
+      set -x ZELLIJ 1
+      exec zellij
+    end
+  end
+end
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
