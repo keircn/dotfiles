@@ -302,12 +302,12 @@ default_mode "normal"
 // The name of the default layout to load on startup
 // Default: "default"
 // 
-// default_layout "compact"
+default_layout "layout"
  
 // The folder in which Zellij will look for layouts
 // (Requires restart)
 // 
-// layout_dir "/tmp"
+// layout_dir "$XDG_CONFIG_HOME/zellij"
  
 // The folder in which Zellij will look for themes
 // (Requires restart)
