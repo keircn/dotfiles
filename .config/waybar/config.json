@@ -38,14 +38,14 @@
     "interval": 5,
     "format": "  {usage}%",
     "tooltip": true,
-    "on-click": "kitty htop"
+    "on-click": "ghostty -e htop"
   },
 
   "memory": {
     "interval": 5,
     "format": "  {used:.1f}G",
     "tooltip": true,
-    "on-click": "kitty htop"
+    "on-click": "ghostty -e htop"
   },
 
   "temperature": {
@@ -60,7 +60,7 @@
     "format": "󰋊 {used}/{total}",
     "path": "/home",
     "tooltip": true,
-    "on-click": "kitty ncdu /home"
+    "on-click": "ghostty -e ncdu /home"
   },
 
   "network": {
