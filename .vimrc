@@ -31,6 +31,7 @@ endif
 hi clear
 syntax reset
 let g:colors_name = "catppuccin-mocha"
+let g:vimwiki_list = [{'path': '~/wiki/', 'syntax': 'markdown'}]
 
 hi Normal       guifg=#cdd6f4 guibg=#1e1e2e
 hi CursorLine   guibg=#313244
