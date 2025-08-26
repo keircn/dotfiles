@@ -44,12 +44,12 @@ abbr free 'free -h'
 abbr please sudo
 
 if set -q HYPRLAND_INSTANCE_SIGNATURE
-  if status is-interactive
-    if not set -q ZELLIJ
-      set -x ZELLIJ 1
-      exec zellij
+    if status is-interactive
+        if not set -q ZELLIJ
+            set -x ZELLIJ 1
+            exec zellij
+        end
     end
-  end
 end
 
 # bun
