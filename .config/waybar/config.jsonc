@@ -2,9 +2,9 @@
   "layer": "top",
   "position": "top",
   "spacing": 4,
-
-  "modules-left": ["hyprland/workspaces"],
-
+  "modules-left": [
+    "niri/window"
+  ],
   "modules-right": [
     "cpu",
     "memory",
@@ -12,14 +12,13 @@
     "battery",
     "custom/powermenu"
   ],
-
-  "modules-center": ["clock"],
-
+  "modules-center": [
+    "clock"
+  ],
   "clock": {
     "format": "󰃰 {:%H:%M}",
     "tooltip-format": "{:%A, %d %B %Y}"
   },
-
   "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
@@ -28,33 +27,28 @@
       "urgent": ""
     }
   },
-
   "hyprland/window": {
     "format": "{title}",
     "max-length": 50
   },
-
   "cpu": {
     "interval": 5,
     "format": "  {usage}%",
     "tooltip": true,
     "on-click": "ghostty -e htop"
   },
-
   "memory": {
     "interval": 5,
     "format": "  {used:.1f}G",
     "tooltip": true,
     "on-click": "ghostty -e htop"
   },
-
   "temperature": {
     "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
     "critical-threshold": 80,
     "format": "󰔏 {temperatureC}°C",
     "tooltip": true
   },
-
   "disk": {
     "interval": 60,
     "format": "󰋊 {used}/{total}",
@@ -62,7 +56,6 @@
     "tooltip": true,
     "on-click": "ghostty -e ncdu /home"
   },
-
   "network": {
     "format-wifi": "󰤨 ",
     "format-ethernet": "󰈀  {ifname}",
@@ -71,16 +64,18 @@
     "tooltip-format-ethernet": "{ifname} connected",
     "on-click-right": "nm-connection-editor"
   },
-
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-muted": "󰝟 Muted",
     "format-icons": {
-      "default": ["󰕿", "󰖀", "󰕾"]
+      "default": [
+        "󰕿",
+        "󰖀",
+        "󰕾"
+      ]
     },
     "on-click": "pavucontrol"
   },
-
   "battery": {
     "bat": "BAT1",
     "format": "{icon}",
@@ -88,17 +83,26 @@
     "format-plugged": "󰚥",
     "format-full": "󰁹",
     "format-alt": "{time} {icon}",
-    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "format-icons": [
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ],
     "tooltip-format": "{capacity}%",
     "tooltip": true
   },
-
   "uptime": {
     "interval": 60,
     "format": "󰅐 {days}d {hours}h",
     "tooltip": true
   },
-
   "custom/powermenu": {
     "format": "󰐥",
     "tooltip": "Power Menu",
