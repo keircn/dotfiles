@@ -1,3 +1,4 @@
 window-padding-x = 10
 theme = catppuccin-mocha
-font-family = FiraCode
+font-family = GeistMonoNerdFontMono
+font-size = 10
