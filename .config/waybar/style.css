@@ -1,7 +1,7 @@
 * {
   border: none;
   border-radius: 0px;
-  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-family: "GeistMono Nerd Font", monospace;
   font-size: 14px;
   min-height: 0;
 }
@@ -138,6 +138,5 @@
 }
 
 #pulseaudio.muted {
-  color: @surface0;
-  background-color: @surface1;
+  color: @surface1;
 }

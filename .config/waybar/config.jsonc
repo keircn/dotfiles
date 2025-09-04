@@ -2,59 +2,56 @@
   "layer": "top",
   "position": "top",
   "spacing": 4,
-  "modules-left": [
-    "niri/window"
-  ],
+  "modules-left": ["niri/window"],
   "modules-right": [
     "cpu",
     "memory",
     "temperature",
+    "pulseaudio",
     "battery",
-    "custom/powermenu"
+    "custom/powermenu",
   ],
-  "modules-center": [
-    "clock"
-  ],
+  "modules-center": ["clock"],
   "clock": {
     "format": "󰃰 {:%H:%M}",
-    "tooltip-format": "{:%A, %d %B %Y}"
+    "tooltip-format": "{:%A, %d %B %Y}",
   },
   "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
       "active": "",
       "default": "",
-      "urgent": ""
-    }
+      "urgent": "",
+    },
   },
   "hyprland/window": {
     "format": "{title}",
-    "max-length": 50
+    "max-length": 50,
   },
   "cpu": {
     "interval": 5,
     "format": "  {usage}%",
     "tooltip": true,
-    "on-click": "ghostty -e htop"
+    "on-click": "ghostty -e htop",
   },
   "memory": {
     "interval": 5,
     "format": "  {used:.1f}G",
     "tooltip": true,
-    "on-click": "ghostty -e htop"
+    "on-click": "ghostty -e htop",
   },
   "temperature": {
     "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
     "critical-threshold": 80,
     "format": "󰔏 {temperatureC}°C",
-    "tooltip": true
+    "tooltip": true,
   },
   "disk": {
     "interval": 60,
     "format": "󰋊 {used}/{total}",
     "path": "/home",
     "tooltip": true,
-    "on-click": "ghostty -e ncdu /home"
+    "on-click": "ghostty -e ncdu /home",
   },
   "network": {
     "format-wifi": "󰤨 ",
@@ -62,19 +59,15 @@
     "format-disconnected": "󰤮  Disconnected",
     "tooltip-format-wifi": "Signal: {signalStrength}%",
     "tooltip-format-ethernet": "{ifname} connected",
-    "on-click-right": "nm-connection-editor"
+    "on-click-right": "nm-connection-editor",
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
-    "format-muted": "󰝟 Muted",
+    "format-muted": "󰝟 muted",
     "format-icons": {
-      "default": [
-        "󰕿",
-        "󰖀",
-        "󰕾"
-      ]
+      "default": ["󰕿", "󰖀", "󰕾"],
     },
-    "on-click": "pavucontrol"
+    "on-click": "pavucontrol",
   },
   "battery": {
     "bat": "BAT1",
@@ -83,29 +76,18 @@
     "format-plugged": "󰚥",
     "format-full": "󰁹",
     "format-alt": "{time} {icon}",
-    "format-icons": [
-      "󰁺",
-      "󰁻",
-      "󰁼",
-      "󰁽",
-      "󰁾",
-      "󰁿",
-      "󰂀",
-      "󰂁",
-      "󰂂",
-      "󰁹"
-    ],
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
     "tooltip-format": "{capacity}%",
-    "tooltip": true
+    "tooltip": true,
   },
   "uptime": {
     "interval": 60,
     "format": "󰅐 {days}d {hours}h",
-    "tooltip": true
+    "tooltip": true,
   },
   "custom/powermenu": {
     "format": "󰐥",
     "tooltip": "Power Menu",
-    "on-click": "wlogout"
-  }
+    "on-click": "wlogout",
+  },
 }
