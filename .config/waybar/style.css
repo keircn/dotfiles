@@ -54,7 +54,8 @@
 #cpu,
 #temperature,
 #disk,
-#uptime {
+#uptime,
+#window {
   background-color: @mantle;
   padding: 0px 10px;
   margin: 5px 0px;
@@ -72,7 +73,8 @@
 #cpu:hover,
 #temperature:hover,
 #disk:hover,
-#uptime:hover {
+#uptime:hover,
+#window:hover {
   background-color: @surface0;
   color: @lavender;
 }
@@ -139,4 +141,24 @@
 
 #pulseaudio.muted {
   color: @surface1;
+}
+
+#window {
+  font-weight: bold;
+  color: @blue;
+  padding-left: 12px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#window:hover {
+  color: @sapphire;
+  border-left-color: @sapphire;
+  background: linear-gradient(45deg, @surface1, @surface2);
+}
+
+#window.empty {
+  color: @overlay0;
+  background-color: @surface0;
+  border-left-color: @overlay0;
 }

@@ -9,6 +9,7 @@
     "temperature",
     "pulseaudio",
     "battery",
+    "network",
     "custom/powermenu",
   ],
   "modules-center": ["clock"],
@@ -16,17 +17,11 @@
     "format": "󰃰 {:%H:%M}",
     "tooltip-format": "{:%A, %d %B %Y}",
   },
-  "hyprland/workspaces": {
-    "format": "{icon}",
-    "format-icons": {
-      "active": "",
-      "default": "",
-      "urgent": "",
-    },
-  },
-  "hyprland/window": {
+  "niri/window": {
     "format": "{title}",
-    "max-length": 50,
+    "max-length": 33,
+    "tooltip": true,
+    "separate-outputs": true,
   },
   "cpu": {
     "interval": 5,
@@ -48,7 +43,7 @@
   },
   "disk": {
     "interval": 60,
-    "format": "󰋊 {used}/{total}",
+    "format": "󰋊 {used}G/{total}G",
     "path": "/home",
     "tooltip": true,
     "on-click": "ghostty -e ncdu /home",
@@ -78,11 +73,6 @@
     "format-alt": "{time} {icon}",
     "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
     "tooltip-format": "{capacity}%",
-    "tooltip": true,
-  },
-  "uptime": {
-    "interval": 60,
-    "format": "󰅐 {days}d {hours}h",
     "tooltip": true,
   },
   "custom/powermenu": {
