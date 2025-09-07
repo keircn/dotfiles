@@ -55,7 +55,8 @@
 #temperature,
 #disk,
 #uptime,
-#window {
+#window,
+#tray {
   background-color: @mantle;
   padding: 0px 10px;
   margin: 5px 0px;
@@ -74,7 +75,8 @@
 #temperature:hover,
 #disk:hover,
 #uptime:hover,
-#window:hover {
+#window:hover,
+#tray:hover {
   background-color: @surface0;
   color: @lavender;
 }

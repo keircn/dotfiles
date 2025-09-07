@@ -10,6 +10,7 @@
     "pulseaudio",
     "battery",
     "network",
+    "tray",
     "custom/powermenu",
   ],
   "modules-center": ["clock"],
@@ -79,5 +80,12 @@
     "format": "󰐥",
     "tooltip": "Power Menu",
     "on-click": "wlogout",
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8,
+    "tooltip": true,
+    "show-passive-items": true,
+    "reverse-direction": false,
   },
 }
