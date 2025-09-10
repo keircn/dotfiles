@@ -2,18 +2,21 @@
   "layer": "top",
   "position": "top",
   "spacing": 4,
-  "modules-left": ["niri/window"],
+  "modules-left": [
+    "niri/window"
+  ],
   "modules-right": [
     "cpu",
     "memory",
     "temperature",
     "pulseaudio",
     "battery",
-    "network",
     "tray",
     "custom/powermenu",
   ],
-  "modules-center": ["clock"],
+  "modules-center": [
+    "clock"
+  ],
   "clock": {
     "format": "󰃰 {:%H:%M}",
     "tooltip-format": "{:%A, %d %B %Y}",
@@ -61,7 +64,11 @@
     "format": "{icon} {volume}%",
     "format-muted": "󰝟 muted",
     "format-icons": {
-      "default": ["󰕿", "󰖀", "󰕾"],
+      "default": [
+        "󰕿",
+        "󰖀",
+        "󰕾"
+      ],
     },
     "on-click": "pavucontrol",
   },
@@ -72,7 +79,18 @@
     "format-plugged": "󰚥",
     "format-full": "󰁹",
     "format-alt": "{time} {icon}",
-    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "format-icons": [
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ],
     "tooltip-format": "{capacity}%",
     "tooltip": true,
   },
