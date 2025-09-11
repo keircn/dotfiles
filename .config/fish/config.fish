@@ -43,7 +43,7 @@ abbr du 'du -h --max-depth=1'
 abbr free 'free -h'
 abbr please sudo
 
-if set -q HYPRLAND_INSTANCE_SIGNATURE
+if set -q XDG_SESSION_DESKTOP
     if status is-interactive
         if not set -q ZELLIJ
             set -x ZELLIJ 1
