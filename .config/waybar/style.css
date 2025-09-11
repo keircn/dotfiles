@@ -58,7 +58,7 @@
 #window,
 #tray {
   background-color: @mantle;
-  padding: 0px 10px;
+  padding: 2px 10px;
   margin: 5px 0px;
   border-radius: 8px;
   color: @text;
@@ -148,9 +148,6 @@
 #window {
   font-weight: bold;
   color: @blue;
-  padding-left: 12px;
-  padding-top: 4px;
-  padding-bottom: 4px;
 }
 
 #window:hover {
