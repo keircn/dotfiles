@@ -83,8 +83,6 @@ layout {
     }
 }
 
-// KCN-autostart
-
 spawn-at-startup "waybar"
 spawn-at-startup "hyprpaper"
 spawn-at-startup "swayidle -w timeout 300 'hyprlock' before-sleep 'hyprlock'"
@@ -124,8 +122,6 @@ window-rule {
 
     opacity 0.8
 }
-
-// KCN-keybinds
 
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
