@@ -86,6 +86,7 @@ layout {
 spawn-at-startup "waybar"
 spawn-at-startup "hyprpaper"
 spawn-at-startup "swayidle -w timeout 300 'hyprlock' before-sleep 'hyprlock'"
+spawn-at-startup "wl-paste --watch clipvault store"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -153,6 +154,7 @@ binds {
     Mod+O repeat=false { toggle-overview; }
 
     Mod+Q repeat=false { close-window; }
+    Mod+V { spawn-sh "clipvault list | fuzzel --dmenu --with-nth 2 | clipvault get | wl-copy"; }
 
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }
