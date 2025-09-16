@@ -1,2 +1,2 @@
-.config/fish/fish_variables
-.config/fish/fishd.tmp*
+fish/fish_variables
+fish/*tmp*
