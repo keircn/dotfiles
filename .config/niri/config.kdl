@@ -70,9 +70,9 @@ layout {
 
     border {
         width 2
-        active-color "#b4befe"
-        inactive-color "#313244"
-        urgent-color "#f38ba8"
+        active-color "#524f67"
+        inactive-color "#21202e"
+        urgent-color "#eb6f92"
     }
 
     struts {
