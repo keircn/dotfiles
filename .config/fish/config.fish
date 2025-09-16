@@ -52,3 +52,7 @@ if set -q XDG_SESSION_DESKTOP
         end
     end
 end
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
