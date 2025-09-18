@@ -3,6 +3,8 @@
 git submodule init
 git submodule update
 
+CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+
 base=(
     bash
     git
@@ -26,7 +28,7 @@ stowit() {
     local target=$1
     local app=$2
 
-    if [[ "$target" == "$XDG_CONFIG_HOME" ]]; then
+    if [[ "$target" == "$CONFIG_HOME" ]]; then
         echo "→ Stowing ${app} into ${target}/${app}"
         mkdir -p "${target}/${app}"
         pushd "$app" > /dev/null
@@ -45,11 +47,10 @@ for app in "${base[@]}"; do
 done
 
 echo ""
-echo "Stowing config apps into $XDG_CONFIG_HOME"
+echo "Stowing config apps into $CONFIG_HOME"
 for app in "${config[@]}"; do
-    stowit "$XDG_CONFIG_HOME" "$app"
+    stowit "$CONFIG_HOME" "$app"
 done
 
 echo ""
 echo "ALL DONE"
-
