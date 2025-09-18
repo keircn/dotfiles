@@ -1,0 +1,101 @@
+---
+stderr-logging: full
+audio-driver: any
+buffer-size: 256
+sample-rate: 44100
+tcp-driver-host: localhost
+tcp-driver-port: 6969
+tcp-driver-format: f32
+repeat-playlist: true
+render-jobs: 4
+fadeout-seconds: 5
+no-soft-clipping: false
+soft-clipping-oversampling: 1
+soft-clipping-mode: linear
+enable-stereo-enhancer: false
+stereo-enhancement-amount: 1.0
+main-volume: 1.0
+max-loops: 1
+resampler: sinc_fastest
+seek-time: 10
+replay-gain: disabled
+remote: false
+ui:
+  animations-enabled: true
+  banner:
+  - graffiti
+  - cyber
+  - rounded
+  - chunky
+  - soft
+  - doomed
+  - stronger
+  - graffiti
+  - stronger
+  theme: rosepine
+vgm:
+  emulators:
+    dmg-boost-wave-chan: true
+    huc6280-core: ootake
+    ym2151-core: mame
+  preferred-gd3-lang: japanese
+modules:
+  default-panning: 69
+  interpolation: linear
+  fade-out-songs: false
+midi:
+  soundfont: ""
+  reverb-enabled: true
+  reverb-type: m_verb
+  reverb-amount: 64
+  disable-remapping: false
+  chorus-enabled: true
+  chorus-amount: 0
+  chorus-interpolation: cubic
+  voice-filter-type: standard
+  channel-filter-type: standard
+  fadeout: false
+  post-track-seconds: 4
+  zita-reverb-preset: GmDefault
+  schroeder-reverb-preset: GmDefault
+  mverb-reverb-preset: GmDefault
+c64:
+  song-length-db: ""
+  default-song-length: 180
+  kernal-rom: ""
+  basic-rom: ""
+  chargen-rom: ""
+  default-c64-model: ntsc
+  force-c64-model: false
+  default-sid-model: mos6581
+  force-sid-model: false
+  sampling-method: interpolate
+  fast-sampling: false
+  multi-sid-as-mono: false
+equalizer-enabled: true
+equalizer-disabled-during-rendering: false
+equalizer:
+  low-shelf:
+    frequency: 80.0
+    gain: 1.0
+    bandwidth: 0.707
+  bands:
+  - frequency: 105.0
+    gain: 0.8
+    bandwidth: 1.0
+  - frequency: 800.0
+    gain: 0.0
+    bandwidth: 1.0
+  - frequency: 4600.0
+    gain: 0.0
+    bandwidth: 1.0
+  high-shelf:
+    frequency: 12000.0
+    gain: 0.8
+    bandwidth: 0.707
+  post-gain: 0.0
+reverb-enabled: false
+reverb-type: mverb
+reverb-amount: 0.5
+mverb-reverb-preset: GmDefault
+zita-reverb-preset: GmDefault
