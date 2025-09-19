@@ -45,7 +45,7 @@ if test -z "$XDG_DOCUMENTS_DIR"
 end
 
 if test -z "$XDG_MUSIC_DIR"
-    set -gx XDG_MUSIC_DIR "$HOME/Music"
+    set -gx XDG_MUSIC_DIR "$HOME/music"
 end
 
 if test -z "$XDG_PICTURES_DIR"
@@ -57,7 +57,7 @@ if test -z "$XDG_VIDEOS_DIR"
 end
 
 if test -z "$LESSHISTFILE"
-    set -gx LESSHISTFILE "/tmp/less-hist"
+    set -gx LESSHISTFILE /tmp/less-hist
 end
 
 if test -z "$PARALLEL_HOME"
