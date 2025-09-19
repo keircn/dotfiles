@@ -155,6 +155,7 @@ binds {
 
     Mod+Q repeat=false { close-window; }
     Mod+V { spawn-sh "clipvault list | fuzzel --dmenu --with-nth 2 | clipvault get | wl-copy"; }
+    Mod+Ctrl+P { spawn-sh "hyprpicker --autocopy"; }
 
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }
