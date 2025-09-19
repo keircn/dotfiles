@@ -98,7 +98,7 @@ hotkey-overlay {
 // asks windows not to use client-side decorations because they're ugly
 prefer-no-csd
 
-screenshot-path "~/Pictures/Screenshots/screenshot_%Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/pictures/screenshots/screenshot_%Y-%m-%d %H-%M-%S.png"
 // screenshot-path null
 
 
