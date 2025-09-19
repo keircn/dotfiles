@@ -25,23 +25,23 @@ if test -z "$XDG_CACHE_HOME"
 end
 
 if test -z "$XDG_DESKTOP_DIR"
-    set -gx XDG_DESKTOP_DIR "$HOME/Desktop"
+    set -gx XDG_DESKTOP_DIR "$HOME/desktop"
 end
 
 if test -z "$XDG_DOWNLOAD_DIR"
-    set -gx XDG_DOWNLOAD_DIR "$HOME/Downloads"
+    set -gx XDG_DOWNLOAD_DIR "$HOME/downloads"
 end
 
 if test -z "$XDG_TEMPLATES_DIR"
-    set -gx XDG_TEMPLATES_DIR "$HOME/Templates"
+    set -gx XDG_TEMPLATES_DIR "$HOME/templates"
 end
 
 if test -z "$XDG_PUBLICSHARE_DIR"
-    set -gx XDG_PUBLICSHARE_DIR "$HOME/Public"
+    set -gx XDG_PUBLICSHARE_DIR "$HOME/public"
 end
 
 if test -z "$XDG_DOCUMENTS_DIR"
-    set -gx XDG_DOCUMENTS_DIR "$HOME/Documents"
+    set -gx XDG_DOCUMENTS_DIR "$HOME/documents"
 end
 
 if test -z "$XDG_MUSIC_DIR"
@@ -49,11 +49,11 @@ if test -z "$XDG_MUSIC_DIR"
 end
 
 if test -z "$XDG_PICTURES_DIR"
-    set -gx XDG_PICTURES_DIR "$HOME/Pictures"
+    set -gx XDG_PICTURES_DIR "$HOME/pictures"
 end
 
 if test -z "$XDG_VIDEOS_DIR"
-    set -gx XDG_VIDEOS_DIR "$HOME/Videos"
+    set -gx XDG_VIDEOS_DIR "$HOME/videos"
 end
 
 if test -z "$LESSHISTFILE"
