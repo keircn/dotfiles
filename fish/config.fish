@@ -43,14 +43,3 @@ abbr df 'df -h'
 abbr du 'du -h --max-depth=1'
 abbr free 'free -h'
 abbr please sudo
-
-if false
-    if set -q XDG_SESSION_DESKTOP
-        if status is-interactive
-            if not set -q ZELLIJ
-                set -x ZELLIJ 1
-                exec zellij
-            end
-        end
-    end
-end
