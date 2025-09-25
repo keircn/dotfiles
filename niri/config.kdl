@@ -83,8 +83,8 @@ layout {
     }
 }
 
+spawn-at-startup "swaybg -m fill -i $HOME/.local/share/backgrounds/min-arch.jpg"
 spawn-at-startup "waybar"
-spawn-at-startup "hyprpaper"
 spawn-at-startup "swayidle -w timeout 300 'hyprlock' before-sleep 'hyprlock'"
 spawn-at-startup "wl-paste --watch clipvault store"
 
