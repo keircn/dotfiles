@@ -14,5 +14,5 @@ sudo pacman -S --needed git stow
 ```
 git clone git@github.com:keircn/dotfiles.git $HOME/.dotfiles
 cd $HOME/.dotfiles
-stow .
+./setup.sh
 ```
