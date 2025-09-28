@@ -84,7 +84,7 @@ layout {
 }
 
 spawn-at-startup "waybar"
-spawn-at-startup "swayidle -w timeout 300 'hyprlock' before-sleep 'hyprlock'"
+spawn-at-startup "swayidle -w timeout 300 'swaylock' before-sleep 'swaylock'"
 spawn-at-startup "wl-paste --watch clipvault store"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
@@ -135,7 +135,7 @@ binds {
     Mod+T hotkey-overlay-title="Open Terminal (ghostty)" { spawn "ghostty"; }
     Mod+B hotkey-overlay-title="Open Browser (zen)" { spawn "zen-browser"; }
     Mod+D hotkey-overlay-title="Application finder (fuzzel)" { spawn "fuzzel"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen (hyprlock)" { spawn "hyprlock"; }
+    Super+Alt+L hotkey-overlay-title="Lock the Screen (swaylock)" { spawn "swaylock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -154,7 +154,6 @@ binds {
 
     Mod+Q repeat=false { close-window; }
     Mod+V { spawn-sh "clipvault list | fuzzel --dmenu --with-nth 2 | clipvault get | wl-copy"; }
-    Mod+Ctrl+P { spawn-sh "hyprpicker --autocopy"; }
 
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }
