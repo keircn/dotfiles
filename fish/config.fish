@@ -45,5 +45,5 @@ abbr free 'free -h'
 abbr pls sudo
 
 if status is-interactive
-	eval (zellij setup --generate-auto-start fish | string collect)
+    eval (zellij setup --generate-auto-start fish | string collect)
 end
