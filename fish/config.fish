@@ -42,4 +42,4 @@ abbr mkdir 'mkdir -p'
 abbr df 'df -h'
 abbr du 'du -h --max-depth=1'
 abbr free 'free -h'
-abbr please sudo
+abbr pls sudo
