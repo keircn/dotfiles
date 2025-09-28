@@ -43,3 +43,7 @@ abbr df 'df -h'
 abbr du 'du -h --max-depth=1'
 abbr free 'free -h'
 abbr pls sudo
+
+if status is-interactive
+	eval (zellij setup --generate-auto-start fish | string collect)
+end
