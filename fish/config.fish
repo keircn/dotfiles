@@ -15,7 +15,6 @@ set fish_color_autosuggestion brblack
 set EDITOR nvim
 set --export BUN_INSTALL "$HOME/.bun"
 
-abbr lg lazygit
 abbr n nvim
 
 abbr .. 'cd ..'
