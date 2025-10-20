@@ -147,3 +147,17 @@
   background-color: @surface;
   border-left-color: @overlay;
 }
+
+#disk.warning {
+  color: @peach;
+}
+
+#disk.critical {
+  color: @red;
+  animation: blink 1s linear infinite alternate;
+}
+
+#temperature.critical {
+  color: @red;
+  animation: blink 1s linear infinite alternate;
+}

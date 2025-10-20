@@ -58,11 +58,16 @@
     "tooltip": true,
   },
   "disk": {
-    "interval": 60,
-    "format": "󰋊 {used}G/{total}G",
+    "interval": 30,
+    "format": "󰋊 {percentage_used}% ({free} free)",
     "path": "/home",
     "tooltip": true,
+    "tooltip-format": "{used} used out of {total} total ({percentage_used}% used)\nPath: {path}",
     "on-click": "ghostty -e ncdu /home",
+    "states": {
+      "warning": 70,
+      "critical": 90
+    }
   },
   "network": {
     "format-wifi": "󰤨 ",
