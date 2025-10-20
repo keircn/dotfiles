@@ -60,6 +60,11 @@ output "HDMI-A-1" {
     backdrop-color "#191724"
 }
 
+environment {
+    QT_QPA_PLATFORM "wayland"
+    QT_QPA_PLATFORMTHEME "qt6ct"
+}
+
 layout {
     gaps 8
 
@@ -278,10 +283,12 @@ binds {
 
     Mod+W { toggle-column-tabbed-display; }
 
-    // Print { screenshot; }
+    Print { screenshot; }
+    /*
     Print { 
         spawn "script" "--command" "XDG_CURRENT_DESKTOP=sway flameshot gui" "/dev/null";
     }
+    */
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
