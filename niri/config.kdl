@@ -94,6 +94,7 @@ layout {
 
 spawn-at-startup "waybar"
 spawn-at-startup "swayidle -w timeout 300 'swaylock' before-sleep 'swaylock'"
+spawn-at-startup "hyprpaper"
 spawn-at-startup "wl-paste --watch clipvault store"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
