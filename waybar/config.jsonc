@@ -3,9 +3,12 @@
   "position": "top",
   "spacing": 4,
   "modules-left": [
+    "niri/workspaces",
     "niri/window"
   ],
   "modules-right": [
+    "disk",
+    "network",
     "cpu",
     "memory",
     "temperature",
@@ -23,9 +26,16 @@
   },
   "niri/window": {
     "format": "{title}",
-    "max-length": 33,
+    "max-length": 50,
     "tooltip": true,
     "separate-outputs": true,
+    "rewrite": {
+      "(.*) — Mozilla Firefox": " $1",
+      "(.*) - Visual Studio Code": " $1",
+      "(.*) - Code - OSS": " $1",
+      "ghostty": "",
+      "nvim (.*)": " $1"
+    }
   },
   "cpu": {
     "interval": 5,
@@ -40,9 +50,11 @@
     "on-click": "ghostty -e htop",
   },
   "temperature": {
-    "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
+    "hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp1_input",
+    "input-filename": "temp1_input",
     "critical-threshold": 80,
     "format": "󰔏 {temperatureC}°C",
+    "format-critical": "󰸁 {temperatureC}°C",
     "tooltip": true,
   },
   "disk": {
@@ -73,7 +85,6 @@
     "on-click": "pavucontrol",
   },
   "battery": {
-    "bat": "BAT1",
     "format": "{icon}",
     "format-charging": "󰂄",
     "format-plugged": "󰚥",
@@ -98,6 +109,18 @@
     "format": "󰐥",
     "tooltip": "Power Menu",
     "on-click": "wlogout",
+  },
+  "niri/workspaces": {
+    "current-only": false,
+    "format": "{name}",
+    "format-window-separator": " ",
+    "window-rewrite-default": "",
+    "window-rewrite": {
+      "firefox": "",
+      "ghostty": "",
+      "code": "",
+      "nvim": ""
+    }
   },
   "tray": {
     "icon-size": 16,

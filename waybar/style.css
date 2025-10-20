@@ -15,6 +15,10 @@
 @define-color base #191724;
 @define-color mantle #21202e;
 @define-color crust #11111b;
+@define-color green #9ccfd8;
+@define-color red #eb6f92;
+@define-color blue #31748f;
+@define-color peach #f6c177;
 
 #waybar {
   background-color: @base;
