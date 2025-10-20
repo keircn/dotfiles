@@ -51,6 +51,15 @@ output "eDP-1" {
     transform "normal"
 }
 
+output "HDMI-A-1" {
+    mode "3840x2160@60.000"
+    scale 1.25
+    transform "normal"
+    variable-refresh-rate
+    focus-at-startup
+    backdrop-color "#191724"
+}
+
 layout {
     gaps 8
 
