@@ -14,7 +14,7 @@
       "format": "\u001b[90m┌──────────────────────Hardware──────────────────────┐",
     },
     {
-      "type": "host",
+      "type": "board",
       "key": " PC",
       "keyColor": "green",
     },
@@ -23,6 +23,13 @@
       "key": "│ ├",
       "showPeCoreCount": true,
       "keyColor": "green",
+    },
+    {
+      "type": "gpu",
+      "key": "│ ├󰢮",
+      "keyColor": "green",
+      "driverSpecific": true,
+      "format": "{2}",
     },
     {
       "type": "display",
