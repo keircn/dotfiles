@@ -11,7 +11,6 @@ base=(
 )
 
 config=(
-    benben
     fastfetch
     fish
     fuzzel
