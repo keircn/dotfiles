@@ -98,7 +98,7 @@ layout {
 }
 
 spawn-at-startup "waybar"
-spawn-at-startup "swayidle -w timeout 300 'swaylock' before-sleep 'swaylock'"
+spawn-at-startup "hypridle"
 spawn-at-startup "hyprpaper"
 spawn-at-startup "wl-paste --watch cliphist store"
 
