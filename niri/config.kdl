@@ -150,7 +150,7 @@ binds {
     Mod+T hotkey-overlay-title="Open Terminal (ghostty)" { spawn "ghostty"; }
     Mod+B hotkey-overlay-title="Open Browser (helium)" { spawn "helium-browser"; }
     Mod+D hotkey-overlay-title="Application finder (fuzzel)" { spawn "fuzzel"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen (swaylock)" { spawn "swaylock"; }
+    Super+Alt+L hotkey-overlay-title="Lock the Screen (hyprlock)" { spawn "hyprlock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
