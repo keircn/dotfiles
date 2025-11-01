@@ -1,6 +1,7 @@
 [user]
     name = Keiran
     email = keircn@proton.me
+	signingkey = 284D2BEC3BABA2B47C6E012C0BDF62B1D19BBA2D
 
 [init]
     defaultBranch = main
@@ -45,3 +46,5 @@
 	addEmptyPathspec = false
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[commit]
+	gpgsign = true
