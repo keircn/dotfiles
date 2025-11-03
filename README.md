@@ -14,7 +14,6 @@ sudo pacman -S --needed git stow bash # these are the only required dependencies
 ```
 git clone git@github.com:keircn/dotfiles.git $HOME/.dotfiles
 cd $HOME/.dotfiles
-./setup.sh
+go build -o setup setup.go
+./setup
 ```
-
-If you have conflicting files/directories, they will be skipped
