@@ -3,15 +3,15 @@
   "position": "top",
   "spacing": 4,
   "modules-left": [
-    "niri/workspaces",
-    "niri/window"
+    "hyprland/workspaces",
+    "hyprland/window"
   ],
   "modules-right": [
     "idle_inhibitor",
     "disk",
     "network",
     "cpu",
-    "memory", 
+    "memory",
     "temperature",
     "pulseaudio",
     "tray",
@@ -24,7 +24,7 @@
     "format": "󰃰 {:%H:%M}",
     "tooltip-format": "{:%A, %d %B %Y}",
   },
-  "niri/window": {
+  "hyprland/window": {
     "format": "{title}",
     "max-length": 50,
     "tooltip": true,
@@ -122,9 +122,9 @@
     "tooltip": "Power Menu",
     "on-click": "wlogout",
   },
-  "niri/workspaces": {
+  "hyprland/workspaces": {
     "current-only": false,
-    "format": "{name}",
+    "format": " ",
     "format-window-separator": " ",
     "window-rewrite-default": "",
     "window-rewrite": {
