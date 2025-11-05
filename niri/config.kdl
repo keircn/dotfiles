@@ -150,7 +150,7 @@ binds {
     Mod+T hotkey-overlay-title="Open Terminal (ghostty)" { spawn "ghostty"; }
     Mod+B hotkey-overlay-title="Open Browser (helium)" { spawn "helium-browser"; }
     Mod+D hotkey-overlay-title="Application finder (fuzzel)" { spawn "fuzzel"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen (hyprlock)" { spawn "hyprlock"; }
+    Super+Alt+L hotkey-overlay-title="Lock the Screen (swaylock)" { spawn-sh "swaylock -C ~/.local/share/themes/rose-pine/swaylock/rose-pine"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -283,13 +283,14 @@ binds {
 
     Mod+W { toggle-column-tabbed-display; }
 
-    Print { screenshot; }
-    /*
+    // Print { screenshot; }
     Print { 
-        spawn "script" "--command" "XDG_CURRENT_DESKTOP=sway flameshot gui" "/dev/null";
+        spawn "script" "--command" "keycap screenshot" "/dev/null";
     }
-    */
-    Ctrl+Print { screenshot-screen; }
+    // Ctrl+Print { screenshot-screen; }
+    Ctrl+Print { 
+        spawn "script" "--command" "keycap screenshot fullscreen" "/dev/null";
+    }
     Alt+Print { screenshot-window; }
 
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
