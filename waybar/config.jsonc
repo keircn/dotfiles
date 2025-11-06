@@ -124,7 +124,7 @@
   },
   "hyprland/workspaces": {
     "current-only": false,
-    "format": " ",
+    "format": "{name}",
     "format-window-separator": " ",
     "window-rewrite-default": "",
     "window-rewrite": {

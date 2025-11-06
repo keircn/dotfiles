@@ -77,7 +77,7 @@
   padding: 2px 8px;
   margin: 5px 3px;
   background-color: @surface;
-  color: @subtext0;
+  color: @subtext;
   border-radius: 8px;
   transition:
     background-color 0.25s,
@@ -92,7 +92,7 @@
 
 #workspaces button.active {
   background-color: @surface;
-  color: @rose;
+  color: @text;
   border: 2px solid @rose;
 }
 
