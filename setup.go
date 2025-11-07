@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"bytes"
 	"encoding/json"
 	"errors"
@@ -103,6 +104,29 @@ func main() {
 	fmt.Println("\nALL DONE")
 }
 
+func isArchLinux() bool {
+	_, err := exec.LookPath("pacman")
+	return err == nil
+}
+
+func promptUser(message string) bool {
+	fmt.Printf("%s [y/N]: ", message)
+	reader := bufio.NewReader(os.Stdin)
+	response, _ := reader.ReadString('\n')
+	response = strings.TrimSpace(strings.ToLower(response))
+	return response == "y" || response == "yes"
+}
+
+func installArchPackages(packages []string) error {
+	args := []string{"pacman", "-S", "--needed", "--noconfirm"}
+	args = append(args, packages...)
+
+	cmd := exec.Command(args[0], args[1:]...)
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	return cmd.Run()
+}
+
 func checkDependencies(cmds []string) {
 	var missing []string
 	for _, cmd := range cmds {
@@ -110,11 +134,26 @@ func checkDependencies(cmds []string) {
 			missing = append(missing, cmd)
 		}
 	}
-	if len(missing) > 0 {
-		fmt.Fprintf(os.Stderr, "Error: Missing required dependencies: %s\n", strings.Join(missing, ", "))
-		fmt.Fprintln(os.Stderr, "Please install them before running this program.")
-		os.Exit(1)
+	if len(missing) == 0 {
+		return
 	}
+
+	if isArchLinux() {
+		fmt.Printf("Missing required dependencies: %s\n", strings.Join(missing, ", "))
+		if promptUser("Install dependencies with pacman?") {
+			fmt.Println("Installing dependencies...")
+			if err := installArchPackages(missing); err != nil {
+				fmt.Fprintf(os.Stderr, "Error: Failed to install packages: %v\n", err)
+				os.Exit(1)
+			}
+			fmt.Println("Dependencies installed successfully!")
+			return
+		}
+	}
+
+	fmt.Fprintf(os.Stderr, "Error: Missing required dependencies: %s\n", strings.Join(missing, ", "))
+	fmt.Fprintln(os.Stderr, "Please install them before running this program.")
+	os.Exit(1)
 }
 
 func initSubmodules() {
@@ -228,7 +267,7 @@ func stow(target, app string) error {
 
 	fmt.Printf("→ Stowing %s into %s\n", app, target)
 
-	if err := os.MkdirAll(target, 0755); err != nil {
+	if err := os.MkdirAll(target, 0o755); err != nil {
 		return fmt.Errorf("failed to create target dir %s: %w", target, err)
 	}
 
