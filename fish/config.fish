@@ -43,8 +43,8 @@ abbr du 'du -h --max-depth=1'
 abbr free 'free -h'
 abbr pls sudo
 
-if status is-interactive
-    if type -q zellij
-	eval (zellij setup --generate-auto-start fish | string collect)
-    end
-end
+# if status is-interactive
+#     if type -q zellij
+# 	eval (zellij setup --generate-auto-start fish | string collect)
+#     end
+# end
