@@ -6,19 +6,13 @@
   min-height: 0;
 }
 
-@define-color rose #ebbcba;
-@define-color text #e0def4;
-@define-color muted #908caa;
-@define-color subtext #6e6a86;
-@define-color overlay #26233a;
-@define-color surface #1f1d2e;
-@define-color base #191724;
-@define-color mantle #21202e;
-@define-color crust #11111b;
+@define-color main #4c9ad4;
+@define-color text #f7f6ec;
+@define-color muted #343935;
+@define-color background #1e1e1e;
 @define-color green #9ccfd8;
-@define-color red #eb6f92;
-@define-color blue #31748f;
-@define-color peach #f6c177;
+@define-color error #cf3f61;
+@define-color warning #e9b32a;
 
 #waybar {
   background-color: rgba(25, 23, 36, 0.75);
@@ -46,7 +40,7 @@
 #window,
 #tray,
 #idle_inhibitor {
-  background-color: @base;
+  background-color: @background;
   padding: 2px 10px;
   margin: 3px 2px;
   border-radius: 8px;
@@ -66,12 +60,12 @@
 #window:hover,
 #tray:hover,
 #idle_inhibitor:hover {
-  background-color: @surface;
-  color: @rose;
+  background-color: @background;
+  color: @main;
 }
 
 #workspaces {
-  background-color: @base;
+  background-color: @background;
   padding: 2px 4px;
   margin: 3px 2px;
   border-radius: 8px;
@@ -80,8 +74,8 @@
 #workspaces button {
   padding: 2px 8px;
   margin: 2px 2px;
-  background-color: @surface;
-  color: @subtext;
+  background-color: @background;
+  color: @text;
   border-radius: 8px;
   transition:
     background-color 0.25s,
@@ -90,18 +84,18 @@
 }
 
 #workspaces button:hover {
-  background-color: @surface;
+  background-color: @background;
   color: @text;
 }
 
 #workspaces button.active {
-  background-color: @surface;
+  background-color: @background;
   color: @text;
-  border: 2px solid @rose;
+  border: 2px solid @foreground;
 }
 
 #workspaces button.active:hover {
-  border-color: @rose;
+  border-color: @foreground;
 }
 
 #workspaces button.urgent {
@@ -113,11 +107,11 @@
 #battery.charging,
 #battery.full {
   color: @green;
-  background-color: @surface;
+  background-color: @background;
 }
 
 #battery.warning:not(.charging) {
-  color: @peach;
+  color: @warning;
 }
 
 #battery.critical:not(.charging) {
@@ -126,7 +120,7 @@
 }
 
 #battery.warning:not(.charging) {
-  color: @peach;
+  color: @warning;
 }
 
 #battery.critical:not(.charging) {
@@ -136,7 +130,7 @@
 
 @keyframes blink {
   to {
-    color: @base;
+    color: @background;
     background-color: @red;
   }
 }
@@ -147,22 +141,22 @@
 
 #window {
   font-weight: bold;
-  color: @blue;
+  color: @main;
 }
 
 #window:hover {
-  color: @rose;
-  border-left-color: @rose;
+  color: @main;
+  border-left-color: @main;
 }
 
 #window.empty {
-  color: @overlay;
-  background-color: @surface;
-  border-left-color: @overlay;
+  color: @muted;
+  background-color: @background;
+  border-left-color: @muted;
 }
 
 #disk.warning {
-  color: @peach;
+  color: @warning;
 }
 
 #disk.critical {
@@ -178,7 +172,7 @@
 #cpu.warning,
 #memory.warning,
 #temperature.warning {
-  color: @peach;
+  color: @warning;
 }
 
 #cpu.critical,
@@ -188,8 +182,8 @@
 }
 
 #idle_inhibitor.activated {
-  color: @rose;
-  background-color: @surface;
+  color: @main;
+  background-color: @background;
 }
 
 #idle_inhibitor {
