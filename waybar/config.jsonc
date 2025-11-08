@@ -1,29 +1,19 @@
 {
   "layer": "top",
   "position": "top",
+  "width": 1600,
+  "margin": "12 0 0 0",
   "spacing": 4,
   "modules-left": [
     "hyprland/workspaces",
-    "hyprland/window"
   ],
   "modules-right": [
-    "idle_inhibitor",
     "disk",
     "network",
     "cpu",
-    "memory",
-    "temperature",
     "pulseaudio",
     "tray",
-    "custom/powermenu",
   ],
-  "modules-center": [
-    "clock"
-  ],
-  "clock": {
-    "format": "󰃰 {:%H:%M}",
-    "tooltip-format": "{:%A, %d %B %Y}",
-  },
   "hyprland/window": {
     "format": "{title}",
     "max-length": 50,
@@ -127,12 +117,6 @@
     "format": "{name}",
     "format-window-separator": " ",
     "window-rewrite-default": "",
-    "window-rewrite": {
-      "firefox": "",
-      "ghostty": "",
-      "code": "",
-      "nvim": ""
-    }
   },
   "tray": {
     "icon-size": 16,

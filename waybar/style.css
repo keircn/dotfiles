@@ -21,15 +21,17 @@
 @define-color peach #f6c177;
 
 #waybar {
-  background-color: @base;
+  background-color: rgba(25, 23, 36, 0.75);
   color: @text;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 3px 10px;
+  margin: 8px 0 0 0;
 }
 
 #waybar .modules-left,
 #waybar .modules-right,
 #waybar .modules-center {
-  padding: 0 10px;
+  padding: 4px 10px;
 }
 
 #clock,
@@ -45,8 +47,8 @@
 #tray,
 #idle_inhibitor {
   background-color: @base;
-  padding: 4px 12px;
-  margin: 5px 2px;
+  padding: 2px 10px;
+  margin: 3px 2px;
   border-radius: 8px;
   color: @text;
   transition: all 0.3s ease-in-out;
@@ -70,12 +72,14 @@
 
 #workspaces {
   background-color: @base;
-  padding: 0 5px;
+  padding: 2px 4px;
+  margin: 3px 2px;
+  border-radius: 8px;
 }
 
 #workspaces button {
   padding: 2px 8px;
-  margin: 5px 3px;
+  margin: 2px 2px;
   background-color: @surface;
   color: @subtext;
   border-radius: 8px;
