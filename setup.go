@@ -177,7 +177,7 @@ func getAllApps(root string) []string {
 	entries, _ := os.ReadDir(root)
 	var apps []string
 	for _, e := range entries {
-		if e.IsDir() && e.Name() != ".git" && e.Name() != "." {
+		if e.IsDir() && e.Name() != ".git" && e.Name() != "." && e.Name() != "assets" {
 			apps = append(apps, e.Name())
 		}
 	}
