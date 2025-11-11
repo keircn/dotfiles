@@ -7,6 +7,9 @@
   "modules-left": [
     "hyprland/workspaces",
   ],
+  "modules-center": [
+    "clock",
+  ],
   "modules-right": [
     "disk",
     "network",
