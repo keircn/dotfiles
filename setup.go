@@ -8,13 +8,11 @@ import (
 	"flag"
 	"fmt"
 	"io"
-	"io/fs"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"sort"
 	"strings"
-	"time"
 )
 
 type Config struct {
@@ -245,21 +243,6 @@ func processApps() error {
 	return nil
 }
 
-func backupFile(file string) error {
-	backupDir := filepath.Join(homeDir, ".dotfiles_backup", time.Now().Format("20060102_150405"))
-	if _, err := os.Stat(file); err == nil {
-		os.MkdirAll(backupDir, 0o755)
-		cmd := exec.Command("cp", "-r", file, backupDir+"/")
-		if err := cmd.Run(); err != nil {
-			return err
-		}
-		if verbose {
-			fmt.Printf("  Backed up %s to %s/\n", file, backupDir)
-		}
-	}
-	return nil
-}
-
 func stow(target, app string) error {
 	if target == configHome {
 		target = filepath.Join(target, app)
@@ -270,13 +253,6 @@ func stow(target, app string) error {
 	if err := os.MkdirAll(target, 0o755); err != nil {
 		return fmt.Errorf("failed to create target dir %s: %w", target, err)
 	}
-
-	filepath.WalkDir(target, func(path string, d fs.DirEntry, err error) error {
-		if err == nil && !d.IsDir() && strings.HasPrefix(filepath.Base(path), ".") {
-			backupFile(path)
-		}
-		return nil
-	})
 
 	args := []string{"stow"}
 	if verbose {
