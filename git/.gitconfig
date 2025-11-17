@@ -1,7 +1,6 @@
 [user]
     name = Keiran
     email = keircn@proton.me
-	signingkey = 284D2BEC3BABA2B47C6E012C0BDF62B1D19BBA2D
 
 [init]
     defaultBranch = main
@@ -20,15 +19,11 @@
 [interactive]
     diffFilter = delta --color-only
 
-[include]
-	path = /home/keiran/.config/delta/themes/catppuccin.gitconfig
-
 [delta]
 
 [delta]
     navigate = true
     dark = true
-	  features = catppuccin-mocha
 
 [merge]
     conflictstyle = zdiff3
@@ -42,9 +37,9 @@
     last = log -1 HEAD
     visual = log --oneline --decorate --all --graph
     hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+
 [advice]
 	addEmptyPathspec = false
-[url "git@github.com:"]
-	insteadOf = https://github.com/
-[commit]
-	gpgsign = true
+
+; [url "git@github.com:"]
+; 	insteadOf = https://github.com/
