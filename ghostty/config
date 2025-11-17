@@ -1,5 +1,6 @@
-theme = Japanesque
-font-family = Fira Mono
+theme = Gruvbox Material
+font-family = Hack Nerd Font
 window-padding-x = 10
 window-padding-y = 5
 font-size = 12
+shell-integration = none
