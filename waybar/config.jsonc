@@ -116,7 +116,7 @@
     "on-click": "wlogout",
   },
   "hyprland/workspaces": {
-    "current-only": true,
+    "current-only": false,
     "format": " # ",
     "format-window-separator": " ",
     "window-rewrite-default": "",
