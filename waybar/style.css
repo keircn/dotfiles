@@ -10,7 +10,9 @@
 @define-color text #f7f6ec;
 @define-color muted #343935;
 @define-color background #1e1e1e;
+@define-color foreground #4c9ad4;
 @define-color green #9ccfd8;
+@define-color red #cf3f61;
 @define-color error #cf3f61;
 @define-color warning #e9b32a;
 
@@ -91,11 +93,11 @@
 #workspaces button.active {
   background-color: @background;
   color: @text;
-  border: 2px solid @foreground;
+  border: 2px solid @text;
 }
 
 #workspaces button.active:hover {
-  border-color: @foreground;
+  border-color: @text;
 }
 
 #workspaces button.urgent {
