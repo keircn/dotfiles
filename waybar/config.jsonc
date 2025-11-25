@@ -1,8 +1,8 @@
 {
 	"layer": "top",
 	"position": "top",
-	"margin": "12 12 0 12",
-	"spacing": 4,
+	"margin": "8 8 0 8",
+	"spacing": 2,
 	"modules-left": [
 		"hyprland/workspaces",
 	],
@@ -122,8 +122,8 @@
 		"window-rewrite-default": "",
 	},
 	"tray": {
-		"icon-size": 16,
-		"spacing": 8,
+		"icon-size": 14,
+		"spacing": 6,
 		"tooltip": true,
 		"show-passive-items": true,
 		"reverse-direction": false,

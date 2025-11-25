@@ -2,7 +2,7 @@
   border: none;
   border-radius: 0px;
   font-family: "GeistMono Nerd Font", monospace;
-  font-size: 14px;
+  font-size: 12px;
   min-height: 0;
 }
 
@@ -19,15 +19,15 @@
 #waybar {
   background-color: rgba(25, 23, 36, 0.75);
   color: @text;
-  border-radius: 12px;
-  padding: 3px 10px;
-  margin: 8px 0 0 0;
+  border-radius: 8px;
+  padding: 2px 6px;
+  margin: 4px 0 0 0;
 }
 
 #waybar .modules-left,
 #waybar .modules-right,
 #waybar .modules-center {
-  padding: 4px 10px;
+  padding: 2px 6px;
 }
 
 #clock,
@@ -43,9 +43,9 @@
 #tray,
 #idle_inhibitor {
   background-color: @background;
-  padding: 2px 10px;
-  margin: 3px 2px;
-  border-radius: 8px;
+  padding: 1px 6px;
+  margin: 2px 1px;
+  border-radius: 6px;
   color: @text;
   transition: all 0.3s ease-in-out;
 }
@@ -68,17 +68,17 @@
 
 #workspaces {
   background-color: @background;
-  padding: 2px 4px;
-  margin: 3px 2px;
-  border-radius: 8px;
+  padding: 1px 2px;
+  margin: 2px 1px;
+  border-radius: 6px;
 }
 
 #workspaces button {
-  padding: 2px 8px;
-  margin: 2px 2px;
+  padding: 1px 6px;
+  margin: 1px 1px;
   background-color: @background;
   color: @text;
-  border-radius: 8px;
+  border-radius: 6px;
   transition:
     background-color 0.25s,
     color 0.25s,
@@ -189,5 +189,5 @@
 }
 
 #idle_inhibitor {
-  padding: 0 12px 0 8px;
+  padding: 0 8px 0 6px;
 }
