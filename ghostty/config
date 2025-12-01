@@ -1,5 +1,28 @@
-theme = Rose Pine
 font-family = Hack Nerd Font
 window-padding-x = 10
 window-padding-y = 5
 font-size = 12
+
+background = #0a0a0a
+foreground = #d4c9a8
+cursor-color = #c9a227
+selection-background = #2e2c26
+selection-foreground = #e8dfc0
+
+palette = 0=#1a1916
+palette = 1=#8b4a2b
+palette = 2=#6b7353
+palette = 3=#c9a227
+palette = 4=#4a6b5a
+palette = 5=#8b7355
+palette = 6=#5a7a6a
+palette = 7=#a89f84
+
+palette = 8=#3a3730
+palette = 9=#a64a3a
+palette = 10=#7a8563
+palette = 11=#d4a84b
+palette = 12=#5a8070
+palette = 13=#a67c52
+palette = 14=#6a8a7a
+palette = 15=#d4c9a8

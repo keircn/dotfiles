@@ -1,4 +1,4 @@
-# Color Palette
+# keircn theme
 
 ## Base Colors
 

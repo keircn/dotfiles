@@ -6,18 +6,18 @@
   min-height: 0;
 }
 
-@define-color main #4c9ad4;
-@define-color text #f7f6ec;
-@define-color muted #343935;
-@define-color background #1e1e1e;
-@define-color foreground #4c9ad4;
-@define-color green #9ccfd8;
-@define-color red #cf3f61;
-@define-color error #cf3f61;
-@define-color warning #e9b32a;
+@define-color main #c9a227;
+@define-color text #d4c9a8;
+@define-color muted #3a3730;
+@define-color background #121210;
+@define-color foreground #c9a227;
+@define-color green #6b7353;
+@define-color red #a64a3a;
+@define-color error #a64a3a;
+@define-color warning #b8860b;
 
 #waybar {
-  background-color: rgba(25, 23, 36, 1);
+  background-color: rgba(10, 10, 10, 1);
   color: @text;
   border-radius: 0;
   padding: 2px 6px;

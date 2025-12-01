@@ -1,11 +1,9 @@
-# Colors
-
-background-color=#1e1e1e
-text-color=#f7f6ec
-border-color=#4c9ad4
-progress-color=over #cf3f61 under #9ccfd8
+background-color=#121210
+text-color=#d4c9a8
+border-color=#c9a227
+progress-color=over #a64a3a under #6b7353
 
 [urgency=high]
-border-color=#e9b32a
+border-color=#b8860b
 
 default-timeout=1500
