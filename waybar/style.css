@@ -17,11 +17,11 @@
 @define-color warning #e9b32a;
 
 #waybar {
-  background-color: rgba(25, 23, 36, 0.75);
+  background-color: rgba(25, 23, 36, 1);
   color: @text;
-  border-radius: 8px;
+  border-radius: 0;
   padding: 2px 6px;
-  margin: 4px 0 0 0;
+  margin: 0;
 }
 
 #waybar .modules-left,
