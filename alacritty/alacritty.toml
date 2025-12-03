@@ -1,0 +1,36 @@
+[window]
+padding = { x = 8, y = 6 }
+decorations = "None"
+opacity = 0.8
+dynamic_padding = true
+dynamic_title = false
+
+[colors]
+[colors.primary]
+background = "#0a0a0a"
+foreground = "#d4c9a8"
+
+[colors.cursor]
+text = "#0a0a0a"
+cursor = "#d4c9a8"
+
+[colors.normal]
+black   = "#1a1916"
+red     = "#8b4a2b"
+green   = "#6b7353"
+yellow  = "#c9a227"
+blue    = "#4a6b5a"
+magenta = "#8b7355"
+cyan    = "#5a7a6a"
+white   = "#a89f84"
+
+[colors.bright]
+black   = "#3a3730"
+red     = "#a64a3a"
+green   = "#7a8563"
+yellow  = "#d4a84b"
+blue    = "#5a8070"
+magenta = "#a67c52"
+cyan    = "#6a8a7a"
+white   = "#d4c9a8"
+
