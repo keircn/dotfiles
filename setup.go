@@ -81,7 +81,7 @@ func main() {
 		os.Exit(0)
 	}
 
-	checkDependencies([]string{"stow", "git", "jq", "sway", "swaylock", "swayidle", "fish", "vim", "bash", "fastfetch", "alacritty", "mako", "waybar", "starship", "hyprpicker", "mpv", "eza", "wl-clipboard"})
+	checkDependencies([]string{"stow", "git", "jq", "sway", "swaylock", "swayidle", "fish", "vim", "bash", "fastfetch", "alacritty", "mako", "waybar", "starship", "hyprpicker", "mpv", "eza"})
 
 	if listOnly {
 		apps := getAllApps(".")
