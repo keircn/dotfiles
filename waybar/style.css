@@ -74,7 +74,7 @@
 }
 
 #workspaces button {
-  padding: 1px 6px;
+  padding: 1px 2px;
   margin: 1px 1px;
   background-color: @background;
   color: @text;
@@ -90,13 +90,13 @@
   color: @text;
 }
 
-#workspaces button.active {
+#workspaces button.focused {
   background-color: @background;
   color: @text;
   border: 2px solid @text;
 }
 
-#workspaces button.active:hover {
+#workspaces button.focused:hover {
   border-color: @text;
 }
 

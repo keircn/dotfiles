@@ -47,3 +47,10 @@ abbr pls sudo
 # 	eval (zellij setup --generate-auto-start fish | string collect)
 #     end
 # end
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
+
+# opencode
+fish_add_path /home/kc/.opencode/bin

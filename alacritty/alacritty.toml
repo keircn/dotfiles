@@ -1,9 +1,12 @@
 [window]
 padding = { x = 8, y = 6 }
 decorations = "None"
-opacity = 0.8
+opacity = 0.95
 dynamic_padding = true
 dynamic_title = false
+
+[font]
+normal = { family = "GeistMono Nerd Font", style = "Regular" }
 
 [colors]
 [colors.primary]

@@ -3,7 +3,7 @@
   "position": "top",
   "spacing": 2,
   "modules-left": [
-    "hyprland/workspaces",
+    "sway/workspaces",
   ],
   "modules-center": [
     "clock",
@@ -16,7 +16,7 @@
     "pulseaudio",
     "tray",
   ],
-  "hyprland/window": {
+  "sway/window": {
     "format": "{title}",
     "max-length": 50,
     "tooltip": true,
@@ -114,7 +114,7 @@
     "tooltip": "Power Menu",
     "on-click": "wlogout",
   },
-  "hyprland/workspaces": {
+  "sway/workspaces": {
     "current-only": false,
     "format": " {name} ",
     "format-window-separator": " ",

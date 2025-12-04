@@ -6,7 +6,7 @@ I use GNU stow to symlink my dotfiles and sync them to the git repo
 
 ```
 # i use arch btw
-sudo pacman -S --needed git stow bash # these are the only required dependencies
+sudo pacman -S --needed go git
 ```
 
 ## Installation
