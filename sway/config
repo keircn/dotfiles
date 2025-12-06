@@ -10,9 +10,9 @@ output * bg /usr/share/backgrounds/bg.jpeg fill
 output HDMI-A-1 resolution 3840x2160 position 0,0
 
 exec swayidle -w \
-    timeout 300 swaylock \
+    timeout 300 hyprlock \
     timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-    before-sleep swaylock
+    before-sleep hyprlock
 
 exec wl-paste -t text --watch clipman store --histpath="~/.cache/clipman.json"
 
