@@ -6,11 +6,11 @@
   min-height: 0;
 }
 
-@define-color main #c9a227;
+@define-color main #ffffff;
 @define-color text #d4c9a8;
 @define-color muted #3a3730;
 @define-color background #000000;
-@define-color foreground #c9a227;
+@define-color foreground #ffffff;
 @define-color green #6b7353;
 @define-color red #a64a3a;
 @define-color error #a64a3a;

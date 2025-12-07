@@ -6,6 +6,20 @@ set $right l
 set $term alacritty
 set $menu fuzzel
 
+set $background #000000
+set $foreground #d4c9a8
+set $accent     #ffffff
+set $muted      #3a3730
+set $urgent     #a64a3a
+client.focused          $accent     $background $foreground $accent     $accent
+client.focused_inactive $muted      $background $foreground $muted      $muted
+client.unfocused        $background $background $muted      $background $background
+client.urgent           $urgent     $background $foreground $urgent     $urgent
+default_border pixel 2
+default_floating_border pixel 2
+gaps inner 4
+gaps outer 2
+
 output * bg /usr/share/backgrounds/asuna-bg.jpg fill
 output HDMI-A-1 resolution 3840x2160 position 0,0
 
