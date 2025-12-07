@@ -9,7 +9,7 @@
 @define-color main #c9a227;
 @define-color text #d4c9a8;
 @define-color muted #3a3730;
-@define-color background #121210;
+@define-color background #000000;
 @define-color foreground #c9a227;
 @define-color green #6b7353;
 @define-color red #a64a3a;
@@ -17,7 +17,7 @@
 @define-color warning #b8860b;
 
 #waybar {
-  background-color: rgba(10, 10, 10, 1);
+  background-color: #000000;
   color: @text;
   border-radius: 0;
   padding: 2px 6px;

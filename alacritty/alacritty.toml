@@ -10,11 +10,11 @@ normal = { family = "GeistMono Nerd Font", style = "Regular" }
 
 [colors]
 [colors.primary]
-background = "#0a0a0a"
+background = "#000000"
 foreground = "#d4c9a8"
 
 [colors.cursor]
-text = "#0a0a0a"
+text = "#000000"
 cursor = "#d4c9a8"
 
 [colors.normal]
