@@ -6,7 +6,7 @@ set $right l
 set $term alacritty
 set $menu fuzzel
 
-output * bg /usr/share/backgrounds/bg.jpeg fill
+output * bg /usr/share/backgrounds/asuna-bg.jpg fill
 output HDMI-A-1 resolution 3840x2160 position 0,0
 
 exec swayidle -w \
