@@ -192,8 +192,8 @@ func installPackages(packages []string) error {
 		return errors.New("automatic installation only supported on Arch Linux")
 	}
 
-	args := append([]string{"-S", "--needed", "--noconfirm"}, packages...)
-	cmd := exec.Command("pacman", args...)
+	args := append([]string{"pacman", "-S", "--needed", "--noconfirm"}, packages...)
+	cmd := exec.Command("sudo", args...)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Stdin = os.Stdin
@@ -201,8 +201,8 @@ func installPackages(packages []string) error {
 }
 
 func installAURPackage(pkg string) error {
-	if err := installPackages([]string{"base-devel"}); err != nil {
-		return fmt.Errorf("failed to install base-devel: %w", err)
+	if err := installPackages([]string{"base-devel", "git"}); err != nil {
+		return fmt.Errorf("failed to install build dependencies: %w", err)
 	}
 
 	tmpDir, err := os.MkdirTemp("", "aur-build-")
