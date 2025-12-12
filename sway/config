@@ -35,7 +35,7 @@ bindsym $mod+d exec $menu
 bindsym $mod+q kill
 bindsym $mod+x exec clipman --histpath="~/.cache/clipman.json" pick --tool=CUSTOM --tool-args="fuzzel -d"
 bindsym $mod+p exec hyprpicker -anld
-bindsym $mod+Ctrl+l exec swaylock
+bindsym $mod+Ctrl+l exec hyprlock
 floating_modifier $mod normal
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exec 'swaymsg exit'
