@@ -20,7 +20,7 @@ default_floating_border pixel 2
 gaps inner 4
 gaps outer 2
 
-output * bg /usr/share/backgrounds/adventure-time-upscaled.jpg fill
+output * bg /usr/share/backgrounds/vtuber.jpg fill
 output HDMI-A-1 resolution 3840x2160 position 0,0
 
 exec swayidle -w \
