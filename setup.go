@@ -566,11 +566,28 @@ func installBackgroundsFromRepo() error {
 	if err := cloneCmd.Run(); err != nil {
 		return fmt.Errorf("failed to clone repository: %w", err)
 	}
-	os.RemoveAll(filepath.Join(tmpDir, ".git"))
+
+	entries, err := os.ReadDir(tmpDir)
+	if err != nil {
+		return fmt.Errorf("failed to read temp directory: %w", err)
+	}
+
+	var dirsToCopy []string
+	for _, entry := range entries {
+		if entry.IsDir() && entry.Name() != ".git" {
+			dirsToCopy = append(dirsToCopy, filepath.Join(tmpDir, entry.Name()))
+		}
+	}
+
+	if len(dirsToCopy) == 0 {
+		return errors.New("no directories found in repository")
+	}
 
 	fmt.Printf("Installing backgrounds to %s...\n", targetDir)
 
-	cpCmd := exec.Command("sudo", "cp", "-rv", tmpDir+"/.", targetDir)
+	args := append([]string{"cp", "-rv"}, dirsToCopy...)
+	args = append(args, targetDir)
+	cpCmd := exec.Command("sudo", args...)
 	cpCmd.Stdout = os.Stdout
 	cpCmd.Stderr = os.Stderr
 	cpCmd.Stdin = os.Stdin
@@ -578,6 +595,6 @@ func installBackgroundsFromRepo() error {
 		return fmt.Errorf("failed to copy backgrounds: %w", err)
 	}
 
-	fmt.Printf("Successfully installed backgrounds to %s\n", targetDir)
+	fmt.Printf("Successfully installed %d background directories to %s\n", len(dirsToCopy), targetDir)
 	return nil
 }
