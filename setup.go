@@ -66,15 +66,16 @@ var appDependencies = map[string][]Dependency{
 }
 
 var (
-	dryRun     bool
-	uninstall  bool
-	verbose    bool
-	listOnly   bool
-	showHelp   bool
-	skipDeps   bool
-	selected   []string
-	homeDir    string
-	configHome string
+	dryRun             bool
+	uninstall          bool
+	verbose            bool
+	listOnly           bool
+	showHelp           bool
+	skipDeps           bool
+	installBackgrounds bool
+	selected           []string
+	homeDir            string
+	configHome         string
 )
 
 func init() {
@@ -93,6 +94,9 @@ func init() {
 	flag.BoolVar(&skipDeps, "skip-deps", false, "Skip dependency checking")
 	flag.BoolVar(&skipDeps, "s", false, "Alias for --skip-deps")
 
+	flag.BoolVar(&installBackgrounds, "backgrounds", false, "Install backgrounds to /usr/share/backgrounds")
+	flag.BoolVar(&installBackgrounds, "b", false, "Alias for --backgrounds")
+
 	flag.BoolVar(&showHelp, "help", false, "Show this help message")
 	flag.BoolVar(&showHelp, "h", false, "Alias for --help")
 }
@@ -101,12 +105,13 @@ func usage() {
 	fmt.Printf(`Usage: %s [OPTIONS] [APP...]
 
 Options:
-  -h, --help       Show this help message
-  -n, --dry-run    Show what would be stowed without actually doing it
-  -u, --uninstall  Unstow the specified apps
-  -v, --verbose    Enable verbose output
-  -l, --list       List all available apps
-  -s, --skip-deps  Skip dependency checking
+  -h, --help        Show this help message
+  -n, --dry-run     Show what would be stowed without actually doing it
+  -u, --uninstall   Unstow the specified apps
+  -v, --verbose     Enable verbose output
+  -l, --list        List all available apps
+  -s, --skip-deps   Skip dependency checking
+  -b, --backgrounds Install backgrounds to /usr/share/backgrounds
 
 Examples:
   %[1]s                # Stow all apps
@@ -114,6 +119,7 @@ Examples:
   %[1]s -n fish        # Dry run stowing fish
   %[1]s -u fish        # Unstow fish
   %[1]s -l             # List all available apps
+  %[1]s -b             # Install backgrounds
 `, os.Args[0])
 }
 
@@ -143,6 +149,14 @@ func main() {
 		fmt.Println("Available apps:")
 		for _, app := range apps {
 			fmt.Printf("  %s\n", app)
+		}
+		return
+	}
+
+	if installBackgrounds {
+		if err := installBackgroundsFromRepo(); err != nil {
+			fmt.Fprintf(os.Stderr, "Error: %v\n", err)
+			os.Exit(1)
 		}
 		return
 	}
@@ -530,5 +544,75 @@ func runStow(args []string) error {
 		fmt.Fprintf(os.Stderr, "Error: stow failed: %v\n", err)
 		return err
 	}
+	return nil
+}
+
+func installBackgroundsFromRepo() error {
+	const (
+		repoURL   = "https://codeberg.org/keys/backgrounds"
+		targetDir = "/usr/share/backgrounds"
+	)
+
+	tmpDir, err := os.MkdirTemp("", "backgrounds-")
+	if err != nil {
+		return fmt.Errorf("failed to create temp directory: %w", err)
+	}
+
+	defer os.RemoveAll(tmpDir)
+	fmt.Println("Cloning backgrounds repository...")
+	cloneCmd := exec.Command("git", "clone", "--depth=1", repoURL, tmpDir)
+	cloneCmd.Stdout = os.Stdout
+	cloneCmd.Stderr = os.Stderr
+
+	if err := cloneCmd.Run(); err != nil {
+		return fmt.Errorf("failed to clone repository: %w", err)
+	}
+
+	fmt.Printf("Installing backgrounds to %s...\n", targetDir)
+	mkdirCmd := exec.Command("sudo", "mkdir", "-p", targetDir)
+	mkdirCmd.Stdout = os.Stdout
+	mkdirCmd.Stderr = os.Stderr
+	mkdirCmd.Stdin = os.Stdin
+
+	if err := mkdirCmd.Run(); err != nil {
+		return fmt.Errorf("failed to create target directory: %w", err)
+	}
+
+	entries, err := os.ReadDir(tmpDir)
+	if err != nil {
+		return fmt.Errorf("failed to read temp directory: %w", err)
+	}
+
+	var filesToCopy []string
+	imageExts := map[string]bool{
+		".jpg": true, ".jpeg": true, ".png": true,
+		".webp": true, ".gif": true, ".bmp": true,
+	}
+
+	for _, entry := range entries {
+		if entry.IsDir() {
+			continue
+		}
+		ext := strings.ToLower(filepath.Ext(entry.Name()))
+		if imageExts[ext] {
+			filesToCopy = append(filesToCopy, filepath.Join(tmpDir, entry.Name()))
+		}
+	}
+
+	if len(filesToCopy) == 0 {
+		return errors.New("no image files found in repository")
+	}
+
+	args := append([]string{"cp", "-v"}, filesToCopy...)
+	args = append(args, targetDir)
+	cpCmd := exec.Command("sudo", args...)
+	cpCmd.Stdout = os.Stdout
+	cpCmd.Stderr = os.Stderr
+	cpCmd.Stdin = os.Stdin
+	if err := cpCmd.Run(); err != nil {
+		return fmt.Errorf("failed to copy backgrounds: %w", err)
+	}
+
+	fmt.Printf("Successfully installed %d backgrounds to %s\n", len(filesToCopy), targetDir)
 	return nil
 }
