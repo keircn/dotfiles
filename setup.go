@@ -557,55 +557,20 @@ func installBackgroundsFromRepo() error {
 	if err != nil {
 		return fmt.Errorf("failed to create temp directory: %w", err)
 	}
-
 	defer os.RemoveAll(tmpDir)
+
 	fmt.Println("Cloning backgrounds repository...")
 	cloneCmd := exec.Command("git", "clone", "--depth=1", repoURL, tmpDir)
 	cloneCmd.Stdout = os.Stdout
 	cloneCmd.Stderr = os.Stderr
-
 	if err := cloneCmd.Run(); err != nil {
 		return fmt.Errorf("failed to clone repository: %w", err)
 	}
+	os.RemoveAll(filepath.Join(tmpDir, ".git"))
 
 	fmt.Printf("Installing backgrounds to %s...\n", targetDir)
-	mkdirCmd := exec.Command("sudo", "mkdir", "-p", targetDir)
-	mkdirCmd.Stdout = os.Stdout
-	mkdirCmd.Stderr = os.Stderr
-	mkdirCmd.Stdin = os.Stdin
 
-	if err := mkdirCmd.Run(); err != nil {
-		return fmt.Errorf("failed to create target directory: %w", err)
-	}
-
-	entries, err := os.ReadDir(tmpDir)
-	if err != nil {
-		return fmt.Errorf("failed to read temp directory: %w", err)
-	}
-
-	var filesToCopy []string
-	imageExts := map[string]bool{
-		".jpg": true, ".jpeg": true, ".png": true,
-		".webp": true, ".gif": true, ".bmp": true,
-	}
-
-	for _, entry := range entries {
-		if entry.IsDir() {
-			continue
-		}
-		ext := strings.ToLower(filepath.Ext(entry.Name()))
-		if imageExts[ext] {
-			filesToCopy = append(filesToCopy, filepath.Join(tmpDir, entry.Name()))
-		}
-	}
-
-	if len(filesToCopy) == 0 {
-		return errors.New("no image files found in repository")
-	}
-
-	args := append([]string{"cp", "-v"}, filesToCopy...)
-	args = append(args, targetDir)
-	cpCmd := exec.Command("sudo", args...)
+	cpCmd := exec.Command("sudo", "cp", "-rv", tmpDir+"/.", targetDir)
 	cpCmd.Stdout = os.Stdout
 	cpCmd.Stderr = os.Stderr
 	cpCmd.Stdin = os.Stdin
@@ -613,6 +578,6 @@ func installBackgroundsFromRepo() error {
 		return fmt.Errorf("failed to copy backgrounds: %w", err)
 	}
 
-	fmt.Printf("Successfully installed %d backgrounds to %s\n", len(filesToCopy), targetDir)
+	fmt.Printf("Successfully installed backgrounds to %s\n", targetDir)
 	return nil
 }
