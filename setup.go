@@ -39,7 +39,7 @@ var appDependencies = map[string][]Dependency{
 	"vim":       {{Binary: "vim", Package: "vim"}},
 	"bash":      {{Binary: "bash", Package: "bash"}},
 	"fastfetch": {{Binary: "fastfetch", Package: "fastfetch"}},
-	"alacritty": {{Binary: "alacritty", Package: "alacritty"}},
+	"kitty":     {{Binary: "kitty", Package: "kitty"}},
 	"mako":      {{Binary: "mako", Package: "mako"}},
 	"waybar": {
 		{Binary: "waybar", Package: "waybar"},
