@@ -21,7 +21,7 @@ gaps inner 4
 gaps outer 2
 
 output * bg /usr/share/backgrounds/2160p/roxy.jpg fill
-output HDMI-A-1 resolution 3840x2160 position 0,0
+output HDMI-A-1 resolution 3840x2160 position 0,0 scale 1.5
 
 exec swayidle -w \
     timeout 300 hyprlock \
