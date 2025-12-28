@@ -10,6 +10,8 @@
   ],
   "modules-right": [
     "idle_inhibitor",
+    "custom/battery",
+    "backlight",
     "disk",
     "network",
     "cpu",
@@ -113,6 +115,27 @@
     "format": "󰐥",
     "tooltip": "Power Menu",
     "on-click": "wlogout",
+  },
+  "custom/battery": {
+    "exec": "/home/kc/.config/waybar/battery.sh",
+    "interval": 5,
+    "return-type": "json",
+    "tooltip": true,
+    "on-click-right": "ghostty -e upower -i $(upower -e | grep BAT)"
+  },
+  "backlight": {
+    "device": "auto",
+    "format": "{icon} {percent}% ",
+    "format-icons": [
+      "󰃞",
+      "󰃟",
+      "󰃠"
+    ],
+    "tooltip": true,
+    "tooltip-format": "Brightness: {percent}%",
+    "on-scroll-up": "brightnessctl set 1%+",
+    "on-scroll-down": "brightnessctl set 1%-",
+    "on-click": "brightnessctl set 100%"
   },
   "sway/workspaces": {
     "current-only": false,
