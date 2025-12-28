@@ -130,4 +130,8 @@ bar {
     swaybar_command waybar
 }
 
+input type:keyboard {
+    xkb_layout gb
+}
+
 include /etc/sway/config.d/*
