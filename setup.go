@@ -31,6 +31,9 @@ var requiredTools = []Dependency{
 }
 
 var appDependencies = map[string][]Dependency{
+	"git": {
+		{Binary: "delta", Package: "git-delta"},
+	},
 	"fish": {
 		{Binary: "fish", Package: "fish"},
 		{Binary: "eza", Package: "eza"},
@@ -51,6 +54,7 @@ var appDependencies = map[string][]Dependency{
 	"sway": {
 		{Binary: "sway", Package: "sway"},
 		{Binary: "swayidle", Package: "swayidle"},
+		{Binary: "swaybg", Package: "swaybg"},
 		{Binary: "grim", Package: "grim"},
 		{Binary: "slurp", Package: "slurp"},
 		{Binary: "wl-copy", Package: "wl-clipboard"},
