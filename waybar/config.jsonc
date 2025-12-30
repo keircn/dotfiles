@@ -111,17 +111,12 @@
     "tooltip-format-activated": "Idle inhibitor ON",
     "tooltip-format-deactivated": "Idle inhibitor OFF"
   },
-  "custom/powermenu": {
-    "format": "󰐥",
-    "tooltip": "Power Menu",
-    "on-click": "wlogout",
-  },
   "custom/battery": {
     "exec": "/home/kc/.config/waybar/battery.sh",
     "interval": 5,
     "return-type": "json",
     "tooltip": true,
-    "on-click-right": "ghostty -e upower -i $(upower -e | grep BAT)"
+    "on-click-right": "ghostty -e upower -i $(upower -e | grep BAT 2>/dev/null || echo 'No battery found')"
   },
   "backlight": {
     "device": "auto",
@@ -137,6 +132,12 @@
     "on-scroll-down": "brightnessctl set 1%-",
     "on-click": "brightnessctl set 100%"
   },
+  "custom/powermenu": {
+    "format": "󰐥",
+    "tooltip": "Power Menu",
+    "on-click": "wlogout",
+  },
+
   "sway/workspaces": {
     "current-only": false,
     "format": " {name} ",
