@@ -9,6 +9,7 @@
     editor = nvim
     autocrlf = input
     pager = delta
+	excludesFile = ~/.gitignore
 
 [pull]
     rebase = true
