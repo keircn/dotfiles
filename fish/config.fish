@@ -13,6 +13,7 @@ end
 set fish_pager_color_prefix cyan
 set fish_color_autosuggestion brblack
 set EDITOR nvim
+set --export BUN_INSTALL "$HOME/.bun"
 
 abbr n nvim
 
@@ -47,10 +48,3 @@ abbr pls sudo
 # 	eval (zellij setup --generate-auto-start fish | string collect)
 #     end
 # end
-
-# bun
-set --export BUN_INSTALL "$HOME/.bun"
-set --export PATH $BUN_INSTALL/bin $PATH
-
-# opencode
-fish_add_path /home/kc/.opencode/bin

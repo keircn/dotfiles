@@ -1,116 +1,126 @@
 * {
-  border: none;
-  border-radius: 0;
-  font-family: "GeistMono Nerd Font", monospace;
-  font-size: 12px;
-  min-height: 0;
+    font-family: "Fira Sans Semibold", "Font Awesome 6 Free", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
 }
 
-@define-color main #ffffff;
-@define-color text #d4c9a8;
-@define-color muted #3a3730;
-@define-color background #000000;
-@define-color green #6b7353;
-@define-color red #a64a3a;
-@define-color warning #b8860b;
-
-#waybar {
-  background-color: @background;
-  color: @text;
-  padding: 2px 6px;
+window#waybar {
+    background-color: #0f1117;
+    font-size: 14px;
+    border-radius: 0px;
+    margin: 0px;
+    padding: 0;
 }
 
-#clock,
-#pulseaudio,
-#network,
-#custom-battery,
-#backlight,
-#cpu,
-#disk,
-#tray,
-#idle_inhibitor {
-  padding: 1px 6px;
-  margin: 2px 1px;
-  border-radius: 6px;
-  transition: color 0.2s;
+/* Left-most: Arch icon */
+#custom-appmenu {
+  font-size: 4;
+  background-image: url('/usr/share/icons/cachyos.svg');
+  background-color: #1e222a;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 0px 12px;
+    
 }
 
-#clock:hover,
-#pulseaudio:hover,
-#network:hover,
-#custom-battery:hover,
-#backlight:hover,
-#cpu:hover,
-#disk:hover,
-#idle_inhibitor:hover {
-  color: @main;
+/* Right-most: Clock */
+#clock {
+    font-size: 14px;
+    background-color: #1e222a;
+    color: #c0c0c0;
+    border-radius: 0px;
+    padding: 0px 8px;
 }
 
-#workspaces {
-  padding: 1px 2px;
-  margin: 2px 1px;
+/* Active window title */
+#window {
+    font-size: 14px;
+    font-weight: 800;
+    color: #e0e0e0;
+    border-radius: 0px;
+    padding: 4px 12px;
+    background-color: #1e222a;
 }
 
-#workspaces button {
-  padding: 1px 4px;
-  margin: 0 1px;
-  border-radius: 4px;
-  color: @muted;
-  transition: all 0.2s;
+/* Workspace container */
+#niri-workspaces {
+    background: #1e222a;
+    font-weight: bold;
+    border-radius: 0px;
+    font-size: 8px;
+    color: #e0e0e0;
+}
+
+/* Individual workspace buttons */
+#niri-workspaces button {
+    border-radius: 0px;
+    font-size: 8px;
+}
+
+#workspaces button.active {
+    border-radius: 0px;
+    color: #0f1117;
+    background: #00ac89;
 }
 
 #workspaces button:hover {
-  background-color: @muted;
-  color: @text;
+    border-radius: 0px;
+    background: #0d3531;
+    border-width: 0px;
 }
 
-#workspaces button.focused,
-#workspaces button.active {
-  background-color: @muted;
-  color: @main;
+/* Power/exit button */
+#custom-exit {
+    background-color: #00ac89;
+    font-size: 14px;
+    font-weight: 800;
+    color: #0f1117;
+    padding: 0px 6px;
+    margin: 2px 2px 2px 0;
 }
 
-#workspaces button.urgent {
-  background-color: @red;
-  color: @main;
+/* Tooltips */
+tooltip {
+    border-radius: 12px;
+    background-color: #0f1117;
+    color: #c0c0c0;
+    padding: 4px 8px;
 }
 
-#custom-battery.charging,
-#custom-battery.full {
-  color: @green;
+/* Taskbar */
+#taskbar {
+    background-color: #1e222a;
+    margin: 0px;
+    border-radius: 0px;
+    font-weight: normal;
 }
 
-#custom-battery.warning {
-  color: @warning;
+/* All system info modules */
+#backlight,
+#pulseaudio,
+#network,
+#bluetooth,
+#battery,
+#tray,
+#custom-updates,
+#custom-notification {
+    background-color: #1e222a;
+    font-size: 14px;
+    font-weight: 800;
+    color: #c0c0c0;
+    border-radius: 0px;
+    padding: 4px 10px;
 }
 
-#custom-battery.critical {
-  color: @red;
-  animation: blink 1s linear infinite alternate;
+/* Battery critical warning */
+#battery.critical:not(.charging) {
+    background-color: #e65100;
+    color: #ffffff;
+    animation: blink 0.5s linear infinite alternate;
 }
 
 @keyframes blink {
-  to {
-    background-color: @red;
-    color: @background;
-  }
-}
-
-#pulseaudio.muted {
-  color: @muted;
-}
-
-#disk.warning,
-#cpu.warning {
-  color: @warning;
-}
-
-#disk.critical,
-#cpu.critical {
-  color: @red;
-  animation: blink 1s linear infinite alternate;
-}
-
-#idle_inhibitor.activated {
-  color: @main;
+    to {
+        background-color: #0f1117;
+        color: #ffffff;
+    }
 }
