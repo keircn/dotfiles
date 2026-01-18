@@ -16,3 +16,4 @@ set -gx XDG_PICTURES_DIR "$HOME/pictures"
 set -gx XDG_VIDEOS_DIR "$HOME/videos"
 set -gx LESSHISTFILE /tmp/less-hist
 set -gx PARALLEL_HOME "$XDG_CONFIG_HOME/parallel"
+set -gx STEAM_COMPAT_DATA_PATH "$HOME/.local/share/steam-local/compatdata"
