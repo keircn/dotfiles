@@ -58,7 +58,7 @@ var appDependencies = map[string][]Dependency{
 		{Binary: "grim", Package: "grim"},
 		{Binary: "slurp", Package: "slurp"},
 		{Binary: "wl-copy", Package: "wl-clipboard"},
-		{Binary: "clipman", Package: "clipman", AUR: true},
+		{Binary: "clipse", Package: "clipse", AUR: true},
 		{Binary: "brightnessctl", Package: "brightnessctl"},
 		{Binary: "pactl", Package: "libpulse"},
 		{Binary: "jq", Package: "jq"},
