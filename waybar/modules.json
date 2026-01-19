@@ -1,10 +1,10 @@
 {
-  // Workspaces
   "niri/workspaces": {
-    "on-click": "activate"
+    "on-click": "activate",
+    "format": "{name}",
+    "tooltip": false
   },
 
-  // Taskbar
   "wlr/taskbar": {
     "format": "{icon}",
     "icon-size": 18,
@@ -21,7 +21,6 @@
     }
   },
 
-  // niri Window
   "niri/window": {
     "format": "{}",
     "rewrite": {
@@ -31,148 +30,64 @@
       "(.*) - Outlook": "$1",
       "(.*) Microsoft Teams": "$1"
     },
-    "separate-outputs": true
+    "separate-outputs": true,
+    "max-length": 40
   },
 
-  // Empty
-  "custom/empty": {
-    "format": ""
+  "cpu": {
+    "format": "CPU  {usage}%",
+    "interval": 5,
+    "tooltip": true
   },
 
-    // Tools
-  "custom/tools": {
-    "format": "",
-    "tooltip-format": "Tools"
+  "memory": {
+    "format": "MEM  {percentage}%",
+    "interval": 5,
+    "tooltip": true
   },
 
-  // Updates Count
-  "custom/updates": {
-      "format": "{} {icon}",
-      "return-type": "json",
-      "format-icons": {
-          "has-updates": "󱍷",
-          "updated": "󰂪"
-      },
-      "exec-if": "which waybar-module-pacman-updates",
-      "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300"
+  "temperature": {
+    "format": "{temperatureC}°C",
+    "critical-threshold": 80,
+    "format-critical": "{temperatureC}°C",
+    "tooltip": true
   },
 
-  // wofi Application Launcher
-  "custom/appmenu": {
-    "format": "   ",
-    "on-click": "sleep 0.2;wofi -show drun -replace",
-    "tooltip-format": "Left: Open the application launcher\nRight: Show all keybindings"
-  },
-
-  // wofi Application Launcher
-  "custom/appmenuicon": {
-    "format": "",
-    "on-click": "sleep 0.2;wofi -show drun -replace",
-    "tooltip-format": "Left: Open the application launcher\nRight: Show all keybindings"
-  },
-
-  // Power Menu
-  "custom/exit": {
-    "format": " 󰐥 ",
-    "on-click": "~/.config/waybar/scripts/power-menu.sh",
-    "tooltip-format": "Power Menu"
-  },
-
-  // Keyboard State
-  "keyboard-state": {
-    "numlock": true,
-    "capslock": true,
-    "format": "{name} {icon}",
-    "format-icons": {
-      "locked": "",
-      "unlocked": ""
-    }
-  },
-
-  // System tray
   "tray": {
-    "icon-size": 21,
-    "spacing": 10
+    "icon-size": 18,
+    "spacing": 8
   },
 
-  // Clock
-  "clock": {
-    "format": "{:%H:%M %a}",
-    "on-click": "ags -t calendar",
-    "tooltip": false
-  },
-
-  "niri/language": {
-    "format": "/ K {short}"
-  },
-
-  // Battery
-  "battery": {
-    "states": {
-      // "good": 95,
-      "warning": 30,
-      "critical": 15
-    },
-    "format": "{icon} {capacity}%",
-    "format-charging": "  {capacity}%",
-    "format-plugged": "  {capacity}%",
-    "format-alt": "{icon}  {time}",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
-    "format-icons": [" ", " ", " ", " ", " "]
-  },
-
-  // Pulseaudio
   "pulseaudio": {
-    // "scroll-step": 1, // %, can be a float
-    "format": "{icon}  {volume}%",
-    "format-bluetooth": "{volume}% {icon} {format_source}",
-    "format-bluetooth-muted": " {icon} {format_source}",
-    "format-muted": " {format_source}",
-    "format-source": "{volume}% ",
-    "format-source-muted": "",
-    "format-icons": {
-    },
+    "scroll-step": 1,
+    "format": "VOL  {volume}%",
+    "format-muted": "VOL  MUTED",
+    "format-source": "MIC  {volume}%",
+    "format-source-muted": "MIC  MUTED",
     "on-click": "pavucontrol"
   },
 
-  // Bluetooth
-  "bluetooth": {
-    "format": " {status}",
-    "format-disabled": "",
-    "format-off": "",
-    "interval": 30,
-    "on-click": "blueman-manager",
-    "format-no-controller": ""
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}%",
+    "format-charging": "{capacity}%  [CHG]",
+    "format-plugged": "{capacity}%  [PLG]",
+    "format-alt": "{time}"
   },
 
-  // Other
-  "user": {
-    "format": "{user}",
-    "interval": 60,
-    "icon": false
+  "clock": {
+    "format": "{:%H:%M  %a %d}",
+    "format-alt": "{:%A, %B %d  %Y}",
+    "on-click": "ags -t calendar",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>"
   },
 
-  // backlight:
-  "backlight": {
-    "format": "{icon} {percent}%",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      ""
-    ],
-    "scroll-step": 1
+  "custom/exit": {
+    "format": "POW",
+    "on-click": "~/.config/waybar/scripts/power-menu.sh",
+    "tooltip-format": "Power Menu"
   }
 }

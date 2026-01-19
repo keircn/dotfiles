@@ -1,18 +1,17 @@
 {
     "layer": "top",
-    "margin-top": 0,
-    "margin-bottom": 0,
-    "margin-left": 0,
-    "margin-right": 0,
-    "spacing": 0,
+    "position": "top",
+    "spacing": 4,
 
     "include": [
         "~/.config/waybar/modules.json"
     ],
 
     "modules-left": [
-        "custom/appmenu",
         "wlr/taskbar",
+        "cpu",
+        "memory",
+        "temperature",
         "niri/window"
     ],
 
@@ -23,6 +22,7 @@
     "modules-right": [
         "tray",
         "pulseaudio",
+        "battery",
         "clock",
         "custom/exit"
     ]
