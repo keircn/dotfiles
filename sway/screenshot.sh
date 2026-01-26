@@ -2,17 +2,123 @@
 
 MODE=${1:-select}
 
+run_timeout() {
+  local t="$1"
+  shift
+  if command -v timeout >/dev/null 2>&1; then
+    timeout "$t" "$@"
+    return $?
+  fi
+  "$@" &
+  local pid=$!
+  (
+    sleep ${t%[s]}
+    kill -0 "$pid" 2>/dev/null && kill "$pid" 2>/dev/null
+  ) &
+  local killer=$!
+  wait "$pid"
+  local rc=$?
+  kill "$killer" 2>/dev/null || true
+  return $rc
+}
+
+run_timeout_capture() {
+  local t="$1"
+  shift
+  local tmp
+  tmp=$(mktemp)
+  if command -v timeout >/dev/null 2>&1; then
+    timeout "$t" "$@" >"$tmp" 2>&1
+    local rc=$?
+    cat "$tmp"
+    rm -f "$tmp"
+    return $rc
+  fi
+  "$@" >"$tmp" 2>&1 &
+  local pid=$!
+  (
+    sleep ${t%[s]}
+    kill -0 "$pid" 2>/dev/null && kill "$pid" 2>/dev/null
+  ) &
+  local killer=$!
+  wait "$pid"
+  local rc=$?
+  kill "$killer" 2>/dev/null || true
+  cat "$tmp"
+  rm -f "$tmp"
+  return $rc
+}
+
 upload() {
   local file="$1"
   if [ -z "$file" ] || [ ! -f "$file" ]; then
-    echo "Error: no screenshot file to upload"
+    if command -v notify-send >/dev/null 2>&1; then
+      notify-send -u normal -i dialog-error "Screenshot" "No screenshot file to upload"
+    else
+      echo "Error: no screenshot file to upload"
+    fi
     return 1
   fi
-  hostman upload "$file"
+
+  local out tmp rc
+  tmp=$(mktemp)
+  run_timeout_capture 20s sh -c "hostman upload '$file' < /dev/null" >"$tmp" 2>&1
+  rc=$?
+  out=$(cat "$tmp" 2>/dev/null || true)
+  rm -f "$tmp"
+  CLEAN=$(printf '%s' "$out" | strip_ansi)
+
+  if [ $rc -eq 0 ]; then
+    URL=$(printf '%s' "$CLEAN" | grep -oE 'https?://[^[:space:]]+' | head -n1 || true)
+    if [ -n "$URL" ]; then
+      if command -v notify-send >/dev/null 2>&1; then
+        notify-send -u low -i camera-photo "Screenshot uploaded" "$URL"
+      else
+        echo "Uploaded: $URL"
+      fi
+    else
+      if command -v notify-send >/dev/null 2>&1; then
+        notify-send -u low -i camera-photo "Screenshot uploaded" "Upload succeeded"
+      else
+        echo "Upload succeeded"
+      fi
+    fi
+    if [[ "$file" == /tmp/screenshot-* ]]; then
+      rm -f -- "$file" || true
+    fi
+    return 0
+  else
+    ERR=$(printf '%s' "$CLEAN" | head -n1)
+    if command -v notify-send >/dev/null 2>&1; then
+      notify-send -u normal -i dialog-error "Screenshot upload failed" "$ERR"
+    else
+      echo "Upload failed: $ERR"
+    fi
+    return $rc
+  fi
+}
+
+notify() {
+  local title="$1"
+  local body="$2"
+  local icon="$3"
+  if command -v notify-send >/dev/null 2>&1; then
+    notify-send -u low -i "$icon" "$title" "$body"
+  else
+    echo "$title: $body"
+  fi
 }
 
 tmpfile() {
   echo "/tmp/screenshot-$(date +%s)-$RANDOM.png"
+}
+
+strip_ansi() {
+  if command -v perl >/dev/null 2>&1; then
+    perl -pe 's/\e\[[\d;?]*[ -\/]*[@-~]//g'
+  else
+    sed -r 's/\x1B\[[0-9;]*[mK]//g'
+  fi
 }
 
 capture_with_geom() {
@@ -20,7 +126,11 @@ capture_with_geom() {
   local out
   out=$(tmpfile)
   if command -v grim >/dev/null 2>&1; then
-    grim -g "$geom" "$out"
+    if command -v timeout >/dev/null 2>&1; then
+      timeout 10s grim -g "$geom" "$out"
+    else
+      grim -g "$geom" "$out"
+    fi
   else
     echo "Error: grim is not installed"
     return 1
@@ -30,17 +140,18 @@ capture_with_geom() {
 
 case "$MODE" in
 select)
-  OUTPUT=$(grabit -o 2>/dev/null || true)
-  if [ -n "$OUTPUT" ] && [ -f "$OUTPUT" ]; then
+  OUTPUT=$(run_timeout_capture 10s grabit -o 2>/dev/null || true)
+  rc=$?
+  if [ $rc -eq 0 ] && [ -n "$OUTPUT" ] && [ -f "$OUTPUT" ]; then
     upload "$OUTPUT"
     exit $?
   fi
 
   if command -v slurp >/dev/null 2>&1 && command -v grim >/dev/null 2>&1; then
-    SEL=$(slurp 2>/dev/null)
-    if [ -n "$SEL" ]; then
-      FILE=$(tmpfile)
-      grim -g "$SEL" "$FILE"
+    SEL=$(run_timeout_capture 20s slurp 2>/dev/null || true)
+    rc=$?
+    if [ $rc -eq 0 ] && [ -n "$SEL" ]; then
+      FILE=$(capture_with_geom "$SEL") || exit 1
       upload "$FILE"
       exit $?
     fi
@@ -67,7 +178,7 @@ def find(obj):
         for i in obj:
             find(i)
 try:
-    data = json.loads(subprocess.check_output(['swaymsg','-t','get_tree']))
+    data = json.loads(subprocess.check_output(['swaymsg','-t','get_tree'], timeout=2))
     find(data)
 except Exception:
     pass
@@ -91,7 +202,7 @@ monitor)
       python3 - <<'PY'
 import sys, json, subprocess
 try:
-    outs = json.loads(subprocess.check_output(['swaymsg','-t','get_outputs']))
+    outs = json.loads(subprocess.check_output(['swaymsg','-t','get_outputs'], timeout=2))
     for o in outs:
         if o.get('focused'):
             r = o.get('rect')
