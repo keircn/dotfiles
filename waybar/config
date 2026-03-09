@@ -12,11 +12,11 @@
         "cpu",
         "memory",
         "temperature",
-        "niri/window"
+        "hyprland/window"
     ],
 
     "modules-center": [
-        "niri/workspaces"
+        "hyprland/workspaces"
     ],
 
     "modules-right": [
