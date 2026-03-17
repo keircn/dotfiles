@@ -1,0 +1,32 @@
+[user]
+    name = Marvin Blank
+    email = blank@dontsp.am
+
+[init]
+    defaultBranch = main
+
+[core]
+    editor = nvim
+    autocrlf = input
+    excludesFile = ~/.gitignore
+
+[pull]
+    rebase = true
+
+[push]
+    autoSetupRemote = true
+
+[merge]
+    conflictstyle = zdiff3
+
+[alias]
+    unstage = reset HEAD --
+    last = log -1 HEAD
+    visual = log --oneline --decorate --all --graph
+    hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+
+[advice]
+	addEmptyPathspec = false
+
+[checkout]
+	defaultRemote = origin
