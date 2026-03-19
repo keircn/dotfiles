@@ -1,0 +1,34 @@
+general {
+        colors = true
+        interval = 5
+}
+
+order += "ethernet enp3s0"
+order += "disk /"
+order += "cpu_usage"
+order += "memory"
+order += "tztime local"
+
+ethernet enp3s0 {
+        format_up = "ETH %ip"
+        format_down = "ETH down"
+}
+
+disk "/" {
+        format = "DISK %avail"
+}
+
+cpu_usage {
+        format = "CPU %usage"
+}
+
+memory {
+        format = "MEM %used of %available"
+        threshold_degraded = "1G"
+        format_degraded = "MEMORY < %available"
+}
+
+tztime local {
+        format = "%d-%m-%Y %H:%M"
+	timezone = "Europe/London"
+}
