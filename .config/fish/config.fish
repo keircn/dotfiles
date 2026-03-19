@@ -13,7 +13,6 @@ end
 set fish_pager_color_prefix cyan
 set fish_color_autosuggestion brblack
 set EDITOR nvim
-set --export BUN_INSTALL "$HOME/.bun"
 
 alias zed zeditor
 alias n nvim
