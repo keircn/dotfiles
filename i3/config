@@ -35,7 +35,6 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 bindsym $mod+t exec st
 bindsym $mod+q kill
-# bindsym $mod+d exec --no-startup-id rofi -show drun
 bindsym $mod+d exec --no-startup-id st -n fsel_launcher -e fsel --detach
 bindsym $mod+c exec --no-startup-id st -n fsel_clipboard -e /bin/sh -c \
     "clipcatctl list | fsel --dmenu --index | xargs -r clipcatctl copy --index"
@@ -43,8 +42,6 @@ bindsym Print exec --no-startup-id maim | xclip -selection clipboard -t image/pn
 bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 bindsym Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 bindsym $mod+Shift+Delete exec --no-startup-id /usr/local/bin/lock.sh
-# bindsym $mod+p exec $launcher-clipboard-insert
-# bindsym $mod+o exec $launcher-clipboard-remove
 
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -126,7 +123,7 @@ bar {
         statusline $fg
         separator  $muted
 
-        #                  border  background text
+        #                  border  background  text
         focused_workspace  $accent $accent     $bg
         active_workspace   $color2 $color2     $fg
         inactive_workspace $bg     $bg         $muted
