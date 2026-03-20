@@ -55,12 +55,9 @@ done
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$SCRIPT_DIR"
 
-declare -a home_packages=(
+declare -a all_packages=(
   bash
   git
-)
-
-declare -a config_packages=(
   autorandr
   clipcat
   fish
@@ -71,9 +68,31 @@ declare -a config_packages=(
   i3status
   rofi
   starship
+  x11
 )
 
-declare -a all_packages=("${home_packages[@]}" "${config_packages[@]}")
+declare -A package_targets=(
+  [bash]="."
+  [git]="."
+  [autorandr]=".config/autorandr"
+  [clipcat]=".config/clipcat"
+  [fish]=".config/fish"
+  [fsel]=".config/fsel"
+  [gtk-3.0]=".config/gtk-3.0"
+  [gtk-4.0]=".config/gtk-4.0"
+  [i3]=".config/i3"
+  [i3status]=".config/i3status"
+  [rofi]=".config/rofi"
+  [starship]=".config/starship"
+  [x11]="."
+)
+
+declare -A package_ignores=(
+  [gtk-3.0]='^gtk-3\.0$|^gtk-3\.0/'
+  [gtk-4.0]='^gtk-4\.0$|^gtk-4\.0/|(^|/)\._.*'
+  [i3]='^i3$|^i3/'
+  [i3status]='^i3status$|^i3status/'
+)
 
 in_array() {
   local needle="$1"
@@ -89,17 +108,11 @@ in_array() {
 
 package_target() {
   local pkg="$1"
-  if in_array "$pkg" "${home_packages[@]}"; then
-    printf '%s' "$HOME"
-    return 0
+  local rel_target="${package_targets[$pkg]-}"
+  if [[ -z "$rel_target" ]]; then
+    return 1
   fi
-
-  if in_array "$pkg" "${config_packages[@]}"; then
-    printf '%s' "$HOME/.config/$pkg"
-    return 0
-  fi
-
-  return 1
+  printf '%s' "$HOME/$rel_target"
 }
 
 declare -a packages=()
@@ -142,6 +155,11 @@ for pkg in "${packages[@]}"; do
     cmd+=(-R)
   else
     cmd+=(-S)
+  fi
+
+  ignore_regex="${package_ignores[$pkg]-}"
+  if [[ -n "$ignore_regex" ]]; then
+    cmd+=(--ignore="$ignore_regex")
   fi
 
   cmd+=(-t "$target" "$pkg")
