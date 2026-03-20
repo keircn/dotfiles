@@ -1,22 +1,32 @@
 set $mod Mod1
 
-font pango:monospace 8
+font pango: Commit Mono Nerd Font 10
 
-set_from_resource $bg i3wm.background #121019
-set_from_resource $fg i3wm.foreground #e0def4
-set_from_resource $love i3wm.color1 #eb6f92
-set_from_resource $pine i3wm.color2 #31748f
+set_from_resource $bg      background  #0f1419
+set_from_resource $fg      foreground  #e6e1cf
+set_from_resource $color1  color1      #ff7733
+set_from_resource $color2  color0      #161b22
+set_from_resource $accent  color4      #59c2ff
+set_from_resource $muted   color8      #5c6773
 
 # class                 border  backgr. text    indicator child_border
-client.focused          $pine   $pine   $bg     $pine     $pine
-client.focused_inactive $bg     $bg     $fg     $bg       $bg
-client.unfocused        $bg     $bg     $fg     $bg       $bg
-client.urgent           $love   $love   $fg     $love     $love
+client.focused          $accent $accent $bg     $accent   $accent
+client.focused_inactive $color2 $color2 $muted  $color2   $color2
+client.unfocused        $bg     $bg     $muted  $bg       $bg
+client.urgent           $color1 $color1 $fg     $color1   $color1
 
 exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- /usr/local/bin/lock.sh --nofork
+exec --no-startup-id autorandr -l main
+exec_always --no-startup-id xrdb -merge ~/.Xresources
 
 set $refresh_i3status killall -SIGUSR1 i3status
+set $launcher-clipboard-insert clipcat-menu insert
+set $launcher-clipboard-remove clipcat-menu remove
+
+for_window [class="steam"] floating enable
+for_window [instance="fsel_launcher"] floating enable, resize set 800 500, move position center
+for_window [instance="fsel_clipboard"] floating enable, resize set 900 600, move position center
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
@@ -25,10 +35,16 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 bindsym $mod+t exec st
 bindsym $mod+q kill
-bindsym $mod+d exec --no-startup-id rofi -show drun
+# bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+d exec --no-startup-id st -n fsel_launcher -e fsel --detach
+bindsym $mod+c exec --no-startup-id st -n fsel_clipboard -e /bin/sh -c \
+    "clipcatctl list | fsel --dmenu --index | xargs -r clipcatctl copy --index"
 bindsym Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
 bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 bindsym Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+bindsym $mod+Shift+Delete exec --no-startup-id /usr/local/bin/lock.sh
+# bindsym $mod+p exec $launcher-clipboard-insert
+# bindsym $mod+o exec $launcher-clipboard-remove
 
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -40,8 +56,8 @@ bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move right
 
-bindsym $mod+h split h
-bindsym $mod+v split v
+bindsym $mod+Shift+h split h
+bindsym $mod+Shift+v split v
 bindsym $mod+f fullscreen toggle
 
 bindsym $mod+s layout stacking
@@ -104,5 +120,16 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bar {
-        status_command i3status
+    status_command i3status
+    colors {
+        background $bg
+        statusline $fg
+        separator  $muted
+
+        #                  border  background text
+        focused_workspace  $accent $accent     $bg
+        active_workspace   $color2 $color2     $fg
+        inactive_workspace $bg     $bg         $muted
+        urgent_workspace   $color1 $color1     $fg
+    }
 }
