@@ -1,2 +1,10 @@
-.config/fish/completions
-.config/fish/fish_variables
+**/.bash_history
+**/.python_history
+**/.sqlite_history
+**/.env
+**/*.key
+**/*.pem
+**/secrets.*
+.DS_Store
+Thumbs.db
+**/._*

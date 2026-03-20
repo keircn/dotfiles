@@ -1,36 +1,19 @@
-! Custom Deep Rosé Pine
-*.foreground: #e0def4
-*.background: #121019
-*.cursorColor: #524f67
-
-! Black (Overlay/Muted)
-*.color0: #1f1d2e
-*.color8: #6e6a86
-
-! Red (Love)
-*.color1: #eb6f92
-*.color9: #eb6f92
-
-! Green (Pine)
-*.color2: #31748f
-*.color10: #31748f
-
-! Yellow (Gold)
-*.color3: #f6c177
-*.color11: #f6c177
-
-! Blue (Foam)
-*.color4: #9ccfd8
-*.color12: #9ccfd8
-
-! Magenta (Iris)
-*.color5: #c4a7e7
-*.color13: #c4a7e7
-
-! Cyan (Rose)
-*.color6: #ebbcba
-*.color14: #ebbcba
-
-! White (Text)
-*.color7: #e0def4
-*.color15: #e0def4
+*.foreground:  #e6e1cf
+*.background:  #0f1419
+*.cursorColor: #ffb454
+*.color0:      #161b22
+*.color8:      #5c6773
+*.color1:      #ff7733
+*.color9:      #ff7733
+*.color2:      #b8cc52
+*.color10:     #b8cc52
+*.color3:      #ffb454
+*.color11:     #ffb454
+*.color4:      #59c2ff
+*.color12:     #59c2ff
+*.color5:      #f07178
+*.color13:     #f07178
+*.color6:      #39adb5
+*.color14:     #39adb5
+*.color7:      #e6e1cf
+*.color15:     #ffffff
