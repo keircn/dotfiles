@@ -1,6 +1,7 @@
 [user]
-    name = Marvin Blank
-    email = blank@dontsp.am
+	name = Keiran
+	email = keircn@proton.me
+	signingKey = 6E743FA85A2167C6A39F43835E0E6A505A27B540
 
 [init]
     defaultBranch = main
@@ -30,3 +31,5 @@
 
 [checkout]
 	defaultRemote = origin
+[commit]
+	gpgsign = true
