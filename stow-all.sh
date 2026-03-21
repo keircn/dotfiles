@@ -58,6 +58,7 @@ REPO_ROOT="$SCRIPT_DIR"
 declare -a all_packages=(
   bash
   git
+  x11
   autorandr
   clipcat
   fish
@@ -68,13 +69,14 @@ declare -a all_packages=(
   i3status
   rofi
   starship
-  x11
   kitty
+  fastfetch
 )
 
 declare -A package_targets=(
   [bash]="."
   [git]="."
+  [x11]="."
   [autorandr]=".config/autorandr"
   [clipcat]=".config/clipcat"
   [fish]=".config/fish"
@@ -85,8 +87,8 @@ declare -A package_targets=(
   [i3status]=".config/i3status"
   [rofi]=".config/rofi"
   [starship]=".config/starship"
-  [x11]="."
   [kitty]=".config/kitty"
+  [fastfetch]=".config/fastfetch"
 )
 
 declare -A package_ignores=(
