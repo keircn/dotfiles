@@ -69,6 +69,7 @@ declare -a all_packages=(
   rofi
   starship
   x11
+  kitty
 )
 
 declare -A package_targets=(
@@ -85,13 +86,12 @@ declare -A package_targets=(
   [rofi]=".config/rofi"
   [starship]=".config/starship"
   [x11]="."
+  [kitty]=".config/kitty"
 )
 
 declare -A package_ignores=(
   [gtk-3.0]='^gtk-3\.0$|^gtk-3\.0/'
   [gtk-4.0]='^gtk-4\.0$|^gtk-4\.0/|(^|/)\._.*'
-  [i3]='^i3$|^i3/'
-  [i3status]='^i3status$|^i3status/'
 )
 
 in_array() {
