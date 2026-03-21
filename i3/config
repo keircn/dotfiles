@@ -19,7 +19,9 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- /usr/local/bin/lock.sh --nofork
 exec --no-startup-id autorandr -l main
 exec_always --no-startup-id xrdb -merge ~/.Xresources
+exec_always --no-startup-id snixembed
 
+set $term kitty
 set $refresh_i3status killall -SIGUSR1 i3status
 set $launcher-clipboard-insert clipcat-menu insert
 set $launcher-clipboard-remove clipcat-menu remove
@@ -33,10 +35,10 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-bindsym $mod+t exec st
+bindsym $mod+t exec $term
 bindsym $mod+q kill
-bindsym $mod+d exec --no-startup-id st -n fsel_launcher -e fsel --detach
-bindsym $mod+c exec --no-startup-id st -n fsel_clipboard -e /bin/sh -c \
+bindsym $mod+d exec --no-startup-id $term --name fsel_launcher fsel --detach
+bindsym $mod+c exec --no-startup-id $term --name fsel_clipboard /bin/sh -c \
     "clipcatctl list | fsel --dmenu --index | xargs -r clipcatctl copy --index"
 bindsym Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
 bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
