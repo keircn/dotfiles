@@ -15,7 +15,7 @@ ethernet enp3s0 {
 }
 
 disk "/" {
-        format = "DISK %avail"
+        format = "DISK %avail/%total"
 }
 
 cpu_usage {
@@ -23,9 +23,9 @@ cpu_usage {
 }
 
 memory {
-        format = "MEM %used of %available"
+        format = "MEM %used of %total"
         threshold_degraded = "1G"
-        format_degraded = "MEMORY < %available"
+        format_degraded = "MEMORY < %total"
 }
 
 tztime local {
