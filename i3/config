@@ -42,7 +42,7 @@ bindsym $mod+t exec $term
 bindsym $mod+q kill
 bindsym $mod+d exec --no-startup-id $term -n fsel_launcher -e fsel --detach
 bindsym $mod+c exec --no-startup-id $term -n fsel_clipboard -e /bin/sh -c \
-    "clipcatctl list | fsel --dmenu --index | xargs -r clipcatctl copy --index"
+    "clipcatctl list | fsel --dmenu | cut -d: -f1 | xargs -r clipcatctl promote"
 bindsym Print exec --no-startup-id $HOME/.local/bin/screenshot.sh > /tmp/grabit.log
 # bindsym $mod+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 bindsym $mod+Shift+Delete exec --no-startup-id /usr/local/bin/lock.sh
