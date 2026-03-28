@@ -15,7 +15,7 @@ ethernet enp3s0 {
 }
 
 disk "/" {
-        format = "DISK %avail/%total"
+        format = "DISK %used/%total"
 }
 
 cpu_usage {
