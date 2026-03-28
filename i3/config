@@ -18,8 +18,10 @@ client.urgent           $color1 $color1 $fg     $color1   $color1
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- /usr/local/bin/lock.sh --nofork
 exec --no-startup-id autorandr -l main
+exec --no-startup-id linux-wallpaperengine --screen-root HDMI-A-0 --bg 1372127739 --silent &
 exec_always --no-startup-id xrdb -merge ~/.Xresources
 exec_always --no-startup-id snixembed
+exec_always --no-startup-id clipcatd
 
 set $term st
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -41,7 +43,7 @@ bindsym $mod+q kill
 bindsym $mod+d exec --no-startup-id $term -n fsel_launcher -e fsel --detach
 bindsym $mod+c exec --no-startup-id $term -n fsel_clipboard -e /bin/sh -c \
     "clipcatctl list | fsel --dmenu --index | xargs -r clipcatctl copy --index"
-bindsym Print exec --no-startup-id $HOME/.local/bin/screenshot.sh
+bindsym Print exec --no-startup-id $HOME/.local/bin/screenshot.sh > /tmp/grabit.log
 # bindsym $mod+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 bindsym $mod+Shift+Delete exec --no-startup-id /usr/local/bin/lock.sh
 
