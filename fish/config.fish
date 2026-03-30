@@ -17,6 +17,7 @@ set BROWSER helium-browser
 
 alias zed zeditor
 alias n nvim
+alias e 'emacs -nw'
 
 abbr .. 'cd ..'
 abbr ... 'cd ../..'
