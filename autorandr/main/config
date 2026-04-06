@@ -4,10 +4,10 @@ output DVI-D-0
 off
 output HDMI-A-0
 crtc 0
-mode 1920x1080
+mode 3840x2160
 pos 0x0
 primary
-rate 100.00
+rate 60.00
 x-prop-broadcast_rgb Full
 x-prop-colorspace Default
 x-prop-max_bpc 16

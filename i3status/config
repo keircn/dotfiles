@@ -3,13 +3,13 @@ general {
         interval = 5
 }
 
-order += "ethernet enp3s0"
+order += "ethernet eth0"
 order += "disk /"
 order += "cpu_usage"
 order += "memory"
 order += "tztime local"
 
-ethernet enp3s0 {
+ethernet eth0 {
         format_up = "ETH %ip"
         format_down = "ETH down"
 }
