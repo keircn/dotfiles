@@ -1,7 +1,7 @@
 [user]
 	name = Keiran
 	email = keircn@proton.me
-	signingKey = 6E743FA85A2167C6A39F43835E0E6A505A27B540
+	signingKey = DA6AA426E86AA6CA
 
 [init]
     defaultBranch = main
