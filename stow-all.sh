@@ -69,7 +69,7 @@ declare -a all_packages=(
   i3status
   rofi
   starship
-  kitty
+  foot
   fastfetch
 )
 
@@ -87,7 +87,7 @@ declare -A package_targets=(
   [i3status]=".config/i3status"
   [rofi]=".config/rofi"
   [starship]=".config/starship"
-  [kitty]=".config/kitty"
+  [foot]=".config/foot"
   [fastfetch]=".config/fastfetch"
 )
 
