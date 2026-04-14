@@ -8,3 +8,56 @@ window#waybar {
     color: #e6e1cf;
     border-bottom: 2px solid #39adb5;
 }
+
+#workspaces {
+    margin: 0 6px;
+}
+
+#workspaces button {
+    color: #e6e1cf;
+    background: #161b22;
+    border: 1px solid #161b22;
+    border-radius: 6px;
+    padding: 0 8px;
+    margin: 4px 2px;
+}
+
+#workspaces button.empty {
+    color: #5c6773;
+    background: transparent;
+    border: 1px solid transparent;
+}
+
+#workspaces button:not(.empty):not(.active):not(.focused) {
+    color: #e6e1cf;
+    background: #161b22;
+    border: 1px solid #5c6773;
+}
+
+#workspaces button.active,
+#workspaces button.focused {
+    color: #0f1419;
+    background: #59c2ff;
+    border: 1px solid #59c2ff;
+}
+
+#workspaces button:hover {
+    color: #e6e1cf;
+    background: #161b22;
+    border: 1px solid #39adb5;
+}
+
+#workspaces button.urgent {
+    color: #0f1419;
+    background: #ff7733;
+    border: 1px solid #ff7733;
+}
+
+#clock,
+#network,
+#pulseaudio,
+#battery,
+#tray {
+    margin: 0 6px;
+    padding: 0 4px;
+}

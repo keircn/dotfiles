@@ -11,34 +11,30 @@
   "modules-right": [
     "network",
     "battery",
-    "pulseaudio",
-    "tray"
+    "pulseaudio"
   ],
   "sway/workspaces": {
     "disable-scroll": true,
-    "all-outputs": true
+    "all-outputs": true,
+    "format": "{name}"
   },
   "clock": {
     "format": "{:%H:%M  %a %d}",
     "tooltip-format": "{:%Y-%m-%d | %H:%M:%S}"
   },
   "network": {
-    "format-wifi": "  {essid}",
-    "format-ethernet": " ",
-    "format-disconnected": "⚠"
+    "format-wifi": "WIFI {essid}",
+    "format-ethernet": "LAN",
+    "format-disconnected": "NET down"
   },
   "pulseaudio": {
-    "format": "{volume}% {icon}",
-    "format-muted": ""
+    "format": "VOL {volume}%",
+    "format-muted": "VOL mute"
   },
   "battery": {
-    "format": "{capacity}% {icon}",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      ""
-    ]
+    "format": "BAT {capacity}%",
+    "format-charging": "BAT charging {capacity}%",
+    "format-plugged": "BAT plugged {capacity}%",
+    "format-full": "BAT full"
   }
 }
