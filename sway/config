@@ -44,6 +44,36 @@ bindsym $mod+Shift+$down move down
 bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
 
+bindsym $mod+x splith
+bindsym $mod+v splitv
+bindsym $mod+a layout toggle split
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+Shift+a layout default
+
+bindsym $mod+m mark --replace _swap
+bindsym $mod+Shift+m swap container with mark _swap
+
+bindsym $mod+minus move scratchpad
+bindsym $mod+equal scratchpad show
+
+mode "resize" {
+    bindsym $left resize shrink width 10 px
+    bindsym $down resize grow height 10 px
+    bindsym $up resize shrink height 10 px
+    bindsym $right resize grow width 10 px
+
+    bindsym Shift+$left resize shrink width 50 px
+    bindsym Shift+$down resize grow height 50 px
+    bindsym Shift+$up resize shrink height 50 px
+    bindsym Shift+$right resize grow width 50 px
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
