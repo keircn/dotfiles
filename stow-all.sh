@@ -59,6 +59,11 @@ declare -a all_packages=(
   bash
   git
   fish
+  fuzzel
+  mako
+  sway
+  swaylock
+  waybar
   gtk-3.0
   gtk-4.0
   starship
@@ -70,6 +75,11 @@ declare -A package_targets=(
   [bash]="."
   [git]="."
   [fish]=".config/fish"
+  [fuzzel]=".config/fuzzel"
+  [mako]=".config/mako"
+  [sway]=".config/sway"
+  [swaylock]=".config/swaylock"
+  [waybar]=".config/waybar"
   [gtk-3.0]=".config/gtk-3.0"
   [gtk-4.0]=".config/gtk-4.0"
   [starship]=".config/starship"
