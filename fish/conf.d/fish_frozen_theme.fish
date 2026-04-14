@@ -5,36 +5,36 @@
 #     man fish-interactive | less +/^SYNTAX.HIGHLIGHTING
 # for appropriate commands to add to ~/.config/fish/config.fish instead.
 
-set --global fish_color_autosuggestion 6b6454
-set --global fish_color_cancel a64a3a
-set --global fish_color_command c9a227
-set --global fish_color_comment 6b6454
-set --global fish_color_cwd c9a227
+set --global fish_color_autosuggestion 5c6773
+set --global fish_color_cancel ff7733
+set --global fish_color_command ffb454
+set --global fish_color_comment 5c6773
+set --global fish_color_cwd ffb454
 set --global fish_color_cwd_root 
-set --global fish_color_end b8860b
-set --global fish_color_error a64a3a
-set --global fish_color_escape 8b7355
-set --global fish_color_gray 6b6454
+set --global fish_color_end ffb454
+set --global fish_color_error ff7733
+set --global fish_color_escape f07178
+set --global fish_color_gray 5c6773
 set --global fish_color_history_current 
-set --global fish_color_host 4a6b5a
-set --global fish_color_host_remote 7a8563
-set --global fish_color_keyword d4a84b
-set --global fish_color_normal d4c9a8
-set --global fish_color_operator a67c52
-set --global fish_color_option 6b7353
-set --global fish_color_param a89f84
-set --global fish_color_quote 6b7353
-set --global fish_color_redirection a67c52
-set --global fish_color_search_match --background=2e2c26
-set --global fish_color_selection --background=2e2c26
-set --global fish_color_status a64a3a
-set --global fish_color_user 6b7353
+set --global fish_color_host 39adb5
+set --global fish_color_host_remote 59c2ff
+set --global fish_color_keyword 59c2ff
+set --global fish_color_normal e6e1cf
+set --global fish_color_operator 39adb5
+set --global fish_color_option b8cc52
+set --global fish_color_param e6e1cf
+set --global fish_color_quote b8cc52
+set --global fish_color_redirection 39adb5
+set --global fish_color_search_match --background=161b22
+set --global fish_color_selection --background=161b22
+set --global fish_color_status ff7733
+set --global fish_color_user b8cc52
 set --global fish_color_valid_path 
 set --global fish_pager_color_background 
-set --global fish_pager_color_completion d4c9a8
-set --global fish_pager_color_description 6b6454
-set --global fish_pager_color_prefix c9a227
-set --global fish_pager_color_progress 6b6454
+set --global fish_pager_color_completion e6e1cf
+set --global fish_pager_color_description 5c6773
+set --global fish_pager_color_prefix ffb454
+set --global fish_pager_color_progress 5c6773
 set --global fish_pager_color_secondary_background 
 set --global fish_pager_color_secondary_completion 
 set --global fish_pager_color_secondary_description 

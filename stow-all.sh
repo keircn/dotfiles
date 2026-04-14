@@ -58,16 +58,9 @@ REPO_ROOT="$SCRIPT_DIR"
 declare -a all_packages=(
   bash
   git
-  x11
-  autorandr
-  clipcat
   fish
-  fsel
   gtk-3.0
   gtk-4.0
-  i3
-  i3status
-  rofi
   starship
   foot
   fastfetch
@@ -76,16 +69,9 @@ declare -a all_packages=(
 declare -A package_targets=(
   [bash]="."
   [git]="."
-  [x11]="."
-  [autorandr]=".config/autorandr"
-  [clipcat]=".config/clipcat"
   [fish]=".config/fish"
-  [fsel]=".config/fsel"
   [gtk-3.0]=".config/gtk-3.0"
   [gtk-4.0]=".config/gtk-4.0"
-  [i3]=".config/i3"
-  [i3status]=".config/i3status"
-  [rofi]=".config/rofi"
   [starship]=".config/starship"
   [foot]=".config/foot"
   [fastfetch]=".config/fastfetch"

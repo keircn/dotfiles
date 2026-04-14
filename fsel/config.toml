@@ -1,2 +1,0 @@
-terminal_launcher = "st -e"
-disable_mouse = false

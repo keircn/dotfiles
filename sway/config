@@ -1,0 +1,89 @@
+set $mod Mod4
+set $left h
+set $down j
+set $up k
+set $right l
+set $term foot
+set $menu fuzzel
+set $browser firefox
+set $filemgr yazi
+
+output HDMI-A-1 mode 1920x1080@100Hz
+
+input * {
+    xkb_layout us
+    xkb_options ctrl:nocaps
+    repeat_delay 250
+    repeat_rate 50
+}
+
+default_border pixel 0
+default_floating_border pixel 0
+gaps inner 4
+gaps outer 0
+smart_gaps on
+smart_borders on
+
+client.focused          #39adb5 #0f1419 #e6e1cf #39adb5 #39adb5
+client.focused_inactive #5c6773 #0f1419 #e6e1cf #5c6773 #5c6773
+client.unfocused        #5c6773 #0f1419 #e6e1cf #5c6773 #5c6773
+
+bindsym $mod+Return exec $term
+bindsym $mod+d exec $menu
+bindsym $mod+b exec $browser
+bindsym $mod+e exec $term -e $filemgr
+
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+
+bindsym $mod+q kill
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+f fullscreen toggle
+bindsym $mod+Shift+space floating toggle
+
+# bindsym Print exec grim -g "$(slurp)" - | wl-copy
+# bindsym $mod+Print exec grim - | wl-copy
+
+bindsym XF86MonBrightnessUp exec brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_SINK@ 5%-
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_SINK@ toggle
+
+bindsym $mod+Shift+l exec swaylock
+
+exec waybar
+exec mako
+exec swayidle -w \
+    timeout 300 'swaylock -f' \
+    timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+    before-sleep 'swaylock -f'
+
+exec wl-paste -t text --watch clipman store --no-persist
+
+include /etc/sway/config.d/*
