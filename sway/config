@@ -28,7 +28,7 @@ client.focused          #39adb5 #0f1419 #e6e1cf #39adb5 #39adb5
 client.focused_inactive #5c6773 #0f1419 #e6e1cf #5c6773 #5c6773
 client.unfocused        #5c6773 #0f1419 #e6e1cf #5c6773 #5c6773
 
-bindsym $mod+Return exec $term
+bindsym $mod+t exec $term
 bindsym $mod+d exec $menu
 bindsym $mod+b exec $browser
 bindsym $mod+e exec $term -e $filemgr
