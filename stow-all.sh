@@ -57,6 +57,7 @@ REPO_ROOT="$SCRIPT_DIR"
 
 declare -a all_packages=(
   bash
+  zsh
   git
   x11
   autorandr
@@ -69,6 +70,7 @@ declare -a all_packages=(
 
 declare -A package_targets=(
   [bash]="."
+  [zsh]="."
   [git]="."
   [x11]="."
   [autorandr]=".config/autorandr"
