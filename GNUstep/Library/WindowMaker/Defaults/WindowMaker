@@ -2,4 +2,17 @@
 KeyBindings = {
     "Lock" = "Mod4 l";
 };
-}
+WorkspaceBack = (solid, "#0f1419");
+WTintColor = "#161b22";
+UTitleColor = "#ffb454";
+FTitleColor = "#ffb454";
+UTitleBack = (solid, "#ff7733");
+FTitleBack = (solid, "#ff7733");
+MenuTextColor = "#e6e1cf";
+MenuTitleColor = "#e6e1cf";
+MenuDisabledColor = "#5c6773";
+MenuBackColor = "#161b22";
+MenuTitleBack = (solid, "#161b22");
+MenuTextBack = (solid, "#161b22");
+IconBackColor = "#161b22";
+};
