@@ -1,0 +1,4 @@
+{
+  BoldSystemFont = "sans serif:weight=200:pixelsize=12";
+  SystemFont = "DepartureMono Nerd Font:slant=0:weight=80:width=100:pixelsize=12";
+}

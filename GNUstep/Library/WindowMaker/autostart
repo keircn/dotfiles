@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+
+start_once() {
+  cmd="$1"
+  shift
+  pgrep -x "$cmd" >/dev/null || "$cmd" "$@" &
+}
+
+# WindowMaker modules
+start_once wmitime
+start_once wmifs -i wlp3s0
+start_once wmmon
+start_once wmusic
+start_once wmacpi
+start_once wmMatrix
+start_once wmsystemtray
+
+start_once dunst
+start_once copyq
+
+autorandr -l main
+~/.fehbg
+xbindkeys &
+xscreensaver -no-splash &
+xset m 20/10 4
+

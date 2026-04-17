@@ -5,6 +5,7 @@
 **/*.key
 **/*.pem
 **/secrets.*
+**/.Xauthority
 .DS_Store
 Thumbs.db
 **/._*

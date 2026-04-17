@@ -1,0 +1,11 @@
+"wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+"
+   XF86AudioRaiseVolume
+"wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
+   XF86AudioLowerVolume
+
+"$HOME/GNUstep/Library/WindowMaker/screenshot-upload.sh full"
+   Print
+"$HOME/GNUstep/Library/WindowMaker/screenshot-upload.sh region"
+   Shift + Print
+"$HOME/GNUstep/Library/WindowMaker/screenshot-upload.sh window"
+   Control + Print

@@ -1,0 +1,42 @@
+(
+  "Window Maker",
+  (Run..., EXEC, "%A(Run, Type command:)"),
+  (
+    "Applications",
+    ("Terminal", EXEC, ghostty),
+    (
+      "Internet",
+      ("Firefox", EXEC, firefox),
+      ("Discord", EXEC, discord),
+      ("Thunderbird", EXEC, thunderbird)
+    ),
+    (
+      "Media",
+      ("Strawberry", EXEC, strawberry)
+    ),
+    (
+      "System",
+      ("btop", EXEC, "st -e btop"),
+      ("File Manager", EXEC, thunar),
+      ("Editor", EXEC, "ghostty -e nvim")
+    )
+  ),
+  (
+    "Scripts",
+    ("Open Screenshots Folder", EXEC, "xdg-open $HOME/Pictures/Screenshots"),
+    ("Reload Xbindkeys", EXEC, "pkill -x xbindkeys; xbindkeys"),
+    ("Lock Screen", EXEC, "xscreensaver-command -lock")
+  ),
+  (
+    "Session",
+    ("Reload X resources", EXEC, "xrdb -load $HOME/.Xresources"),
+    ("Restart WM", RESTART),
+    ("Restart WM + Session", EXEC, "wmaker --replace"),
+    ("Log Out", EXIT)
+  ),
+  ("Workspaces", WORKSPACE_MENU),
+  ("Configure Window Maker", EXEC, WPrefs),
+  ("Info Panel", INFO_PANEL),
+  ("Restart Window Maker", RESTART),
+  ("Exit Window Maker", EXIT)
+)

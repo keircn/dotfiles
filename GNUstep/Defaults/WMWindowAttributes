@@ -1,0 +1,22 @@
+{
+  ghostty.com.mitchellh.ghostty = {
+    Icon = ghostty.com.mitchellh.ghostty.xpm;
+  };
+  strawberry.Strawberry = {
+    SharedAppIcon = No;
+    SkipWindowList = Yes;
+    NoAppIcon = Yes;
+    AlwaysUserIcon = No;
+    StartWorkspace = "Workspace 2";
+  };
+  Logo.WMDock = {
+    Icon = linuxterm.tiff;
+  };
+  strawberry = {
+    AlwaysUserIcon = No;
+    StartWorkspace = "Workspace 2";
+  };
+  "Navigator.firefox-esr" = {
+    AlwaysUserIcon = No;
+  };
+}

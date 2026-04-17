@@ -1,0 +1,5 @@
+{
+KeyBindings = {
+    "Lock" = "Mod4 l";
+};
+}

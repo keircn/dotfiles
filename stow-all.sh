@@ -60,16 +60,10 @@ declare -a all_packages=(
   git
   x11
   autorandr
-  clipcat
-  fish
-  fsel
   gtk-3.0
   gtk-4.0
-  i3
-  i3status
-  rofi
-  starship
-  foot
+  ghostty
+  GNUstep
   fastfetch
 )
 
@@ -78,16 +72,10 @@ declare -A package_targets=(
   [git]="."
   [x11]="."
   [autorandr]=".config/autorandr"
-  [clipcat]=".config/clipcat"
-  [fish]=".config/fish"
-  [fsel]=".config/fsel"
   [gtk-3.0]=".config/gtk-3.0"
   [gtk-4.0]=".config/gtk-4.0"
-  [i3]=".config/i3"
-  [i3status]=".config/i3status"
-  [rofi]=".config/rofi"
-  [starship]=".config/starship"
-  [foot]=".config/foot"
+  [ghostty]=".config/ghostty"
+  [GNUstep]="."
   [fastfetch]=".config/fastfetch"
 )
 
