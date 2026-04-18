@@ -3,12 +3,12 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $term foot
+set $term kitty
 set $menu fuzzel
 set $browser helium-browser
 set $filemgr yazi
 
-output HDMI-A-1 mode 1920x1080@100Hz
+output HDMI-A-1 mode 1920x1080@100Hz allow_tearing yes
 
 input * {
     xkb_layout us
@@ -117,7 +117,7 @@ exec swayidle -w \
     before-sleep 'swaylock -f'
 exec kwalletd6
 exec wl-paste -t text --watch clipman store --no-persist
-exec_always swaybg -m fill -i /usr/share/backgrounds/1080p/kurisu-mono.png
+exec_always swaybg -m fill -i ~/Pictures/backgrounds/megumin-vaporwave.jpg
 
 for_window [app_id="chrome-nngceckbapebfimnlniiiahkandclblb-Default"] {
     floating enable
