@@ -1,16 +1,5 @@
 # dotfiles
 
-my arch + i3 config
+my arch + sway config
 
-### Installation
-
-```sh
-pacman -S stow
-./stow-all.sh --apply
-```
-
-### Usage
-  
-```
- ./stow-all.sh [--apply] [--stow|--restow|--delete] [package ...]
-```
+Requires stow and [stowme](https://codeberg.org/key/stowme)

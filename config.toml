@@ -1,0 +1,55 @@
+stow_dir = "~/.dotfiles"
+
+[[package]]
+name = "bash"
+target = "~"
+
+[[package]]
+name = "git"
+target = "~"
+
+[[package]]
+name = "zsh"
+target = "~"
+
+[[package]]
+name = "fuzzel"
+target = "~/.config/fuzzel"
+
+[[package]]
+name = "mako"
+target = "~/.config/mako"
+
+[[package]]
+name = "sway"
+target = "~/.config/sway"
+
+[[package]]
+name = "swaylock"
+target = "~/.config/swaylock"
+
+[[package]]
+name = "waybar"
+target = "~/.config/waybar"
+
+[[package]]
+name = "gtk-3.0"
+target = "~/.config/gtk-3.0"
+ignore_regex = ["^gtk-3\\.0$", "^gtk-3\\.0/"]
+
+[[package]]
+name = "gtk-4.0"
+target = "~/.config/gtk-4.0"
+ignore_regex = ["^gtk-4\\.0$", "^gtk-4\\.0/", "(^|/)\\._.*"]
+
+[[package]]
+name = "starship"
+target = "~/.config/starship"
+
+[[package]]
+name = "foot"
+target = "~/.config/foot"
+
+[[package]]
+name = "fastfetch"
+target = "~/.config/fastfetch"
