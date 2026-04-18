@@ -1,10 +1,8 @@
 {
-  FrameBorderColor = "#b6b6b3";
   FTitleColor = "#ffffff";
+  FrameBorderColor = "#b6b6b3";
   ScreenCaptureKey = None;
   MenuDisabledColor = "#666666";
-  IconTitleBack = "#000000";
-  HotCornerEdge = 2;
   PixmapPath = (
     "/home/key/GNUstep/Library/WindowMaker/Pixmaps",
     "/home/key/GNUstep/Library/WindowMaker/Backgrounds",
@@ -14,29 +12,43 @@
     "/usr/share/WindowMaker/Backgrounds",
     "/usr/share/pixmaps"
   );
+  HotCornerEdge = 2;
+  IconTitleBack = "#000000";
   RaiseDelay = 500;
   Shadow = yes;
   ClipTitleFont = "Verdana:bold:pixelsize=10";
   IconTitleFont = "Arial,sans serif:pixelsize=9";
-  PartialCaptureKey = None;
+  WindowPlacement = cascade;
   LargeDisplayFont = "Trebuchet MS,sans serif:pixelsize=24";
+  RaiseAppIconsWhenBouncing = YES;
+  ResizeIncrement = 10;
   ResizeCursor = (
     bitmap,
     "/usr/share/WindowMaker/Themes/Fuzzy Hornet.themed/dot_resize.xbm",
     "/usr/share/WindowMaker/Themes/Fuzzy Hornet.themed/dot_resize_mask.xbm"
   );
+  UShadowColor = "#140500";
+  HotCornerDelay = 250;
   CenterKey = None;
+  PShadowColor = "#140500";
   IconTitleColor = "#ffffff";
+  MenuTextColor = "#000000";
   MenuTitleColor = "#ffffff";
-  MenuTitleFont = "DepartureMono Nerd Font:slant=0:weight=80:width=100:pixelsize=12";
+  AntialiasedText = YES;
   HotCorners = NO;
-  MoveTo6to12Head = None;
+  MenuTitleFont = "DepartureMono Nerd Font:slant=0:weight=80:width=100:pixelsize=12";
   SmoothWorkspaceBack = YES;
+  MoveTo6to12Head = None;
   DbClickFullScreen = NO;
+  FShadowColor = "#140500";
+  MenuTextFont = "Trebuchet MS,sans serif:pixelsize=12";
   WorkspaceBack = (solid, black);
+  MShadowColor = "#140500";
   HighlightTextColor = "#000000";
+  EdgeResistance = 15;
   EnforceIconMargin = YES;
   WindowSnapping = YES;
+  SnapToTopMaximizesFullscreen = YES;
   AutoArrangeIcons = YES;
   ClipTitleColor = "#000000";
   MoveTo12to6Head = None;
@@ -46,25 +58,11 @@
     "/usr/share/WindowMaker/Themes/Fuzzy Hornet.themed/dot_wait_mask.xbm"
   );
   HotCornerActions = (None, None, None, None);
-  FrameFocusedBorderColor = "#b6b6b3";
-  WindowTitleFont = "Trebuchet MS:slant=0:weight=80:width=100:pixelsize=12";
-  MiniPreviewSize = 184;
-  DisplayFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
-  CloseRootMenuByLeftOrRightMouseClick = NO;
-  FrameSelectedBorderColor = "#ffffff";
-  RaiseAppIconsWhenBouncing = YES;
-  UShadowColor = "#140500";
-  HotCornerDelay = 250;
-  PShadowColor = "#140500";
-  MenuTextColor = "#000000";
-  AntialiasedText = YES;
-  FShadowColor = "#140500";
-  MenuTextFont = "Trebuchet MS,sans serif:pixelsize=12";
-  MShadowColor = "#140500";
-  SnapToTopMaximizesFullscreen = YES;
   CloseKey = "Mod1+C";
   HighlightColor = "#ffffff";
-  WindowCaptureKey = None;
+  FrameFocusedBorderColor = "#b6b6b3";
+  WindowTitleFont = "Trebuchet MS:slant=0:weight=80:width=100:pixelsize=12";
+  WindowPlaceOrigin = (2500, 250);
   CClipTitleColor = "#333333";
   MoveCursor = (
     bitmap,
@@ -79,6 +77,10 @@
     "/usr/share/WindowMaker/Pixmaps",
     "/usr/share/pixmaps"
   );
+  MiniPreviewSize = 184;
+  DisplayFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
   UTitleColor = "#000000";
   PTitleColor = "#ffffff";
+  CloseRootMenuByLeftOrRightMouseClick = NO;
+  FrameSelectedBorderColor = "#ffffff";
 }
