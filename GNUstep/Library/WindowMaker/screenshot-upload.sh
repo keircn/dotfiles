@@ -85,8 +85,7 @@ capture
 RESULT="$(upload)"
 
 if [ -n "$RESULT" ]; then
-  copy_clipboard "$RESULT"
-  notify "Saved and copied: $RESULT"
+  notify "Saved and copied: $OUTFILE"
 else
   copy_clipboard "$OUTFILE"
   notify "Saved: $OUTFILE"

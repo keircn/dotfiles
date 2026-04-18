@@ -10,6 +10,17 @@
         Position = "0,0";
         Lock = No;
         Command = "-";
+      },
+      {
+        Forced = No;
+        Name = "ghostty.com\\.mitchellh\\.ghostty";
+        DropCommand = "ghostty %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,1";
+        Lock = No;
+        PasteCommand = "ghostty %s";
+        Command = ghostty;
       }
     );
     Applications1080 = (
@@ -21,6 +32,17 @@
         Position = "0,0";
         Lock = No;
         Command = "-";
+      },
+      {
+        Forced = No;
+        Name = "ghostty.com\\.mitchellh\\.ghostty";
+        DropCommand = "ghostty %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,1";
+        Lock = No;
+        PasteCommand = "ghostty %s";
+        Command = ghostty;
       }
     );
     Lowered = Yes;
@@ -36,6 +58,18 @@
     Command = "-";
   };
   Applications = (
+    {
+      Dock = "Workspace 1";
+      Maximized = 0x0000;
+      Name = ghostty.com.mitchellh.ghostty;
+      Shaded = No;
+      Miniaturized = No;
+      Command = ghostty;
+      Geometry = "856x580+80+17";
+      Hidden = No;
+      Workspace = "Workspace 1";
+      ShortcutMask = 0;
+    },
     {
       Dock = "Workspace 1";
       Maximized = 0x0000;

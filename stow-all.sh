@@ -77,7 +77,7 @@ declare -A package_targets=(
   [gtk-3.0]=".config/gtk-3.0"
   [gtk-4.0]=".config/gtk-4.0"
   [ghostty]=".config/ghostty"
-  [GNUstep]="."
+  [GNUstep]="GNUstep"
   [fastfetch]=".config/fastfetch"
 )
 
