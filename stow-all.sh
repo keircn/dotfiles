@@ -58,7 +58,7 @@ REPO_ROOT="$SCRIPT_DIR"
 declare -a all_packages=(
   bash
   git
-  fish
+  zsh
   fuzzel
   mako
   sway
@@ -74,7 +74,7 @@ declare -a all_packages=(
 declare -A package_targets=(
   [bash]="."
   [git]="."
-  [fish]=".config/fish"
+  [zsh]="."
   [fuzzel]=".config/fuzzel"
   [mako]=".config/mako"
   [sway]=".config/sway"
