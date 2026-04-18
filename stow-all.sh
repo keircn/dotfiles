@@ -60,7 +60,6 @@ declare -a all_packages=(
   zsh
   git
   x11
-  autorandr
   gtk-3.0
   gtk-4.0
   ghostty
@@ -73,7 +72,6 @@ declare -A package_targets=(
   [zsh]="."
   [git]="."
   [x11]="."
-  [autorandr]=".config/autorandr"
   [gtk-3.0]=".config/gtk-3.0"
   [gtk-4.0]=".config/gtk-4.0"
   [ghostty]=".config/ghostty"

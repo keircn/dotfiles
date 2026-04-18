@@ -18,7 +18,6 @@ start_once wmsystemtray
 start_once dunst
 start_once copyq
 
-autorandr -l main
 ~/.fehbg
 xbindkeys &
 xscreensaver -no-splash &
