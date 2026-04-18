@@ -1,7 +1,7 @@
 [user]
-	name = Keiran
-	email = keircn@proton.me
-	signingKey = DA6AA426E86AA6CA
+	name = Key
+	email = root@roxylab.uk
+	signingKey = 2942AF38FC313B71D79C3852C29BA0DCF81ED2B5
 
 [init]
     defaultBranch = main
