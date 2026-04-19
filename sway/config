@@ -119,7 +119,7 @@ exec kwalletd6
 exec wl-paste -t text --watch clipman store --no-persist
 exec_always swaybg -m fill -i ~/Pictures/backgrounds/megumin-vaporwave.jpg
 
-for_window [app_id="chrome-nngceckbapebfimnlniiiahkandclblb-Default"] {
+for_window [title = ".*Bitwarden.*"] {
     floating enable
     resize set width 820 px height 620 px
     move position center
