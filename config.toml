@@ -35,12 +35,10 @@ target = "~/.config/waybar"
 [[package]]
 name = "gtk-3.0"
 target = "~/.config/gtk-3.0"
-ignore_regex = ["^gtk-3\\.0$", "^gtk-3\\.0/"]
 
 [[package]]
 name = "gtk-4.0"
 target = "~/.config/gtk-4.0"
-ignore_regex = ["^gtk-4\\.0$", "^gtk-4\\.0/", "(^|/)\\._.*"]
 
 [[package]]
 name = "starship"
