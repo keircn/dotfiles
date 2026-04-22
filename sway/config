@@ -109,14 +109,15 @@ bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_SINK@ toggle
 bindsym $mod+Shift+s exec swaylock
 bindsym $mod+Shift+e exec swaymsg exit
 
+exec wl-paste -t text --watch clipman store --no-persist
+exec solaar -w hide
 exec waybar
-exec mako
+exec fnott
 exec swayidle -w \
     timeout 300 'swaylock -f' \
     timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
     before-sleep 'swaylock -f'
-exec kwalletd6
-exec wl-paste -t text --watch clipman store --no-persist
+
 exec_always swaybg -m fill -i ~/Pictures/backgrounds/megumin-vaporwave.jpg
 
 for_window [title = ".*Bitwarden.*"] {
