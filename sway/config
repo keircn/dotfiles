@@ -111,6 +111,7 @@ bindsym $mod+Shift+e exec swaymsg exit
 
 exec wl-paste -t text --watch clipman store --no-persist
 exec solaar -w hide
+exec nicotine --hidden
 exec waybar
 exec fnott
 exec swayidle -w \
