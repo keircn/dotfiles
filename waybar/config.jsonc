@@ -1,41 +1,158 @@
 {
-  "layer": "top",
-  "position": "top",
-  "height": 30,
-  "modules-left": [
-    "sway/workspaces"
-  ],
-  "modules-center": [
-    "clock"
-  ],
-  "modules-right": [
-    "tray",
-    "network",
-    "battery",
-    "pulseaudio"
-  ],
-  "sway/workspaces": {
-    "disable-scroll": true,
-    "all-outputs": true,
-    "format": "{name}"
-  },
-  "clock": {
-    "format": "{:%H:%M  %a %d}",
-    "tooltip-format": "{:%Y-%m-%d | %H:%M:%S}"
-  },
-  "network": {
-    "format-wifi": "WIFI {essid}",
-    "format-ethernet": "LAN",
-    "format-disconnected": "NET down"
-  },
-  "pulseaudio": {
-    "format": "VOL {volume}%",
-    "format-muted": "VOL mute"
-  },
-  "battery": {
-    "format": "BAT {capacity}%",
-    "format-charging": "BAT charging {capacity}%",
-    "format-plugged": "BAT plugged {capacity}%",
-    "format-full": "BAT full"
-  }
+    "layer": "top",
+    "position": "top",
+    "spacing": 16,
+
+    "modules-left": [
+        "custom/launcher",
+        "sway/workspaces",
+        "sway/mode",
+        "sway/window"
+    ],
+
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10"
+        }
+    },
+
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>",
+        "tooltip": false
+    },
+
+    "sway/window": {
+        "format": "{}",
+        "max-length": 120
+    },
+
+    "modules-center": [
+        "network"
+    ],
+
+    "network": {
+        "format-disabled": "NET: DISABLED",
+        "format-wifi": "WIFI: D:{bandwidthDownBits:>} U:{bandwidthUpBits:>}",
+        "tooltip-format-wifi": "{essid}",
+        "format-ethernet": "ETH: D:{bandwidthDownBits:>} U:{bandwidthUpBits:>}",
+        "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}",
+        "format-disconnected": "NET: OFFLINE",
+        "on-click": "footclient -T waybar_nmtui -e nmtui",
+        "interval": 2
+    },
+
+    "modules-right": [
+        "custom/keyboard-layout",
+        "idle_inhibitor",
+        "cpu",
+        "memory",
+        "backlight",
+        "pulseaudio",
+        "battery",
+        "clock",
+        "tray",
+        "custom/power"
+    ],
+
+    "idle_inhibitor": {
+        "format": "IDLE: {icon}",
+        "format-icons": {
+            "activated": "ON",
+            "deactivated": "OFF"
+        },
+        "tooltip-format-activated": "Idle Inhibitor Activated",
+        "tooltip-format-deactivated": "Idle Inhibitor Deactivated"
+    },
+
+    "cpu": {
+        "interval": 5,
+        "format": "CPU:{usage:>3}%",
+        "states": {
+            "warning": 70,
+            "critical": 90
+        },
+        "on-click": "footclient -T waybar_htop -e htop"
+    },
+    
+    "memory": {
+        "interval": 5,
+        "format": "MEM: {:>3}%",
+        "on-click": "footclient -T waybar_htop -e htop", 
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
+    },
+
+    "backlight": {
+        "format": "LIGHT: {percent}%",
+        "tooltip-format": "Backlight (Scroll): {percent}%",
+        "on-scroll-down": "brightnessctl -c backlight set 5%-",
+        "on-scroll-up": "brightnessctl -c backlight set +5%"
+    },
+
+    "pulseaudio": {
+        "scroll-step": 2,
+        "format": "VOL: {volume}%",
+        "format-muted":"VOL: MUTED",
+        "format-icons": {
+            "headphones": "HP",
+            "handsfree": "HP",
+            "headset": "HP",
+            "phone": "TEL",
+            "portable": "TEL",
+            "car": "CAR",
+            "default": ["VOL"]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "BAT: {capacity}%"
+    },
+
+    "clock": {
+        "format": "TIME: {:%H:%M}",
+        "format-alt": "TIME: {:%I:%M %p}",
+        "tooltip-format": "DATE: {:%A %m/%d}\n\n<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "on-scroll": 1,
+            "format": {
+                "months":     "<span color='#ffead3'><b>{}</b></span>",
+                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
+     },
+
+    "custom/power": {
+        "format":"[ POWER ]",
+        "on-click": "exec ~/.config/sway/scripts/power_menu.sh",
+        "tooltip": false
+    }
 }
