@@ -59,3 +59,7 @@ target = "~/.config/mpv"
 [[package]]
 name = "stowme"
 target = "~/.config/stowme"
+
+[[package]]
+name = "a4"
+target = "~/.config/a4"
