@@ -45,8 +45,8 @@ name = "starship"
 target = "~/.config/starship"
 
 [[package]]
-name = "kitty"
-target = "~/.config/kitty"
+name = "foot"
+target = "~/.config/foot"
 
 [[package]]
 name = "fastfetch"
@@ -55,3 +55,7 @@ target = "~/.config/fastfetch"
 [[package]]
 name = "mpv"
 target = "~/.config/mpv"
+
+[[package]]
+name = "stowme"
+target = "~/.config/stowme"
