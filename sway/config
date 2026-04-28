@@ -3,10 +3,9 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $term kitty
+set $term foot
 set $menu fuzzel
-set $browser helium-browser
-set $filemgr yazi
+set $browser firefox
 
 output HDMI-A-1 mode 1920x1080@100Hz allow_tearing yes
 
@@ -31,8 +30,7 @@ client.unfocused        #5c6773 #0f1419 #e6e1cf #5c6773 #5c6773
 bindsym $mod+t exec $term
 bindsym $mod+d exec $menu
 bindsym $mod+b exec $browser
-bindsym $mod+e exec $term -e $filemgr
-bindsym $mod+c exec clipman pick -t wofi
+bindsym $mod+c exec clipman pick -t wofi -T=" -G"
 
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down
