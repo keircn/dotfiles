@@ -5,12 +5,12 @@
 
     "modules-left": [
         "custom/launcher",
-        "sway/workspaces",
-        "sway/mode",
-        "sway/window"
+        "hyprland/workspaces",
+        "hyprland/submap",
+        "hyprland/window"
     ],
 
-    "sway/workspaces": {
+    "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
         "format": "{icon}",
@@ -26,12 +26,12 @@
         }
     },
 
-    "sway/mode": {
+    "hyprland/submap": {
         "format": "<span style=\"italic\">{}</span>",
         "tooltip": false
     },
 
-    "sway/window": {
+    "hyprland/window": {
         "format": "{}",
         "max-length": 120
     },
@@ -47,7 +47,7 @@
         "format-ethernet": "ETH: D:{bandwidthDownBits:>} U:{bandwidthUpBits:>}",
         "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}",
         "format-disconnected": "NET: OFFLINE",
-        "on-click": "footclient -T waybar_nmtui -e nmtui",
+        "on-click": "kitty --title waybar_nmtui nmtui",
         "interval": 2
     },
 
@@ -81,13 +81,13 @@
             "warning": 70,
             "critical": 90
         },
-        "on-click": "footclient -T waybar_htop -e htop"
+        "on-click": "kitty --title waybar_htop htop"
     },
     
     "memory": {
         "interval": 5,
         "format": "MEM: {:>3}%",
-        "on-click": "footclient -T waybar_htop -e htop", 
+        "on-click": "kitty --title waybar_htop htop", 
         "states": {
             "warning": 70,
             "critical": 90
@@ -132,11 +132,11 @@
         "calendar": {
             "on-scroll": 1,
             "format": {
-                "months":     "<span color='#ffead3'><b>{}</b></span>",
-                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
-                "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                "months":     "<span color='#c6a0f6'><b>{}</b></span>",
+                "days":       "<span color='#e3e3ea'><b>{}</b></span>",
+                "weeks":      "<span color='#8bd5ca'><b>W{}</b></span>",
+                "weekdays":   "<span color='#f5a97f'><b>{}</b></span>",
+                "today":      "<span color='#ed8796'><b><u>{}</u></b></span>"
             }
         },
         "actions": {
@@ -152,7 +152,7 @@
 
     "custom/power": {
         "format":"[ POWER ]",
-        "on-click": "exec ~/.config/sway/scripts/power_menu.sh",
+        "on-click": "exec ~/.config/hypr/scripts/power_menu.sh",
         "tooltip": false
     }
 }

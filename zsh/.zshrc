@@ -23,3 +23,12 @@ eval "$(zoxide init zsh)"
 alias cd="z"
 
 [ -s "/home/key/.bun/_bun" ] && source "/home/key/.bun/_bun"
+
+export GOPATH=$HOME/Documents/go
+export PATH=$PATH:$GOPATH/bin
+
+export ANDROID_HOME=/opt/android-sdk
+export ANDROID_SDK_ROOT=/opt/android-sdk
+export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH="/home/key/.cache/.bun/bin:$PATH"

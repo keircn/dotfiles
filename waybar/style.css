@@ -1,64 +1,46 @@
-/* =============================================================================
- *
- * Waybar configuration
- *
- * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
- *
- * =========================================================================== */
+@define-color base        #19191e;
+@define-color surface     #23232a;
+@define-color highlight   #685878;
+@define-color text        #e3e3ea;
+@define-color muted       #a0a0b0;
 
-/* -----------------------------------------------------------------------------
- * Keyframes
- * -------------------------------------------------------------------------- */
-
-@define-color highlight #685878 ;
-@define-color base1  #19191e ;
+@define-color warning     #f5a97f;
+@define-color critical    #ed8796;
+@define-color accent      #c6a0f6;
 
 @keyframes blink-warning {
-    70% {
-        color: white;
-    }
-
     to {
-        color: white;
-        background-color: orange;
+        background-color: @warning;
+        color: #000;
     }
 }
 
 @keyframes blink-critical {
-    70% {
-      color: white;
-    }
-
     to {
-        color: white;
-        background-color: red;
+        background-color: @critical;
+        color: #000;
     }
 }
 
-/* -----------------------------------------------------------------------------
- * Base styles
- * -------------------------------------------------------------------------- */
-
-/* Reset all styles */
 * {
-    margin: 1px;
+    margin: 0;
     padding: 0;
 }
 
-/* The whole bar */
 #waybar {
-    background: transparent;
-    color: #e3e3ea;
-    background-color: @base1;
-    font-family: CommitMono Nerd Font;
+    background: @base;
+    color: @text;
+    font-family: "CommitMono Nerd Font";
     font-size: 13px;
-    /* Avoid rounded borders under each workspace name */
     border: none;
-    border-radius: 0;
 }
 
-/* Every modules */
+#waybar > * {
+    margin: 4px 6px;
+}
+
 #mode,
+#submap,
 #network,
 #custom-keyboard-layout,
 #idle_inhibitor,
@@ -68,119 +50,116 @@
 #pulseaudio,
 #battery,
 #clock,
-#tray {
-    padding:0.5rem 0.6rem;
-    margin: 1px 0px;
+#tray,
+#custom-power {
+    background: @surface;
+    padding: 6px 10px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
 }
 
-/* -----------------------------------------------------------------------------
- * Module styles
- * -------------------------------------------------------------------------- */
-
 #custom-launcher {
-    margin-left:15px;
-    margin-right:10px;
+    margin-left: 10px;
+    margin-right: 6px;
+    font-weight: bold;
+    color: @accent;
 }
 
 #workspaces {
-    font-size:13px;
+    background: transparent;
+    margin: 0 6px;
 }
 
 #workspaces button {
-    border-radius: 5px;
-    color: #eceff4;
-    padding: 1px 6px;
-    margin-right: 2px;
-    margin-left: 2px;
+    padding: 3px 8px;
+    margin: 0 2px;
+    border-radius: 6px;
+    color: @muted;
+    transition: all 0.2s ease;
 }
 
+#workspaces button.active,
 #workspaces button.focused {
-    border: 1px solid #d8dee9;
+    background: @highlight;
+    color: white;
+}
+
+#workspaces button:hover {
+    background: rgba(255,255,255,0.08);
+    color: @text;
 }
 
 #workspaces button.urgent {
-    border-color: #c9545d;
-    color: #c9545d;
+    background: @critical;
+    color: #000;
 }
 
-#mode {
+#submap {
     background: @highlight;
-    border-bottom: 3px transparent;
-    color:white;
-    margin-left: 5px;
-    padding: 7px;
+    color: white;
+    font-style: italic;
 }
 
 #window {
-    font-weight: bold;
+    font-weight: 600;
+    color: @text;
+}
+
+#network {
+    font-weight: 500;
 }
 
 #network.disconnected {
-    color: orange;
+    color: @warning;
 }
 
-#cpu.warning {
-    color: orange;
+#cpu.warning,
+#memory.warning,
+#battery.warning {
+    color: @warning;
 }
 
-#cpu.critical {
-    color: red;
+#cpu.critical,
+#memory.critical,
+#battery.critical {
+    color: @critical;
 }
-
-#memory {
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-#memory.warning {
-    color: orange;
- }
 
 #memory.critical {
-    color: red;
-    animation-name: blink-critical;
-    animation-duration: 2s;
-    padding-left:5px;
-    padding-right:5px;
-}
-
-#backlight.icon {
-}
-
-#pulseaudio {
-}
-
-#pulseaudio.muted {
-    color: @highlight;
-}
-
-#battery {
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-#battery.warning {
-    color: orange;
-}
-
-#battery.critical {
-    color: red;
+    animation: blink-critical 1.5s infinite alternate;
 }
 
 #battery.warning.discharging {
-    animation-name: blink-warning;
-    animation-duration: 3s;
+    animation: blink-warning 2s infinite alternate;
 }
 
 #battery.critical.discharging {
-    animation-name: blink-critical;
-    animation-duration: 2s;
+    animation: blink-critical 1.2s infinite alternate;
+}
+
+#pulseaudio.muted {
+    color: @muted;
+}
+
+#idle_inhibitor.activated {
+    color: @accent;
+}
+
+#clock {
+    font-weight: 600;
+}
+
+#tray {
+    padding-right: 8px;
 }
 
 #custom-power {
-    margin-left:15px;
-    margin-right:15px;
-    font-size:15px;
+    margin-right: 12px;
+    font-weight: bold;
+    color: @critical;
+}
+
+#custom-power:hover {
+    background: @critical;
+    color: #000;
 }

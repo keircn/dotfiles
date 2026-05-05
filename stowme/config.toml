@@ -13,12 +13,20 @@ name = "zsh"
 target = "~"
 
 [[package]]
+name = "tmux"
+target = "~"
+
+[[package]]
 name = "fuzzel"
 target = "~/.config/fuzzel"
 
 [[package]]
 name = "fnott"
 target = "~/.config/fnott"
+
+[[package]]
+name = "hypr"
+target = "~/.config/hypr"
 
 [[package]]
 name = "sway"
@@ -45,8 +53,8 @@ name = "starship"
 target = "~/.config/starship"
 
 [[package]]
-name = "foot"
-target = "~/.config/foot"
+name = "kitty"
+target = "~/.config/kitty"
 
 [[package]]
 name = "fastfetch"
@@ -59,7 +67,3 @@ target = "~/.config/mpv"
 [[package]]
 name = "stowme"
 target = "~/.config/stowme"
-
-[[package]]
-name = "a4"
-target = "~/.config/a4"
