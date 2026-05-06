@@ -1,6 +1,10 @@
 stow_dir = "~/.dotfiles"
 
 [[package]]
+name = "X"
+target = "~"
+
+[[package]]
 name = "bash"
 target = "~"
 
@@ -9,61 +13,38 @@ name = "git"
 target = "~"
 
 [[package]]
-name = "zsh"
-target = "~"
+name = "autostart"
+target = "~/.config/autostart"
 
 [[package]]
-name = "tmux"
-target = "~"
+name = "helix"
+target = "~/.config/helix"
 
 [[package]]
-name = "fuzzel"
-target = "~/.config/fuzzel"
+name = "ghostty"
+target = "~/.config/ghostty"
 
 [[package]]
-name = "fnott"
-target = "~/.config/fnott"
+name = "i3"
+target = "~/.config/i3"
 
 [[package]]
-name = "hypr"
-target = "~/.config/hypr"
-
-[[package]]
-name = "sway"
-target = "~/.config/sway"
-
-[[package]]
-name = "swaylock"
-target = "~/.config/swaylock"
-
-[[package]]
-name = "waybar"
-target = "~/.config/waybar"
-
-[[package]]
-name = "gtk-3.0"
-target = "~/.config/gtk-3.0"
-
-[[package]]
-name = "gtk-4.0"
-target = "~/.config/gtk-4.0"
-
-[[package]]
-name = "starship"
-target = "~/.config/starship"
-
-[[package]]
-name = "kitty"
-target = "~/.config/kitty"
-
-[[package]]
-name = "fastfetch"
-target = "~/.config/fastfetch"
+name = "i3status-rust"
+target = "~/.config/i3status-rust"
 
 [[package]]
 name = "mpv"
 target = "~/.config/mpv"
 
 [[package]]
-name = "stowme"
-target = "~/.config/stowme"
+name = "rofi"
+target = "~/.config/rofi"
+
+[[package]]
+name = "starship"
+target = "~/.config/starship"
+
+[[package]]
+name = "fish"
+target = "~/.config/fish"
+

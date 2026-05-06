@@ -1,0 +1,39 @@
+theme = "theme"
+
+[editor]
+line-number = "relative"
+mouse = false
+cursorline = true
+bufferline = "never"
+color-modes = true
+true-color = true
+auto-save = true
+idle-timeout = 0
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name"]
+center = []
+right = ["diagnostics", "position", "file-type"]
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
+
+[editor.indent-guides]
+render = true
+character = "▏"
+skip-levels = 1
+
+[keys.normal]
+esc = ["collapse_selection", "keep_primary_selection"]
+
+[keys.insert]
+"C-c" = "normal_mode"

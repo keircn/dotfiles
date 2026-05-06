@@ -1,0 +1,47 @@
+"ui.background" = { bg = "#19191e" }
+"ui.text" = { fg = "#e3e3ea" }
+
+"ui.cursor" = { fg = "#19191e", bg = "#c6a0f6" }
+"ui.cursor.primary" = { fg = "#19191e", bg = "#c6a0f6" }
+
+"ui.selection" = { fg = "#19191e", bg = "#c6a0f6" }
+
+"ui.linenr" = { fg = "#a0a0b0" }
+"ui.linenr.selected" = { fg = "#c6a0f6" }
+
+"ui.statusline" = { fg = "#e3e3ea", bg = "#23232a" }
+"ui.statusline.inactive" = { fg = "#a0a0b0", bg = "#23232a" }
+
+"ui.popup" = { bg = "#23232a" }
+"ui.window" = { fg = "#23232a" }
+
+"comment" = { fg = "#a0a0b0", modifiers = ["italic"] }
+
+"constant" = "#eed49f"
+"string" = "#a6da95"
+"number" = "#eed49f"
+"boolean" = "#eed49f"
+
+"variable" = "#e3e3ea"
+"variable.parameter" = "#f5bde6"
+
+"type" = "#8aadf4"
+"type.builtin" = "#8aadf4"
+
+"keyword" = "#c6a0f6"
+"keyword.control" = "#c6a0f6"
+
+"function" = "#8bd5ca"
+"function.builtin" = "#8bd5ca"
+
+"operator" = "#c6a0f6"
+
+"punctuation" = "#e3e3ea"
+
+"tag" = "#8aadf4"
+"attribute" = "#a6da95"
+
+"diagnostic.error" = { fg = "#ed8796", modifiers = ["underlined"] }
+"diagnostic.warning" = { fg = "#eed49f", modifiers = ["underlined"] }
+"diagnostic.info" = { fg = "#8aadf4", modifiers = ["underlined"] }
+"diagnostic.hint" = { fg = "#8bd5ca", modifiers = ["underlined"] }

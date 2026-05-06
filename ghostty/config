@@ -1,0 +1,29 @@
+font-family = "CommitMono Nerd Font"
+window-padding-x = 0
+window-padding-y = 0
+window-decoration = none
+
+foreground = #e3e3ea
+background = #19191e
+cursor-color = #c6a0f6
+
+selection-foreground = #19191e
+selection-background = #c6a0f6
+
+palette = 0=#23232a
+palette = 1=#ed8796
+palette = 2=#a6da95
+palette = 3=#eed49f
+palette = 4=#8aadf4
+palette = 5=#c6a0f6
+palette = 6=#8bd5ca
+palette = 7=#e3e3ea
+
+palette = 8=#a0a0b0
+palette = 9=#ed8796
+palette = 10=#a6da95
+palette = 11=#eed49f
+palette = 12=#8aadf4
+palette = 13=#c6a0f6
+palette = 14=#8bd5ca
+palette = 15=#ffffff

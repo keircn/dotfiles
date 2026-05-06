@@ -1,0 +1,79 @@
+configuration {
+    show-icons: false;
+}
+
+* {
+    bg:        #19191e;
+    bg-alt:    #23232a;
+    fg:        #e3e3ea;
+    fg-dim:    #a0a0b0;
+
+    accent:    #c6a0f6;
+    blue:      #8aadf4;
+}
+
+window {
+    width: 500px;
+    border: 2px;
+    border-color: @accent;
+    border-radius: 10px;
+    background-color: @bg;
+    padding: 14px;
+}
+
+mainbox {
+    spacing: 10px;
+}
+
+inputbar {
+    background-color: @bg-alt;
+    border-radius: 8px;
+    padding: 10px 12px;
+    spacing: 8px;
+}
+
+prompt {
+    text-color: @accent;
+}
+
+entry {
+    text-color: @fg;
+    placeholder-color: @fg-dim;
+}
+
+listview {
+    spacing: 6px;
+    margin: 6px 0 0;
+    scrollbar: false;
+}
+
+element {
+    padding: 10px 12px;
+    border-radius: 8px;
+    background-color: transparent;
+    text-color: @fg;
+}
+
+element-text {
+    text-color: inherit;
+}
+
+element alternate {
+    background-color: transparent;
+    text-color: @fg-dim;
+}
+
+element selected {
+    background-color: @accent;
+    text-color: #19191e;
+}
+
+element selected.normal {
+    background-color: @accent;
+    text-color: #19191e;
+}
+
+element selected.active {
+    background-color: @blue;
+    text-color: #19191e;
+}

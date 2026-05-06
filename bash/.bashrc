@@ -5,6 +5,4 @@
 
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
-
-# opencode
-export PATH=/home/key/.opencode/bin:$PATH
+. "$HOME/.cargo/env"
