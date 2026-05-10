@@ -1,7 +1,6 @@
 font-family = "CommitMono Nerd Font"
 window-padding-x = 0
 window-padding-y = 0
-window-decoration = none
 
 foreground = #e3e3ea
 background = #19191e
