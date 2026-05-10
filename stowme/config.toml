@@ -1,10 +1,6 @@
 stow_dir = "~/.dotfiles"
 
 [[package]]
-name = "X"
-target = "~"
-
-[[package]]
 name = "bash"
 target = "~"
 
@@ -13,32 +9,12 @@ name = "git"
 target = "~"
 
 [[package]]
-name = "autostart"
-target = "~/.config/autostart"
-
-[[package]]
-name = "helix"
-target = "~/.config/helix"
-
-[[package]]
 name = "ghostty"
 target = "~/.config/ghostty"
 
 [[package]]
-name = "i3"
-target = "~/.config/i3"
-
-[[package]]
-name = "i3status-rust"
-target = "~/.config/i3status-rust"
-
-[[package]]
 name = "mpv"
 target = "~/.config/mpv"
-
-[[package]]
-name = "rofi"
-target = "~/.config/rofi"
 
 [[package]]
 name = "starship"
@@ -47,4 +23,3 @@ target = "~/.config/starship"
 [[package]]
 name = "fish"
 target = "~/.config/fish"
-
