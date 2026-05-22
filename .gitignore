@@ -8,3 +8,9 @@
 .DS_Store
 Thumbs.db
 **/._*
+
+kitty/kitty-colors.conf
+fuzzel/fuzzel.ini
+fnott/fnott.ini
+mpv/mpv.conf
+fish/fish_variables

@@ -1,0 +1,127 @@
+set $mod Mod1
+
+set $left h
+set $down j
+set $up k
+set $right l
+set $term kitty
+set $menu fuzzel
+
+output HDMI-A-1 mode 1920x1080@100Hz
+output * bg ~/Pictures/backgrounds/anime_28.jpg fill
+exec_always hellwal -i ~/Pictures/backgrounds/anime_28.jpg
+
+exec swayidle -w \
+    timeout 300 '~/.local/bin/lock' \
+    timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+    before-sleep '~/.local/bin/lock'
+
+bindsym $mod+Shift+x exec ~/.local/bin/lock
+
+exec fnott
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec gentoo-pipewire-launcher restart &
+
+input type:keyboard {
+	xkb_layout "us"
+}
+
+for_window [app_id="helium"] border none
+for_window [title="^Bitwarden$"] floating enable
+
+focus_follows_mouse no
+
+bindsym $mod+t exec $term
+bindsym $mod+q kill
+bindsym $mod+d exec $menu
+bindsym Print exec ~/.local/bin/slurpshot
+bindsym $mod+Print exec ~/.local/bin/slurpshot --quiet | hostman upload
+
+floating_modifier $mod normal
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+e exec swaymsg exit
+
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+bindsym $mod+b splith
+bindsym $mod+v splitv
+
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+bindsym $mod+f fullscreen
+
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+bindsym $mod+a focus parent
+
+bindsym $mod+r mode "resize"
+
+mode "resize" {
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
+bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+
+include /etc/sway/config.d/*
+
+default_border pixel 2
+default_floating_border pixel 2
+hide_edge_borders smart
+
+gaps inner 6
+gaps outer 2
+smart_gaps on
+
+seat * hide_cursor 3000
+
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+q exec pkill -u "$USER"
+
+bar {
+	swaybar_command waybar
+	position top
+}

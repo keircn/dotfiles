@@ -1,0 +1,43 @@
+@import "../../.cache/hellwal/waybar-colors.css";
+
+* {
+  border: none;
+  border-radius: 0; /* Keeps the Y2K block look intact */
+  font-family: "CommitMono Nerd Font", monospace;
+  font-size: 13px;
+  min-height: 0;
+}
+
+window#waybar {
+  /* Dynamic deep background and light text */
+  background: @background;
+  color: @foreground;
+  border-bottom: 2px solid @color2; /* Optional: adds a distinct tech-line under the bar */
+}
+
+#workspaces button {
+  padding: 0 9px;
+  color: @color6; /* Muted tech-gray for unfocused workspaces */
+  background: transparent;
+}
+
+#workspaces button.focused,
+#workspaces button.active {
+  /* High contrast highlight for the current workspace */
+  color: @background;
+  background: @color7; 
+}
+
+#workspaces button.urgent {
+  /* Bright, urgent accent alert color */
+  color: @background;
+  background: @color13;
+}
+
+#clock,
+#pulseaudio,
+#network,
+#tray {
+  padding: 0 10px;
+  color: @color4; /* Using a mid-tone cyan/blue for your module texts */
+}
