@@ -1,5 +1,5 @@
 set -U fish_greeting
-set EDITOR hx
+set EDITOR vis
 set -gx GPG_TTY (tty)
 set QT_QPA_PLATFORMTHEME qt5ct
 set QT_AUTO_SCREEN_SCALE_FACTOR 1
@@ -19,7 +19,7 @@ alias clpkg 'doas eclean packages'
 alias echeck 'doas revdep-rebuild && doas emerge --pretend @world'
 alias enrepo 'doas eselect repository enable'
 alias orphan 'doas emerge --depclean --ask'
-alias revdep revdep-rebuild
+alias revdep 'doas revdep-rebuild'
 alias fullsync 'esync && upclean && cldist && clpkg && revdep'
 
 alias n nvim
