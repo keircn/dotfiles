@@ -2,42 +2,87 @@
 
 * {
   border: none;
-  border-radius: 0; /* Keeps the Y2K block look intact */
+  border-radius: 0;
   font-family: "CommitMono Nerd Font", monospace;
   font-size: 13px;
   min-height: 0;
 }
 
 window#waybar {
-  /* Dynamic deep background and light text */
   background: @background;
   color: @foreground;
-  border-bottom: 2px solid @color2; /* Optional: adds a distinct tech-line under the bar */
+  border-bottom: 2px solid @color2;
+}
+
+tooltip {
+  background: @background;
+  color: @foreground;
+  border: 1px solid @color2;
 }
 
 #workspaces button {
   padding: 0 9px;
-  color: @color6; /* Muted tech-gray for unfocused workspaces */
+  color: @color6;
   background: transparent;
+}
+
+#workspaces button:hover {
+  color: @foreground;
+  background: @color0;
 }
 
 #workspaces button.focused,
 #workspaces button.active {
-  /* High contrast highlight for the current workspace */
   color: @background;
-  background: @color7; 
+  background: @color7;
 }
 
 #workspaces button.urgent {
-  /* Bright, urgent accent alert color */
+  color: @background;
+  background: @color13;
+}
+
+#mode {
+  padding: 0 10px;
   color: @background;
   background: @color13;
 }
 
 #clock,
+#cpu,
+#memory,
+#temperature,
+#disk,
 #pulseaudio,
 #network,
+#idle_inhibitor,
 #tray {
   padding: 0 10px;
-  color: @color4; /* Using a mid-tone cyan/blue for your module texts */
+  color: @color4;
+}
+
+#cpu,
+#memory,
+#temperature,
+#disk {
+  color: @color6;
+}
+
+#temperature.critical {
+  color: @background;
+  background: @color13;
+}
+
+#pulseaudio.muted,
+#network.disconnected {
+  color: @color8;
+}
+
+#idle_inhibitor.activated {
+  color: @background;
+  background: @color4;
+}
+
+#tray {
+  padding-right: 12px;
 }
