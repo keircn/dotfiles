@@ -19,10 +19,11 @@ alias clpkg 'doas eclean packages'
 alias echeck 'doas revdep-rebuild && doas emerge --pretend @world'
 alias enrepo 'doas eselect repository enable'
 alias orphan 'doas emerge --depclean --ask'
-alias revdep 'revdep-rebuild'
+alias revdep revdep-rebuild
 alias fullsync 'esync && upclean && cldist && clpkg && revdep'
 
 alias n nvim
 alias du 'du -sh *'
 alias free 'free -h'
 alias mkdir 'mkdir -p'
+alias ls 'eza --icons'
