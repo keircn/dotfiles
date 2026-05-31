@@ -7,7 +7,13 @@ set $right l
 set $term kitty
 set $menu fuzzel
 
-output HDMI-A-1 mode 1920x1080@100Hz
+output HDMI-A-1 {
+    mode 1920x1080@100.000Hz
+    position 0 0
+    scale 1
+    transform normal
+}
+
 output * bg ~/Pictures/backgrounds/sayorana-etranger-background.jpg fill
 exec_always hellwal -i ~/Pictures/backgrounds/sayorana-etranger-background.jpg --dark --check-contrast
 
@@ -20,9 +26,10 @@ bindsym $mod+Shift+x exec ~/.local/bin/lock
 
 exec fnott
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway QT_QPA_PLATFORMTHEME=qt6ct
-exec gentoo-pipewire-launcher restart &
-exec wl-paste --type text --watch cliphist store
-exec wl-paste --type image --watch cliphist store
+exec gentoo-pipewire-launcher restart
+exec_always pkill -x wl-paste
+exec_always wl-paste --type text --watch cliphist store
+exec_always wl-paste --type image --watch cliphist store
 
 bindsym $mod+v exec cliphist list | fuzzel --dmenu | cliphist decode | wl-copy
 bindsym $mod+Shift+v exec cliphist wipe
@@ -112,6 +119,9 @@ bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 
 default_border pixel 2
 default_floating_border pixel 2
+
+gaps inner 4
+gaps outer 4
 
 # seat * hide_cursor 3000
 
