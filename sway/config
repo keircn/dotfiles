@@ -31,7 +31,7 @@ input type:keyboard {
 	xkb_layout "us"
 }
 
-for_window [app_id="helium"] border none
+# for_window [app_id="helium"] border none
 for_window [title="^Bitwarden$"] floating enable
 
 focus_follows_mouse no
@@ -110,22 +110,17 @@ bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ t
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 
-include /etc/sway/config.d/*
-
 default_border pixel 2
 default_floating_border pixel 2
-hide_edge_borders smart
 
-gaps inner 6
-gaps outer 2
-smart_gaps on
-
-seat * hide_cursor 3000
+# seat * hide_cursor 3000
 
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+q exec pkill -u "$USER"
 
 bar {
-	swaybar_command waybar
+	swaybar_command keybar
 	position top
 }
+
+include /etc/sway/config.d/*
