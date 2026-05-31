@@ -10,3 +10,5 @@ fi
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 . "$HOME/.cargo/env"
+
+export QT_QPA_PLATFORMTHEME=qt6ct

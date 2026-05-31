@@ -8,8 +8,8 @@ set $term kitty
 set $menu fuzzel
 
 output HDMI-A-1 mode 1920x1080@100Hz
-output * bg ~/Pictures/backgrounds/anime_28.jpg fill
-exec_always hellwal -i ~/Pictures/backgrounds/anime_28.jpg
+output * bg ~/Pictures/backgrounds/sayorana-etranger-background.jpg fill
+exec_always hellwal -i ~/Pictures/backgrounds/sayorana-etranger-background.jpg --dark --check-contrast
 
 exec swayidle -w \
     timeout 300 '~/.local/bin/lock' \
@@ -19,8 +19,13 @@ exec swayidle -w \
 bindsym $mod+Shift+x exec ~/.local/bin/lock
 
 exec fnott
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway QT_QPA_PLATFORMTHEME=qt6ct
 exec gentoo-pipewire-launcher restart &
+exec wl-paste --type text --watch cliphist store
+exec wl-paste --type image --watch cliphist store
+
+bindsym $mod+v exec cliphist list | fuzzel --dmenu | cliphist decode | wl-copy
+bindsym $mod+Shift+v exec cliphist wipe
 
 input type:keyboard {
 	xkb_layout "us"
@@ -34,8 +39,7 @@ focus_follows_mouse no
 bindsym $mod+t exec $term
 bindsym $mod+q kill
 bindsym $mod+d exec $menu
-bindsym Print exec ~/.local/bin/slurpshot
-bindsym $mod+Print exec ~/.local/bin/slurpshot --quiet | hostman upload
+bindsym Print exec sh -lc '~/.local/bin/slurpshot'
 
 floating_modifier $mod normal
 
@@ -75,7 +79,7 @@ bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 
 bindsym $mod+b splith
-bindsym $mod+v splitv
+bindsym $mod+g splitv
 
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed

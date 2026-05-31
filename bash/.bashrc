@@ -17,8 +17,6 @@ fi
 
 # Put your fun stuff here.
 
-fish
-
 export PATH=~/.local/bin:~/.cargo/bin:$PATH
 
 alias esync='doas emerge --sync'

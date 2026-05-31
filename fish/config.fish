@@ -3,6 +3,7 @@ set EDITOR vis
 set -gx GPG_TTY (tty)
 set QT_QPA_PLATFORMTHEME qt5ct
 set QT_AUTO_SCREEN_SCALE_FACTOR 1
+set PNPM_HOME "$HOME/.local/share/pnpm"
 
 if status is-interactive
     starship init fish | source
