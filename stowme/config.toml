@@ -9,8 +9,8 @@ name = "git"
 target = "~"
 
 [[package]]
-name = "ghostty"
-target = "~/.config/ghostty"
+name = "kitty"
+target = "~/.config/kitty"
 
 [[package]]
 name = "mpv"
@@ -23,3 +23,23 @@ target = "~/.config/starship"
 [[package]]
 name = "fish"
 target = "~/.config/fish"
+
+[[package]]
+name = "~/.cache/hellwal/fnott.ini"
+target = "~/.config/fnott"
+
+[[package]]
+name = "~/.cache/hellwal/config.ini"
+target = "~/.config/keybar"
+
+[[package]]
+name = "fuzzel"
+target = "~/.config/fuzzel"
+
+[[package]]
+name = "sway"
+target = "~/.config/sway"
+
+[[package]]
+name = "stowme"
+target = "~/.config/stowme"

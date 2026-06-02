@@ -14,8 +14,8 @@ output HDMI-A-1 {
     transform normal
 }
 
-output * bg ~/Pictures/backgrounds/sayorana-etranger-background.jpg fill
-exec_always hellwal -i ~/Pictures/backgrounds/sayorana-etranger-background.jpg --dark --check-contrast
+output * bg ~/Pictures/backgrounds/higurashi-comic.jpg fill
+exec_always hellwal -i ~/Pictures/backgrounds/higurashi-comic.jpg --dark --check-contrast
 
 exec swayidle -w \
     timeout 300 '~/.local/bin/lock' \
@@ -26,7 +26,7 @@ bindsym $mod+Shift+x exec ~/.local/bin/lock
 
 exec fnott
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway QT_QPA_PLATFORMTHEME=qt6ct
-exec gentoo-pipewire-launcher restart
+exec gentoo-pipewire-launcher restart &
 exec_always pkill -x wl-paste
 exec_always wl-paste --type text --watch cliphist store
 exec_always wl-paste --type image --watch cliphist store
@@ -131,7 +131,7 @@ default_floating_border pixel 2
 gaps inner 4
 gaps outer 4
 
-# seat * hide_cursor 3000
+seat * hide_cursor 8000
 
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+q exec pkill -u "$USER"
