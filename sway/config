@@ -27,9 +27,7 @@ bindsym $mod+Shift+x exec ~/.local/bin/lock
 exec fnott
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway QT_QPA_PLATFORMTHEME=qt6ct
 exec gentoo-pipewire-launcher restart &
-exec_always pkill -x wl-paste
-exec_always wl-paste --type text --watch cliphist store
-exec_always wl-paste --type image --watch cliphist store
+exec_always wl-paste --watch cliphist store
 
 bindsym $mod+v exec cliphist list | fuzzel --dmenu | cliphist decode | wl-copy
 bindsym $mod+Shift+v exec cliphist wipe
