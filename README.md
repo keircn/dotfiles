@@ -1,5 +1,5 @@
 # dotfiles
 
-my arch + sway config
+my gentoo + sway config
 
 Requires stow and [stowme](https://codeberg.org/key/stowme)
