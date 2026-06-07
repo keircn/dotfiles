@@ -1,0 +1,115 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "logo": {
+    "source": "~/.config/fastfetch/logo.png",
+    "width": 30,
+    "padding": {
+      "left": 2,
+      "right": 4
+    }
+  },
+  "display": {
+    "separator": " ",
+    "color": {
+      "keys": "cyan",
+      "title": "light_yellow"
+    },
+    "key": {
+      "paddingLeft": 2
+    },
+    "bar": {
+      "char": {
+        "elapsed": "━",
+        "total": "━"
+      },
+      "border": {
+        "left": "",
+        "right": ""
+      },
+      "width": 10,
+      "color": {
+        "elapsed": "auto",
+        "total": "90"
+      }
+    },
+    "percent": {
+      "type": 2
+    }
+  },
+  "modules": [
+    "title",
+    {
+      "type": "separator"
+    },
+    {
+      "type": "os",
+      "key": " OS       >",
+      "format": "{1} {2}"
+    },
+    {
+      "type": "kernel",
+      "key": " Kernel   >"
+    },
+    {
+      "type": "uptime",
+      "key": " Uptime   >"
+    },
+    {
+      "type": "packages",
+      "key": "󰏗 Packages >"
+    },
+    {
+      "type": "shell",
+      "key": " Shell    >"
+    },
+    {
+      "type": "wm",
+      "key": " WM       >"
+    },
+    {
+      "type": "display",
+      "key": "󰍹 Display  >"
+    },
+    {
+      "type": "terminal",
+      "key": " Terminal >"
+    },
+    {
+      "type": "terminalfont",
+      "key": " Font     >"
+    },
+    {
+      "type": "cpu",
+      "key": "󰍛 CPU      >",
+      "temp": true
+    },
+    {
+      "type": "gpu",
+      "key": "󰾲 GPU      >"
+    },
+    {
+      "type": "memory",
+      "key": " Memory   >"
+    },
+    {
+      "type": "disk",
+      "key": " Disk /   >",
+      "folders": "/"
+    },
+    {
+      "type": "disk",
+      "key": "󱎟 Games    >",
+      "folders": "/mnt/games"
+    },
+    {
+      "type": "localip",
+      "key": "󰩟 IP       >"
+    },
+    "break",
+    {
+      "type": "colors",
+      "symbol": "circle",
+      "paddingLeft": 3
+    }
+  ]
+}
