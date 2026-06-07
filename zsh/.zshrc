@@ -1,5 +1,11 @@
 export GPG_TTY=$(tty)
 
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
+printf '\e[6 q'
+function _set_beam_cursor() { printf '\e[6 q' }
+precmd_functions+=(_set_beam_cursor)
+
 alias esync='doas emerge --sync'
 alias up='doas emerge --update --deep --with-bdeps=y @world'
 alias upclean='doas emerge --update --deep --with-bdeps=y @world && doas emerge --depclean && doas revdep-rebuild'
@@ -21,12 +27,20 @@ alias ls='eza --icons'
 
 [[ -f "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
 
-export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME=""
-plugins=(git fnm)
-source "$ZSH/oh-my-zsh.sh"
+if [[ -d "$HOME/.oh-my-zsh" ]]; then
+  export ZSH="$HOME/.oh-my-zsh"
+  ZSH_THEME=""
+  plugins=(git fnm zsh-autosuggestions zsh-syntax-highlighting vi-mode)
+  source "$ZSH/oh-my-zsh.sh"
+fi
 
-eval "$(starship init zsh)"
-eval "$(fnm env --use-on-cd)"
+if (( $+commands[starship] )); then
+  eval "$(starship init zsh)"
+fi
+
+# fnm
+if (( $+commands[fnm] )); then
+  eval "$(fnm env --use-on-cd)"
+fi
 
 [[ -f "$HOME/.cache/hellwal/variableszsh.zsh" ]] && source "$HOME/.cache/hellwal/variableszsh.zsh"
