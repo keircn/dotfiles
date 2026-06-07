@@ -1,0 +1,15 @@
+my gentoo + sway config
+
+Requires stowme <https://codeberg.org/key/stowme> which is a symlink manager
+inspired by GNU stow, built to be integrated with git VCS and written fully
+in Rust.
+
+My stack
+
+- Gentoo  <https://gentoo.org>
+- Fuzzel  <https://codeberg.org/dnkl/fuzzel>
+- Fnott   <https://codeberg.org/dnkl/fnott>
+- Sway    <https://github.com/swaywm/sway>
+- Bar     <https://tangled.org/roxylab.uk/keybar>
+- Kitty   <https://github.com/kovidgoyal/kitty>
+- Neovim  <https://github.com/neovim/neovim>
