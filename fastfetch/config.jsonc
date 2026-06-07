@@ -18,10 +18,6 @@
       "paddingLeft": 2
     },
     "bar": {
-      "char": {
-        "elapsed": "━",
-        "total": "━"
-      },
       "border": {
         "left": "",
         "right": ""
