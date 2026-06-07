@@ -49,5 +49,9 @@ name = "fastfetch"
 target = "~/.config/fastfetch"
 
 [[package]]
+name = "keybar"
+target = "~/.config/keybar"
+
+[[package]]
 name = "stowme"
 target = "~/.config/stowme"
