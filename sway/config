@@ -14,8 +14,9 @@ output HDMI-A-1 {
     transform normal
 }
 
-output * bg ~/Pictures/Backgrounds/higurashi-comic.jpg fill
-exec_always hellwal -i ~/Pictures/Backgrounds/higurashi-comic.jpg --dark --check-contrast
+output * bg ~/Pictures/Backgrounds/tamaki-red.jpg fill
+exec hellwal -i ~/Pictures/Backgrounds/tamaki-red.jpg --dark --check-contrast --script 'swaymsg reload'
+include ~/.cache/hellwal/sway-colors.conf
 
 exec swayidle -w \
     timeout 300 '~/.local/bin/lock' \
