@@ -34,6 +34,8 @@ if [[ -d "$HOME/.oh-my-zsh" ]]; then
   source "$ZSH/oh-my-zsh.sh"
 fi
 
+autoload -Uz bashcompinit && bashcompinit
+
 if (( $+commands[starship] )); then
   eval "$(starship init zsh)"
 fi
