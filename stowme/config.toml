@@ -33,10 +33,6 @@ name = "~/.cache/hellwal/fnott.ini"
 target = "~/.config/fnott"
 
 [[package]]
-name = "~/.cache/hellwal/config.ini"
-target = "~/.config/keybar"
-
-[[package]]
 name = "fuzzel"
 target = "~/.config/fuzzel"
 
@@ -51,6 +47,10 @@ target = "~/.config/fastfetch"
 [[package]]
 name = "keybar"
 target = "~/.config/keybar"
+
+[[package]]
+name = "hellwal"
+target = "~/.config/hellwal"
 
 [[package]]
 name = "stowme"
