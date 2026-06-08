@@ -284,8 +284,7 @@ headerbar > stack > button.suggested-action:hover, headerbar > stack > box > but
 .navigation-sidebar,
 .sidebar-pane,
 .content-pane .sidebar-pane,
-.sidebar-pane .content-pane,
-scrolledwindow>viewport>list /* Gnome Tweaks */ {
+.sidebar-pane .content-pane {
     background-image: linear-gradient(
         to left, @sidebar_bg_color, @view_bg_color
     );
@@ -433,4 +432,39 @@ list row:selected {
 
 window.csd {
     border: 1px solid alpha(@window_fg_color, 0.1);
+}
+
+/* GTK file chooser / places sidebar fix */
+
+placessidebar,
+placessidebar list,
+placessidebar row,
+placessidebar row box,
+placessidebar row label,
+placessidebar row image {
+    background: transparent;
+    background-image: none;
+}
+
+placessidebar row {
+    color: @sidebar_fg_color;
+    border-radius: 0;
+}
+
+placessidebar row:hover {
+    background-color: alpha(@accent_color, 0.12);
+}
+
+placessidebar row:selected,
+placessidebar row:selected:hover {
+    background-color: @accent_bg_color;
+    color: @accent_fg_color;
+}
+
+placessidebar row:selected box,
+placessidebar row:selected label,
+placessidebar row:selected image {
+    background: transparent;
+    background-image: none;
+    color: @accent_fg_color;
 }
