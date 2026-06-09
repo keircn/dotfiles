@@ -43,6 +43,7 @@ assign [app_id="kitty"] workspace number 3
 assign [app_id="vesktop"] workspace number 4
 
 for_window [title="^Bitwarden$"] floating enable
+for_window [app_id="mpv"] floating enable
 
 focus_follows_mouse no
 

@@ -293,8 +293,7 @@ headerbar > stack > button.suggested-action:hover, headerbar > stack > box > but
 .navigation-sidebar:backdrop,
 .sidebar-pane:backdrop,
 .content-pane .sidebar-pane:backdrop,
-.sidebar-pane .content-pane:backdrop,
-scrolledwindow>viewport>list:backdrop {
+.sidebar-pane .content-pane:backdrop {
     background-image: linear-gradient(
         to left, @sidebar_backdrop_color, @view_bg_color
     );
@@ -434,8 +433,6 @@ window.csd {
     border: 1px solid alpha(@window_fg_color, 0.1);
 }
 
-/* GTK file chooser / places sidebar fix */
-
 placessidebar,
 placessidebar list,
 placessidebar row,
@@ -467,4 +464,377 @@ placessidebar row:selected image {
     background: transparent;
     background-image: none;
     color: @accent_fg_color;
+}
+
+treeview,
+treeview.view,
+columnview,
+columnview.view,
+listview,
+gridview,
+flowbox,
+iconview,
+notebook,
+notebook > stack,
+frame,
+frame > border,
+.clamp,
+.card,
+.boxed-list,
+.content,
+.content-view {
+    background-color: @view_bg_color;
+    color: @view_fg_color;
+    background-image: none;
+}
+
+treeview.view header button,
+treeview.view header,
+columnview header,
+columnview header button,
+listview header,
+notebook > header,
+notebook > header > tabs,
+notebook > header > tabs > tab {
+    background-color: shade(@view_bg_color, 1.08);
+    color: @view_fg_color;
+    background-image: none;
+    border-color: alpha(@view_fg_color, 0.12);
+}
+
+treeview.view:selected,
+treeview.view:selected:focus,
+columnview row:selected,
+listview row:selected,
+gridview child:selected,
+flowboxchild:selected,
+iconview:selected {
+    background-color: @accent_bg_color;
+    color: @accent_fg_color;
+}
+
+treeview.view:selected *,
+columnview row:selected *,
+listview row:selected *,
+gridview child:selected *,
+flowboxchild:selected *,
+iconview:selected * {
+    color: @accent_fg_color;
+    background: transparent;
+    background-image: none;
+}
+
+treeview.view:hover,
+columnview row:hover,
+listview row:hover,
+gridview child:hover,
+flowboxchild:hover {
+    background-color: alpha(@accent_color, 0.10);
+}
+
+cell,
+.cell,
+row,
+row > *,
+list > row,
+list > row > *,
+columnview row,
+listview row {
+    background-image: none;
+}
+
+separator,
+treeview separator,
+columnview separator {
+    background-color: alpha(@view_fg_color, 0.12);
+}
+
+filechooser treeview,
+filechooser treeview.view {
+    background-color: @view_bg_color;
+    color: @view_fg_color;
+    background-image: none;
+}
+
+filechooser treeview.view header,
+filechooser treeview.view header button,
+filechooser treeview.view header button label,
+treeview.view header,
+treeview.view header button,
+treeview.view header button label {
+    background-color: shade(@view_bg_color, 1.12);
+    color: alpha(@view_fg_color, 0.75);
+    background-image: none;
+    border-color: alpha(@view_fg_color, 0.12);
+}
+
+filechooser treeview.view header button:hover,
+treeview.view header button:hover {
+    background-color: shade(@view_bg_color, 1.25);
+    color: @view_fg_color;
+    background-image: none;
+}
+
+filechooser treeview.view:selected,
+filechooser treeview.view:selected:focus {
+    background-color: @accent_bg_color;
+    color: @accent_fg_color;
+}
+
+filechooser treeview.view:hover {
+    background-color: alpha(@accent_color, 0.08);
+}
+
+filechooser actionbar,
+filechooser actionbar > revealer,
+filechooser actionbar > revealer > box,
+filechooser .search-bar,
+filechooser .path-bar,
+actionbar,
+actionbar > revealer,
+actionbar > revealer > box {
+    background-color: @window_bg_color;
+    color: @window_fg_color;
+    background-image: none;
+    border-color: alpha(@window_fg_color, 0.12);
+}
+
+filechooser checkbutton,
+filechooser checkbutton label,
+filechooser actionbar label {
+    background: transparent;
+    color: @window_fg_color;
+}
+
+columnview header,
+columnview header button,
+columnview header button label,
+listview header,
+listview header button,
+listview header button label {
+    background-color: shade(@view_bg_color, 1.12);
+    color: alpha(@view_fg_color, 0.75);
+    background-image: none;
+    border-color: alpha(@view_fg_color, 0.12);
+}
+
+columnview row,
+listview row,
+gridview child {
+    background-color: @view_bg_color;
+    color: @view_fg_color;
+}
+
+columnview row:selected,
+listview row:selected,
+gridview child:selected {
+    background-color: @accent_bg_color;
+    color: @accent_fg_color;
+}
+
+/* Chromium GTK sampled colors */
+
+.chromium {
+    color: @window_fg_color;
+    background-image: none;
+}
+
+/* Base window */
+window.background.chromium {
+    background-color: @window_bg_color;
+    color: @window_fg_color;
+}
+
+/* Labels */
+label.chromium {
+    color: @window_fg_color;
+}
+
+label.chromium:disabled {
+    color: alpha(@window_fg_color, 0.45);
+}
+
+label.link.chromium:link,
+label.link.chromium:visited {
+    color: @accent_color;
+}
+
+label.link.chromium:link:disabled {
+    color: alpha(@accent_color, 0.45);
+}
+
+label.link.chromium:link:hover:active {
+    color: shade(@accent_color, 1.25);
+}
+
+/* Buttons */
+button.chromium {
+    background-color: shade(@window_bg_color, 1.12);
+    color: @window_fg_color;
+    background-image: none;
+    border-color: alpha(@window_fg_color, 0.20);
+}
+
+button.text-button.chromium label {
+    color: @window_fg_color;
+}
+
+button.text-button.chromium:disabled {
+    background-color: shade(@window_bg_color, 0.85);
+    color: alpha(@window_fg_color, 0.45);
+}
+
+button.text-button.chromium:disabled label {
+    color: alpha(@window_fg_color, 0.45);
+}
+
+button.text-button.toggle.chromium {
+    background-color: shade(@window_bg_color, 1.15);
+    color: @window_fg_color;
+    background-image: none;
+}
+
+button.text-button.toggle.chromium:checked {
+    background-color: @accent_bg_color;
+    color: @accent_fg_color;
+    background-image: none;
+}
+
+button.image-button.chromium,
+button.image-button.chromium:hover,
+button.flat.scale.chromium image {
+    color: @window_fg_color;
+    background-color: transparent;
+    background-image: none;
+}
+
+/* Entries / text fields */
+entry.chromium,
+entry.chromium:focus {
+    background-color: @view_bg_color;
+    color: @view_fg_color;
+    background-image: none;
+    border-color: @accent_color;
+}
+
+textview.view.chromium,
+textview.view.chromium text {
+    background-color: @view_bg_color;
+    color: @view_fg_color;
+    background-image: none;
+}
+
+textview.view.chromium:disabled,
+textview.view.chromium:disabled text {
+    background-color: shade(@view_bg_color, 0.85);
+    color: alpha(@view_fg_color, 0.45);
+    background-image: none;
+}
+
+/* Tables */
+treeview.view.chromium button {
+    background-color: shade(@view_bg_color, 1.12);
+    color: @view_fg_color;
+    background-image: none;
+    border-color: alpha(@view_fg_color, 0.15);
+}
+
+treeview.view.chromium button label {
+    color: @view_fg_color;
+}
+
+treeview.view.chromium treeview.view.cell {
+    background-color: @view_bg_color;
+    color: @view_fg_color;
+    background-image: none;
+}
+
+/* Notebook / tabs */
+notebook.chromium tab:checked,
+notebook.chromium:focus tab:checked {
+    background-color: @view_bg_color;
+    color: @view_fg_color;
+    background-image: none;
+}
+
+/* Scrollbars */
+scrollbar.chromium trough,
+scrollbar.chromium trough:hover {
+    background-color: @window_bg_color;
+    background-image: none;
+}
+
+scrollbar.chromium slider {
+    background-color: alpha(@window_fg_color, 0.45);
+    background-image: none;
+}
+
+scrollbar.chromium slider:hover {
+    background-color: alpha(@window_fg_color, 0.75);
+    background-image: none;
+}
+
+/* Sliders */
+scale.chromium trough {
+    background-color: alpha(@window_fg_color, 0.20);
+    background-image: none;
+}
+
+scale.chromium highlight {
+    background-color: @accent_bg_color;
+    background-image: none;
+}
+
+scale.chromium:disabled trough,
+scale.chromium:disabled highlight {
+    background-color: alpha(@window_fg_color, 0.12);
+    background-image: none;
+}
+
+/* Frames / separators / misc */
+box.frame.chromium,
+frame.chromium border {
+    border-color: alpha(@window_fg_color, 0.15);
+}
+
+separator.horizontal.chromium {
+    background-color: alpha(@window_fg_color, 0.15);
+}
+
+statusbar.chromium,
+spinner.chromium {
+    background-color: @window_bg_color;
+    color: @window_fg_color;
+}
+
+/* Remaining GTK file chooser gray surfaces */
+
+filechooser paned,
+filechooser box,
+filechooser stack,
+filechooser widget,
+filechooser .background {
+    background-color: @window_bg_color;
+    color: @window_fg_color;
+    background-image: none;
+}
+
+filechooser treeview.view button,
+filechooser treeview.view button label,
+treeview.view button,
+treeview.view button label {
+    background-color: shade(@view_bg_color, 1.12);
+    color: @view_fg_color;
+    background-image: none;
+    border-color: alpha(@view_fg_color, 0.15);
+}
+
+filechooser actionbar,
+filechooser actionbar box,
+filechooser actionbar revealer,
+filechooser actionbar checkbutton,
+filechooser actionbar label {
+    background-color: @window_bg_color;
+    color: @window_fg_color;
+    background-image: none;
 }
