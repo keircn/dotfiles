@@ -30,6 +30,7 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 exec gentoo-pipewire-launcher restart &
 exec_always wl-paste --watch cliphist store
 exec_always easyeffects --gapplication-service
+exec_always wayvnc -o HEADLESS-1 0.0.0.0 5900
 
 bindsym $mod+v exec cliphist list | fuzzel --dmenu | cliphist decode | wl-copy
 bindsym $mod+Shift+v exec cliphist wipe
