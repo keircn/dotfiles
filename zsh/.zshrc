@@ -1,4 +1,5 @@
 export GPG_TTY=$(tty)
+source $HOME/.zsh_secrets
 
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
