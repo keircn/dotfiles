@@ -30,22 +30,12 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 exec gentoo-pipewire-launcher restart &
 exec_always wl-paste --watch cliphist store
 exec_always easyeffects --gapplication-service
-exec_always wayvnc -o HEADLESS-1 0.0.0.0 5900
 
 bindsym $mod+v exec cliphist list | fuzzel --dmenu | cliphist decode | wl-copy
 bindsym $mod+Shift+v exec cliphist wipe
 
 for_window [app_id="gif-picker"] floating enable, resize set 1000 600, move position center
 bindsym $mod+Shift+g exec kitty --class gif-picker --title gif-picker -e ~/.local/bin/gif-picker
-
-set $livesplit [app_id="helium" title="^LiveSplit One$"]
-
-for_window $livesplit floating enable
-for_window $livesplit border off
-for_window $livesplit sticky enable
-for_window $livesplit resize set width 360 height 720
-for_window $livesplit move position 1540 40
-for_window $livesplit move scratchpad
 
 bindsym $mod+Shift+s exec ~/.local/bin/toggle-livesplit
 
