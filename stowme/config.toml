@@ -49,9 +49,5 @@ name = "keybar"
 target = "~/.config/keybar"
 
 [[package]]
-name = "hellwal"
-target = "~/.config/hellwal"
-
-[[package]]
 name = "stowme"
 target = "~/.config/stowme"
