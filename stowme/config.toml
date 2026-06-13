@@ -33,6 +33,10 @@ name = "~/.cache/hellwal/fnott.ini"
 target = "~/.config/fnott"
 
 [[package]]
+name = "hellwal"
+target = "~/.config/hellwal"
+
+[[package]]
 name = "fuzzel"
 target = "~/.config/fuzzel"
 
