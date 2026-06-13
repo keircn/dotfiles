@@ -1,0 +1,18 @@
+:root {
+  --bg: #%%background%%;
+  --bg-container: #%%color0%%;
+  --bg-raised: #%%color8%%;
+  --bg-header: #%%color0%%;
+  --bg-muted: #%%color8%%;
+
+  --text: #%%foreground%%;
+  --text-muted: #%%color7%%;
+  --text-dim: #%%color6%%;
+  --text-accent: #%%color5%%;
+
+  --link: #%%color5%%;
+  --hover: #%%color5%%;
+  --border: #%%border%%;
+  --border-light: #%%color0%%;
+  --accent: #%%color5%%;
+}

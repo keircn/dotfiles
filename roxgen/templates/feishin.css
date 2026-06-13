@@ -1,0 +1,88 @@
+:root{--bg:#%%background%%!important;--fg:#%%foreground%%!important;--accent:#%%color4%%!important;--rose:#%%color1%%!important;--rose2:#%%color3%%!important;--rose-soft:color-mix(in srgb,var(--bg) 92%,var(--rose) 8%)!important;--rose-hover:color-mix(in srgb,var(--bg) 84%,var(--rose2) 16%)!important;--rose-active:color-mix(in srgb,var(--bg) 76%,var(--rose2) 24%)!important;--text:color-mix(in srgb,var(--fg) 92%,white 8%)!important;--text-muted:color-mix(in srgb,var(--fg) 70%,var(--bg) 30%)!important;--text-dim:color-mix(in srgb,var(--fg) 50%,var(--bg) 50%)!important;--text-accent:color-mix(in srgb,var(--accent) 82%,var(--text) 18%)!important;--border:color-mix(in srgb,var(--accent) 18%,var(--bg) 82%)!important;--theme-colors-background:var(--bg)!important;--theme-colors-background-alternate:var(--rose-soft)!important;--theme-colors-surface:var(--bg)!important;--theme-colors-primary:var(--accent)!important;--theme-colors-primary-filled:color-mix(in srgb,var(--accent) 24%,var(--bg) 76%)!important;--theme-colors-primary-filled-hover:color-mix(in srgb,var(--accent) 32%,var(--bg) 68%)!important;--theme-colors-primary-contrast:var(--text)!important;--mantine-color-body:var(--bg)!important;--mantine-color-dark-9:var(--bg)!important;--mantine-color-dark-8:var(--bg)!important;--mantine-color-dark-7:var(--rose-soft)!important;--mantine-color-dark-6:var(--rose-hover)!important}
+@media screen and (width >= 1800px){.fs-playerbar-module-right-grid-item .fs-playerbar-slider-module-root{width:calc(10rem * var(--mantine-scale))!important}}
+@media screen and (width >= 1000px) and (width < 1800px){.fs-playerbar-module-right-grid-item .fs-playerbar-slider-module-root{width:calc(8rem * var(--mantine-scale))!important}}
+@media screen and (width >= 950px) and (width < 1100px){.fs-playerbar-module-right-grid-item .fs-playerbar-slider-module-root{width:calc(7rem * var(--mantine-scale))!important}}
+html,body,#root,#default-layout,#main-content,main,.fs-library-container-module-container,.fs-native-scroll-area-module-scroll-area,.fs-animated-page-module-animated-page{background:var(--bg)!important;color:var(--text)!important}
+body,#root{height:100%}
+#default-layout{gap:1rem}
+#default-layout:has(.fs-window-bar-module-windows-container){grid-template-rows:2rem calc(100vh - 11rem) 6rem}
+#default-layout:not(:has(.fs-window-bar-module-windows-container)){grid-template-rows:0 calc(100vh - 9rem) 6rem}
+.fs-window-bar-module-windows-container{height:2rem}
+#player-bar{margin-inline:1rem}
+#player-bar>.fs-playerbar-module-container{width:100%;border-top:unset}
+#player-bar ._image_ly86j_1 button,#player-bar .fs-left-controls-module-image-wrapper button{display:none}
+#drawer-queue{z-index:201!important;top:0!important;right:1rem!important}
+#default-layout:has(.fs-window-bar-module-windows-container) #drawer-queue,#default-layout:has(.fs-window-bar-module-windows-container) #sidebar,#default-layout:has(.fs-window-bar-module-windows-container) #sidebar-queue{max-height:calc(100vh - 11rem)!important}
+#default-layout:not(:has(.fs-window-bar-module-windows-container)) #drawer-queue,#default-layout:not(:has(.fs-window-bar-module-windows-container)) #sidebar,#default-layout:not(:has(.fs-window-bar-module-windows-container)) #sidebar-queue{max-height:calc(100vh - 9rem)!important}
+#left-sidebar{max-height:calc(100vh - 9rem)}
+#sidebar{margin-left:1rem}
+#sidebar-queue{margin-left:-1rem}
+#sidebar .fs-resize-handle-module-handle-right,#sidebar .fs-resize-handle-module-handle-right::before{max-height:calc(100vh - 10rem)}
+#default-layout .fs-collapsed-sidebar-module-sidebar-container>div>div:first-child{justify-content:center}
+#main-content{height:100%;gap:1rem}
+.fs-main-content-module-right-expanded main{width:calc(100% - 1rem)}
+#drawer-queue,#sidebar-queue,#player-bar,.fs-main-content-module-sidebar-collapsed #sidebar,.fs-main-content-module-sidebar-expanded #left-sidebar,.fs-context-menu-module-container,.fs-popover-module-dropdown,.fs-dropdown-menu-module-menu-dropdown,.fs-page-header-module-header,.fs-library-header-module-library-header,.fs-album-detail-content-module-content-container,.fs-album-artist-detail-content-module-detail-container,.fs-filter-bar-module-filter-bar,.fs-tabs-module-panel,.fs-server-selector-module-button-container>div,main:has(div>.fs-feature-carousel-module-wrapper) .fs-page-header-module-header,main:has(div>.fs-library-header-module-library-header) .fs-page-header-module-header,main:has(div>.fs-album-detail-content-module-content-container) .fs-page-header-module-header,main:has(div>.fs-album-detail-content-module-content-container) .ag-header.ag-header-window-bar{background:var(--rose-soft)!important;border-radius:16px;border:1px solid var(--border)!important;box-shadow:0 6px 24px rgba(0,0,0,.28)!important;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+#left-sidebar .fs-sidebar-module-accordion-content,#left-sidebar .fs-accordion-module-panel,#left-sidebar .mantine-Accordion-content,#left-sidebar .mantine-Accordion-panel,#sidebar .fs-sidebar-module-accordion-content,#sidebar .fs-accordion-module-panel,#sidebar .mantine-Accordion-content,#sidebar .mantine-Accordion-panel,#drawer-queue>div>div{background:transparent!important;border-color:transparent!important;box-shadow:none!important}
+#left-sidebar button,#sidebar button,#left-sidebar a,#sidebar a,#left-sidebar [role="button"],#sidebar [role="button"],#left-sidebar .fs-button-module-root,#sidebar .fs-button-module-root,#left-sidebar .fs-action-icon-module-root,#sidebar .fs-action-icon-module-root,#left-sidebar .mantine-Button-root,#sidebar .mantine-Button-root,#left-sidebar .mantine-ActionIcon-root,#sidebar .mantine-ActionIcon-root,#left-sidebar .mantine-NavLink-root,#sidebar .mantine-NavLink-root,#left-sidebar .mantine-UnstyledButton-root,#sidebar .mantine-UnstyledButton-root,#left-sidebar .fs-accordion-module-control,#sidebar .fs-accordion-module-control,#player-bar button,#player-bar .fs-action-icon-module-root,#player-bar [class*="control"] button{background:transparent!important;border-color:transparent!important;box-shadow:none!important;color:var(--text)!important}
+#left-sidebar button:hover,#sidebar button:hover,#left-sidebar a:hover,#sidebar a:hover,#left-sidebar [role="button"]:hover,#sidebar [role="button"]:hover,#left-sidebar .fs-button-module-root:hover,#sidebar .fs-button-module-root:hover,#left-sidebar .fs-action-icon-module-root:hover,#sidebar .fs-action-icon-module-root:hover,#left-sidebar .mantine-Button-root:hover,#sidebar .mantine-Button-root:hover,#left-sidebar .mantine-ActionIcon-root:hover,#sidebar .mantine-ActionIcon-root:hover,#left-sidebar .mantine-NavLink-root:hover,#sidebar .mantine-NavLink-root:hover,#left-sidebar .mantine-UnstyledButton-root:hover,#sidebar .mantine-UnstyledButton-root:hover,#left-sidebar .fs-accordion-module-control:hover,#sidebar .fs-accordion-module-control:hover,#left-sidebar [data-hovered],#sidebar [data-hovered],.ag-row-hover,.ag-row:hover,.fs-context-menu-module-context-menu-button:hover,.fs-dropdown-menu-module-menu-item:hover,[role="option"]:hover,.mantine-Menu-item:hover,#player-bar button:hover,#player-bar .fs-action-icon-module-root:hover{background:var(--rose-hover)!important;border-color:transparent!important;box-shadow:none!important}
+#left-sidebar [data-active],#sidebar [data-active],#left-sidebar [aria-current="page"],#sidebar [aria-current="page"],#left-sidebar .active,#sidebar .active,#left-sidebar [class*="active"],#sidebar [class*="active"],#left-sidebar .fs-button-module-root[data-variant="filled"],#sidebar .fs-button-module-root[data-variant="filled"],#left-sidebar button[data-variant="filled"],#sidebar button[data-variant="filled"]{background:var(--rose-active)!important;box-shadow:none!important}
+#player-bar button[data-active="true"],#player-bar button[aria-pressed="true"],#player-bar .fs-action-icon-module-root[data-active="true"]{background:transparent!important;color:var(--text)!important}
+#player-bar button svg,#player-bar .fs-action-icon-module-root svg{color:var(--text)!important;fill:currentColor!important;stroke:currentColor!important}
+.fs-text-input-module-input,.fs-select-module-input,.fs-number-input-module-input,.fs-color-input-module-input,.fs-multi-select-module-input,.fs-button-module-root,.fs-action-icon-module-root,.mantine-Input-input,.mantine-Switch-track,.mantine-Slider-track,.mantine-Slider-bar{background:var(--rose-soft)!important;color:var(--text)!important;border-color:var(--border)!important}
+.fs-button-module-root:hover,.fs-action-icon-module-root:hover,button:hover{background:var(--rose-hover)!important}
+.mantine-Switch-thumb,.mantine-Slider-thumb{background:var(--text-muted)!important}
+.mantine-Switch-input:checked+.mantine-Switch-track,[data-checked] .mantine-Switch-track,.fs-button-module-root[data-variant="filled"]{background:color-mix(in srgb,var(--accent) 28%,var(--bg) 72%)!important}
+.fs-text-input-module-root .mantine-Input-wrapper .fs-text-input-module-input,.fs-action-icon-module-root,.fs-select-module-input,.fs-number-input-module-input,.fs-color-input-module-input,.mantine-Popover-dropdown,.fs-multi-select-module-input,.fs-button-module-root{border-radius:15px}
+.fs-playerbar-module-container .fs-left-controls-module-image-wrapper .fs-left-controls-module-image .fs-image-module-unloader,.fs-poster-card-module-image-container,.fs-image-module-image{border-radius:10px}
+.full-screen-player-image{border-radius:1rem}
+.fs-full-screen-player-module-background-image-overlay{position:fixed}
+#default-layout:has(.fs-window-bar-module-windows-container) .fs-full-screen-player-module-background-image-overlay{top:2rem}
+#default-layout:not(:has(.fs-window-bar-module-windows-container)) .fs-full-screen-player-module-background-image-overlay{top:0}
+.full-screen-player-image-container{flex-grow:1}
+#default-layout .fs-full-screen-player-module-responsive-container{margin-top:2rem}
+.fs-full-screen-player-queue-module-grid-container{margin-top:1rem}
+.fs-full-screen-player-queue-module-grid-container::before{border-radius:1rem}
+#default-layout .fs-full-screen-player-module-container{padding:1rem 1rem 11rem!important;height:100vh!important}
+.fs-popover-module-dropdown{max-height:unset!important;height:calc(100vh - 14rem)!important}
+#drawer-queue *,#sidebar-queue *,.fs-context-menu-module-container *,.fs-popover-module-dropdown *,.fs-dropdown-menu-module-menu-dropdown *,main>.fs-virtual-grid-wrapper-module-virtual-grid-auto-sizer-container *,.fs-album-artist-detail-content-module-detail-container *,.fs-album-detail-content-module-content-container *,.ag-root,.ag-root-wrapper,.ag-header,.ag-row,.ag-center-cols-container,.ag-body-viewport,.fs-virtual-table-module-table-wrapper,.fs-virtual-grid-wrapper-module-virtual-grid-container,.fs-virtual-grid-wrapper-module-virtual-grid-auto-sizer-container{--ag-background-color:var(--bg)!important;--ag-header-background-color:var(--bg)!important;--ag-odd-row-background-color:color-mix(in srgb,var(--bg) 96%,var(--rose) 4%)!important}
+.ag-root,.ag-root-wrapper,.ag-header,.ag-row,.ag-center-cols-container,.ag-body-viewport,.fs-virtual-table-module-table-wrapper,.fs-virtual-grid-wrapper-module-virtual-grid-container,.fs-virtual-grid-wrapper-module-virtual-grid-auto-sizer-container{background:transparent!important}
+#main-content main .fs-page-header-module-header{margin-right:0;min-height:4rem}
+.fs-page-header-module-container{padding:0!important;height:5rem}
+.fs-animated-page-module-animated-page:has(.fs-virtual-grid-wrapper-module-virtual-grid-auto-sizer-container) .fs-page-header-module-header,main:has(.fs-tabs-module-root) .fs-page-header-module-header{border-bottom-left-radius:0!important;border-bottom-right-radius:0!important;box-shadow:unset!important}
+#main-content main .fs-page-header-module-background-image,#main-content main .fs-page-header-module-background-image-overlay{opacity:0}
+.fs-library-header-bar-module-header-container{padding:0 0 0 1rem}
+.fs-library-header-bar-module-header-container:has(.fs-library-header-bar-module-play-button-container){padding:0}
+.fs-library-header-bar-module-play-button-container{margin-left:1rem}
+.fs-page-header-module-header:has(.fs-library-header-bar-module-play-button-container){margin:0}
+#main-content main .fs-page-header-module-title-wrapper .mantine-Group-root:has(.fs-text-input-module-root){margin-right:1rem}
+#main-content main .fs-page-header-module-title-wrapper .mantine-Group-root>.fs-text-input-module-root{width:unset!important}
+main>.fs-virtual-grid-wrapper-module-virtual-grid-auto-sizer-container{max-height:calc(100vh - 16rem);border-top-left-radius:unset;border-top-right-radius:unset}
+main.fs-animated-page-module-animated-page>.fs-virtual-grid-wrapper-module-virtual-grid-auto-sizer-container>div>div,.fs-album-detail-content-module-content-container,.fs-album-artist-detail-content-module-detail-container,main>div>div:has(.fs-tabs-module-root){padding:1rem}
+main>div>.fs-filter-bar-module-filter-bar,main:has(.fs-virtual-grid-wrapper-module-virtual-grid-auto-sizer-container:last-child)>div:nth-child(2):not(:last-child)>div{border-radius:unset;box-shadow:unset}
+main:has(.fs-virtual-grid-wrapper-module-virtual-grid-auto-sizer-container:last-child)>div:nth-child(2):not(:last-child)>div{padding:1rem!important;margin:0;width:unset!important}
+main .fs-feature-carousel-module-wrapper{position:absolute;top:0;left:0;height:16rem;max-height:unset}
+.fs-library-container-module-container>div{padding-top:unset!important;padding-inline:unset!important}
+.fs-library-container-module-container>div>div:not(.fs-feature-carousel-module-carousel-container){padding-inline:2rem}
+.fs-feature-carousel-module-carousel-item,.fs-feature-carousel-module-content{min-height:unset}
+main .fs-feature-carousel-module-carousel{height:16rem;min-height:unset;max-height:unset;padding:0}
+main .fs-feature-carousel-module-wrapper>div>*{align-items:center}
+main .fs-feature-carousel-module-wrapper .fs-feature-carousel-module-background-image{width:100%;height:100%}
+main>div>div>div:has(.fs-feature-carousel-module-wrapper){padding:1rem!important;padding-inline:unset!important;margin-bottom:unset!important}
+main>div>div>div:has(.fs-feature-carousel-module-wrapper)>.grid-carousel:first-of-type{margin-top:16rem}
+main .fs-feature-carousel-module-wrapper .fs-feature-carousel-module-info-column>.mantine-Stack-root>div:has(button)>div{position:absolute;bottom:1rem;right:1rem}
+main>div>div:has(.fs-tabs-module-root){overflow:hidden;border-top-left-radius:0;border-top-right-radius:0}
+main>div>div:has(.fs-tabs-module-root) .fs-tabs-module-panel{overflow-y:scroll}
+div:has(.fs-album-artist-detail-content-module-content-container)>div>.fs-library-header-module-library-header{padding:2rem 1rem!important;height:20rem;min-height:unset;max-height:unset}
+div:has(.fs-album-detail-content-module-content-container)>div>.fs-library-header-module-library-header{padding:1rem 1rem 2rem;height:20rem;min-height:unset;max-height:unset}
+.fs-library-header-module-image-section,.fs-library-header-module-metadata-section{padding-left:1rem!important}
+main>.fs-native-scroll-area-module-scroll-area{height:calc(100vh - 6rem)}
+.fs-animated-page-module-animated-page:has(.fs-filter-bar-module-filter-bar) .fs-library-header-module-library-header{padding:2rem 0!important}
+.fs-album-detail-content-module-detail-container{padding:0}
+.fs-album-detail-content-module-content-container .fs-library-background-overlay-module-root{position:absolute;top:0;left:0}
+main:has(div>.fs-album-detail-content-module-content-container):has(.ag-header.ag-header-window-bar) .fs-page-header-module-header{border-bottom-right-radius:0;border-bottom-left-radius:0}
+.ag-header.ag-header-window-bar{margin-top:-1rem}
+.fs-page-header-module-background-image,.fs-page-header-module-background-image-overlay,.fs-feature-carousel-module-background-image,.fs-library-background-overlay-module-root{opacity:.18!important;filter:blur(14px) brightness(.42) saturate(.85)!important}
+.fs-badge-module-root{color:var(--text)!important;background:color-mix(in srgb,var(--accent) 22%,var(--bg) 78%)!important;line-height:1.2rem;font-weight:500;font-size:.8rem;padding:.2rem .5rem;border-radius:100px}
+.fs-feature-carousel-module-carousel .fs-badge-module-root:hover{cursor:pointer}
+#sidebar-queue .fs-virtual-grid-wrapper-module-virtual-grid-container .fs-virtual-grid-wrapper-module-virtual-grid-auto-sizer-container .fs-virtual-table-module-table-wrapper .ag-root-wrapper .ag-root-wrapper-body .ag-body-viewport{padding-bottom:100px}
+a,.fs-link,[class*="accent"],[class*="primary"]{color:var(--text-accent)!important}

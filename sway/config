@@ -15,8 +15,8 @@ output HDMI-A-1 {
 }
 
 output * bg ~/Pictures/Backgrounds/tamaki-red.jpg fill
-exec hellwal -i ~/Pictures/Backgrounds/tamaki-red.jpg --dark --check-contrast --script 'swaymsg reload'
-include ~/.cache/hellwal/sway-colors.conf
+# exec roxgen -i ~/Pictures/Backgrounds/tamaki-red.jpg --dark --check-contrast --script 'swaymsg reload'
+include ~/.cache/roxgen/sway-colors.conf
 
 exec swayidle -w \
     timeout 300 '~/.local/bin/lock' \
@@ -46,6 +46,7 @@ input type:keyboard {
 
 assign [app_id="helium"] workspace number 1
 assign [app_id="org.strawberrymusicplayer.strawberry"] workspace number 2
+assign [app_id="feishin"] workspace number 2
 assign [app_id="kitty"] workspace number 3
 assign [app_id="vesktop"] workspace number 4
 

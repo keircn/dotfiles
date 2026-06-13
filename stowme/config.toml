@@ -29,7 +29,7 @@ name = "fish"
 target = "~/.config/fish"
 
 [[package]]
-name = "~/.cache/hellwal/fnott.ini"
+name = "~/.cache/roxgen/fnott.ini"
 target = "~/.config/fnott"
 
 [[package]]
