@@ -51,6 +51,7 @@ assign [app_id="kitty"] workspace number 3
 assign [app_id="vesktop"] workspace number 4
 
 for_window [title="^Bitwarden$"] floating enable
+for_window [title="JDownloader 2"] floating enable
 for_window [app_id="mpv"] floating enable
 
 focus_follows_mouse no
@@ -59,7 +60,8 @@ bindsym $mod+t exec $term
 bindsym $mod+q kill
 bindsym $mod+d exec $menu
 bindsym --locked XF86Search exec $menu
-bindsym Print exec sh -lc '~/.local/bin/screenshot.sh'
+# bindsym Print exec sh -lc '~/.local/bin/screenshot.sh'
+bindsym Print exec sh -c "~/.local/bin/ezshot -c region && notify-send 'upload complete'"
 
 floating_modifier $mod normal
 
