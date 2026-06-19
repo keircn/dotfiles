@@ -14,7 +14,6 @@ output HDMI-A-1 {
     transform normal
 }
 
-output * bg ~/Pictures/Backgrounds/tamaki-red.jpg fill
 # exec roxgen -i ~/Pictures/Backgrounds/tamaki-red.jpg --dark --check-contrast --script 'swaymsg reload'
 include ~/.cache/roxgen/sway-colors.conf
 
@@ -147,7 +146,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+q exec pkill -u "$USER"
 
 bar {
-	swaybar_command keybar
+	swaybar_command waybar
 	position top
 }
 
