@@ -53,5 +53,9 @@ name = "keybar"
 target = "~/.config/keybar"
 
 [[package]]
+name = "waybar"
+target = "~/.config/waybar"
+
+[[package]]
 name = "stowme"
 target = "~/.config/stowme"

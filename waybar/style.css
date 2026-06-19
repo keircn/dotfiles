@@ -1,0 +1,115 @@
+@import url("file:///home/keiran/.cache/roxgen/waybar-colors.css");
+
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+#waybar {
+    background-color: alpha(@background, 0.55);
+    color: @foreground;
+    font-family: SF Pro Text Regular, Cantarell, Noto Sans, sans-serif;
+    font-size: 9.5pt;
+    font-weight: normal;
+}
+
+#window,
+#workspaces,
+#custom-clock,
+#cpu,
+#memory,
+#pulseaudio,
+#tray,
+#mode,
+#idle_inhibitor {
+    padding-left: 6px;
+    padding-right: 6px;
+    margin: 0 3px;
+}
+
+#custom-clock,
+#idle_inhibitor,
+#cpu,
+#memory {
+    margin-left: 10px;
+}
+
+#workspaces button {
+    padding-left: 6px;
+    padding-right: 6px;
+    color: alpha(@foreground, 0.6);
+    border-bottom: 2px solid transparent;
+}
+
+#workspaces button:hover {
+    background: alpha(@color7, 0.15);
+}
+
+#workspaces button.focused {
+    color: @foreground;
+    border-bottom-color: @color3;
+    background-color: alpha(@color3, 0.12);
+}
+
+#workspaces button.urgent {
+    background-color: alpha(@color1, 0.35);
+}
+
+#idle_inhibitor.activated {
+    background-color: alpha(@color8, 0.7);
+}
+
+#mode {
+    background-color: alpha(@color1, 0.45);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#pulseaudio,
+#cpu,
+#memory {
+    border-bottom: 2px solid @color5;
+}
+
+#cpu,
+#memory {
+    border-bottom-color: @color2;
+}
+
+#cpu.warning {
+    background-color: alpha(@color3, 0.35);
+}
+
+#cpu.critical {
+    background-color: alpha(@color1, 0.45);
+}
+
+#tray {
+    border-bottom: 2px solid @color4;
+    margin-right: 2px;
+}
+
+#window {
+    margin-right: 8px;
+}
+
+#window #waybar.hidden {
+    opacity: 0.2;
+}
+
+label:focus {
+    background-color: @color0;
+}
+
+tooltip {
+    background: @background;
+    border: 1px solid alpha(@foreground, 0.3);
+    border-radius: 4px;
+}
+
+tooltip label {
+    color: @foreground;
+}
