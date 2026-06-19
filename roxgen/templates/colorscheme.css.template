@@ -1,18 +1,18 @@
 :root {
   --bg: #%%background%%;
-  --bg-container: #%%color0%%;
-  --bg-raised: #%%color8%%;
-  --bg-header: #%%color0%%;
-  --bg-muted: #%%color8%%;
+  --bg-container: #%%color8%%;
+  --bg-raised: #%%color4%%;
+  --bg-header: #%%background%%;
+  --bg-muted: #%%color1%%;
 
   --text: #%%foreground%%;
-  --text-muted: #%%color7%%;
+  --text-muted: #%%color14%%;
   --text-dim: #%%color6%%;
   --text-accent: #%%color5%%;
 
   --link: #%%color5%%;
-  --hover: #%%color5%%;
-  --border: #%%border%%;
-  --border-light: #%%color0%%;
+  --hover: #%%color13%%;
+  --border: #%%color6%%;
+  --border-light: #%%color8%%;
   --accent: #%%color5%%;
 }
