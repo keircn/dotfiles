@@ -17,18 +17,19 @@ output HDMI-A-1 {
 # exec roxgen -i ~/Pictures/Backgrounds/tamaki-red.jpg --dark --check-contrast --script 'swaymsg reload'
 include ~/.cache/roxgen/sway-colors.conf
 
+bindsym $mod+Shift+x exec loginctl suspend
 exec swayidle -w \
     timeout 300 '~/.local/bin/lock' \
     timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
     before-sleep '~/.local/bin/lock'
 
-bindsym $mod+Shift+x exec ~/.local/bin/lock
+# bindsym $mod+Shift+x exec ~/.local/bin/lock
 
 exec fnott
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway QT_QPA_PLATFORMTHEME=qt6ct
 exec gentoo-pipewire-launcher restart &
-exec_always wl-paste --watch cliphist store
-exec_always easyeffects --gapplication-service
+exec wl-paste --watch cliphist store
+exec_always $HOME/.local/bin/rescrobbled.sh
 
 bindsym $mod+v exec cliphist list | fuzzel --dmenu | cliphist decode | wl-copy
 bindsym $mod+Shift+v exec cliphist wipe
@@ -45,12 +46,10 @@ input type:keyboard {
 }
 
 assign [app_id="helium"] workspace number 1
-assign [app_id="org.strawberrymusicplayer.strawberry"] workspace number 2
-assign [app_id="feishin"] workspace number 2
+assign [app_id="firefox"] workspace number 1
 assign [app_id="kitty"] workspace number 3
-assign [app_id="vesktop"] workspace number 4
 
-for_window [title="^Bitwarden$"] floating enable
+for_window [app_id="firefox" title="Extension: \(Bitwarden - Free Password Manager\) - Bitwarden — Mozilla Firefox"] floating enable
 for_window [title="JDownloader 2"] floating enable
 for_window [app_id="mpv"] floating enable
 
