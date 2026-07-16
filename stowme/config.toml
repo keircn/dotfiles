@@ -37,20 +37,12 @@ name = "roxgen"
 target = "~/.config/roxgen"
 
 [[package]]
-name = "fuzzel"
-target = "~/.config/fuzzel"
-
-[[package]]
 name = "sway"
 target = "~/.config/sway"
 
 [[package]]
 name = "fastfetch"
 target = "~/.config/fastfetch"
-
-[[package]]
-name = "keybar"
-target = "~/.config/keybar"
 
 [[package]]
 name = "waybar"
