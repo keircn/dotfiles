@@ -1,65 +1,161 @@
 set $mod Mod1
-
 set $left h
 set $down j
 set $up k
 set $right l
-set $term kitty
+
+set $term foot
 set $menu fuzzel
 
-output HDMI-A-1 {
-    mode 1920x1080@100.000Hz
-    position 0 0
-    scale 1
-    transform normal
-    background ~/Pictures/Backgrounds/miku-leek.jpg fill
+set $wallpaper ~/Pictures/Backgrounds/oxocarbon.jpg
+set $lock_bg ~/Pictures/Backgrounds/oxocarbon.jpg
+set $shot ~/.config/sway/scripts/screenshot.sh
+
+
+set $base00 #161616
+set $base01 #262626
+set $base02 #393939
+set $base03 #525252
+set $base04 #dde1e6
+set $base05 #f2f4f8
+set $base06 #ffffff
+set $base07 #08bdba
+set $base08 #3ddbd9
+set $base09 #78a9ff
+set $base0A #ee5396
+set $base0B #33b1ff
+set $base0C #ff7eb6
+set $base0D #42be65
+set $base0E #be95ff
+set $base0F #82cfff
+
+
+output * bg $wallpaper fill
+
+exec --no-startup-id wl-paste --watch cliphist store
+exec_always --no-startup-id fnott
+exec_always --no-startup-id nm-applet
+
+exec --no-startup-id swayidle -w \
+    timeout 300 'swaylock -f -i $lock_bg --effect-blur 7x5 -c 000000' \
+    timeout 600 'swaymsg "output * power off"' \
+        resume 'swaymsg "output * power on"' \
+    before-sleep 'swaylock -f -i $lock_bg --effect-blur 7x5 -c 000000'
+
+
+input type:touchpad {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+    middle_emulation enabled
+    pointer_accel 0.2
+    accel_profile adaptive
 }
-
-include ~/.cache/roxgen/sway-colors.conf
-
-bindsym $mod+Shift+x exec loginctl suspend
-
-exec fnott
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway QT_QPA_PLATFORMTHEME=qt6ct
-exec gentoo-pipewire-launcher restart &
-exec wl-paste --watch cliphist store
-
-bindsym $mod+v exec cliphist list | fuzzel --dmenu | cliphist decode | wl-copy
-bindsym $mod+Shift+v exec cliphist wipe
-bindsym $mod+p exec hyprpicker -anbl
-
-for_window [title="status cafe - Helium"] floating enable, resize set 400 500, move position center
 
 input type:keyboard {
-	xkb_layout "us"
+    xkb_layout gb
 }
 
-assign [app_id="helium"] workspace number 1
-assign [app_id="kitty"] workspace number 3
-for_window [app_id="mpv"] floating enable
 
-focus_follows_mouse no
+output * bg $wallpaper fill
+
+gaps inner 10
+gaps outer 6
+smart_gaps on
+
+default_border none
+default_floating_border none
+
+# swayfx only!!
+
+titlebar_separator disable
+scratchpad_minimize disable
+
+default_dim_inactive 0.08
+dim_inactive_colors.unfocused #000000FF
+dim_inactive_colors.urgent #900000FF
+
+
+animation_duration_ms 100
+
+corner_radius 10
+
+blur enable
+blur_xray disable
+blur_passes 2
+blur_radius 4
+blur_noise 0.015
+blur_brightness 1.0
+blur_contrast 1.0
+blur_saturation 1.05
+
+shadows enable
+shadows_on_csd enable
+shadow_blur_radius 14
+shadow_color #00000099
+shadow_inactive_color #00000055
+shadow_offset 0 4
+
+layer_effects "waybar" {
+    blur enable;
+    blur_xray disable;
+    blur_ignore_transparent enable;
+    shadows enable;
+    corner_radius 10;
+}
+
+# end swayfx
+
+client.focused          $base0B $base0B $base00 $base0E $base0B
+client.focused_inactive $base02 $base02 $base05 $base02 $base02
+client.unfocused        $base01 $base01 $base04 $base01 $base01
+client.urgent            $base0A $base0A $base00 $base0A $base0A
+client.placeholder      $base01 $base01 $base05 $base01 $base01
+client.background       $base00
+
 
 bindsym $mod+t exec $term
-bindsym $mod+q kill
 bindsym $mod+d exec $menu
-bindsym --locked XF86Search exec $menu
-# bindsym Print exec sh -c "~/.local/bin/ezshot -c region && notify-send 'upload complete'"
+bindsym $mod+q kill
+
+for_window [class="(?i)pinentry"] floating enable
 
 floating_modifier $mod normal
 
-bindsym $mod+Shift+c reload
-bindsym $mod+Shift+e exec swaymsg exit
 
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus up
+bindsym $mod+$left  focus left
+bindsym $mod+$down  focus down
+bindsym $mod+$up    focus up
 bindsym $mod+$right focus right
 
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+$left  move left
+bindsym $mod+Shift+$down  move down
+bindsym $mod+Shift+$up    move up
 bindsym $mod+Shift+$right move right
+
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
+bindsym $mod+Shift+Right move right
+
+
+bindsym $mod+b splith
+bindsym $mod+v splitv
+
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+bindsym $mod+f fullscreen
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+bindsym $mod+a focus parent
+
 
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
@@ -83,55 +179,67 @@ bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 
-bindsym $mod+b splith
-bindsym $mod+g splitv
 
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+minus scratchpad show
+bindsym $mod+Shift+minus move scratchpad
 
-bindsym $mod+f fullscreen
-
-bindsym $mod+Shift+space floating toggle
-bindsym $mod+space focus mode_toggle
-bindsym $mod+a focus parent
-
-bindsym $mod+r mode "resize"
 
 mode "resize" {
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
+    bindsym $left  resize shrink width 10px
+    bindsym $down  resize grow height 10px
+    bindsym $up    resize shrink height 10px
     bindsym $right resize grow width 10px
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
 
-bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
-bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
-bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
-bindsym --locked XF86AudioPrev exec playerctl previous
+bindsym $mod+r mode "resize"
+
+
+bindsym $mod+Shift+v exec 'cliphist list | fuzzel --dmenu | cliphist decode | wl-copy'
+
+
+bindsym --locked XF86AudioMute        exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym --locked XF86AudioMicMute     exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
 bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym --locked XF86AudioPause exec playerctl play-pause
+bindsym --locked XF86AudioPrev exec playerctl previous
 bindsym --locked XF86AudioNext exec playerctl next
-bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+bindsym --locked XF86AudioStop exec playerctl stop
+
+
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
-bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym --locked XF86MonBrightnessUp   exec brightnessctl set 5%+
 
-default_border pixel 2
-default_floating_border pixel 2
 
-gaps inner 4
-gaps outer 4
+bindsym Print exec $shot full
+bindsym $mod+Print exec $shot region
+bindsym $mod+Ctrl+Print exec $shot window
 
-seat * hide_cursor 8000
 
-bindsym $mod+Shift+r restart
-bindsym $mod+Shift+q exec pkill -u "$USER"
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+e exit
+
 
 bar {
-	swaybar_command waybar
-	position top
+    position top
+    swaybar_command waybar
+
+    colors {
+        background $base00
+        statusline $base05
+        separator $base02
+
+        focused_workspace  $base0B $base0B $base00
+        active_workspace   $base02 $base02 $base05
+        inactive_workspace $base01 $base01 $base04
+        urgent_workspace   $base0A $base0A $base00
+    }
 }
+
 
 include /etc/sway/config.d/*

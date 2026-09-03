@@ -31,8 +31,8 @@
     },
     {
       "type": "os",
-      "key": " OS       >",
-      "format": "{1} {2}"
+      "key": "󰣇 OS       >",
+      "format": "{2}"
     },
     {
       "type": "kernel",
@@ -69,10 +69,6 @@
     {
       "type": "display",
       "key": "󰍹 Display  >"
-    },
-    {
-      "type": "sound",
-      "key": " Sound    >"
     },
     {
       "type": "cpu",
