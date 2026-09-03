@@ -9,8 +9,12 @@ name = "git"
 target = "~"
 
 [[package]]
-name = "kitty"
-target = "~/.config/kitty"
+name = "tmux"
+target = "~"
+
+[[package]]
+name = "foot"
+target = "~/.config/foot"
 
 [[package]]
 name = "mpv"
@@ -21,20 +25,12 @@ name = "starship"
 target = "~/.config/starship"
 
 [[package]]
-name = "zsh"
-target = "~"
-
-[[package]]
 name = "fish"
 target = "~/.config/fish"
 
 [[package]]
-name = "~/.cache/roxgen/fnott.ini"
+name = "fnott"
 target = "~/.config/fnott"
-
-[[package]]
-name = "roxgen"
-target = "~/.config/roxgen"
 
 [[package]]
 name = "sway"
@@ -47,6 +43,10 @@ target = "~/.config/fastfetch"
 [[package]]
 name = "waybar"
 target = "~/.config/waybar"
+
+[[package]]
+name = "fuzzel"
+target = "~/.config/fuzzel"
 
 [[package]]
 name = "stowme"
