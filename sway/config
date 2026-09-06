@@ -1,4 +1,4 @@
-set $mod Mod1
+set $mod Mod4
 set $left h
 set $down j
 set $up k
@@ -10,7 +10,6 @@ set $menu fuzzel
 set $wallpaper ~/Pictures/Backgrounds/oxocarbon.jpg
 set $lock_bg ~/Pictures/Backgrounds/oxocarbon.jpg
 set $shot ~/.config/sway/scripts/screenshot.sh
-
 
 set $base00 #161616
 set $base01 #262626
@@ -29,8 +28,9 @@ set $base0D #42be65
 set $base0E #be95ff
 set $base0F #82cfff
 
-
 output * bg $wallpaper fill
+
+output HDMI-A-1 mode 1920x1080@100Hz
 
 exec --no-startup-id wl-paste --watch cliphist store
 exec_always --no-startup-id fnott
@@ -56,8 +56,6 @@ input type:keyboard {
     xkb_layout gb
 }
 
-
-output * bg $wallpaper fill
 
 gaps inner 10
 gaps outer 6
