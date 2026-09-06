@@ -35,4 +35,8 @@ alias fullsync='esync && upclean && cldist && clpkg && revdep'
 
 alias du='du -sh *'
 alias free='free -h'
-. "$HOME/.cargo/env"
+
+if [[ $- == *i* ]]; then
+    exec fish
+fi
+
