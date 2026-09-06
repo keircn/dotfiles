@@ -2,30 +2,21 @@
 
 dir="$HOME/Pictures/Screenshots"
 mkdir -p "$dir"
-file="$dir/screenshot_$(date +%Y%m%d_%H%M%S).png"
 
-mode="${1:-full}"
+file="$(tr -dc 'A-Za-z0-9' </dev/urandom | head -c 8).png"
 
-case "$mode" in
+case "${1:-full}" in
     full)
-        grim "$file"
+        grabit --fullscreen --upload --filename "$file"
         ;;
     region)
-        geom=$(slurp) || exit 1
-        grim -g "$geom" "$file"
+        grabit --upload --filename "$file"
         ;;
     window)
-        geom=$(swaymsg -t get_tree | jq -r '.. | select(.type?) | select(.focused==true) | .rect | "\(.x),\(.y) \(.width)x\(.height)"')
-        [ -z "$geom" ] && exit 1
-        grim -g "$geom" "$file"
+        grabit --window --upload --filename "$file"
         ;;
     *)
-        echo "Unknown mode: $mode" >&2
+        echo "Unknown mode: $1" >&2
         exit 1
         ;;
 esac
-
-if [ -f "$file" ]; then
-    wl-copy < "$file"
-    notify-send "Screenshot saved" "$file" -i "$file"
-fi
