@@ -4,12 +4,15 @@ set $down j
 set $up k
 set $right l
 
-set $term foot
-set $menu fuzzel
+set $term footclient
+set $menu vicinae toggle
+set $files pcmanfm
 
-set $wallpaper ~/Pictures/Backgrounds/oxocarbon.jpg
-set $lock_bg ~/Pictures/Backgrounds/oxocarbon.jpg
-set $shot ~/.config/sway/scripts/screenshot.sh
+set $lock_bg ~/Pictures/Backgrounds/tsumugi.jpg
+set $lock swaylock -f -i $lock_bg --effect-blur 7x5 -c 000000
+
+set $wallpaper_a ~/Pictures/Backgrounds/tsumugi.jpg
+set $wallpaper_b ~/Pictures/Backgrounds/angelbeats-lewd.jpeg
 
 set $base00 #161616
 set $base01 #262626
@@ -28,19 +31,53 @@ set $base0D #42be65
 set $base0E #be95ff
 set $base0F #82cfff
 
-output * bg $wallpaper fill
 
-output HDMI-A-1 mode 1920x1080@100Hz
+seat seat0 xcursor_theme scm-makise-kurisu-lab-coat 32
 
-exec --no-startup-id wl-paste --watch cliphist store
-exec_always --no-startup-id fnott
-exec_always --no-startup-id nm-applet
+gaps inner 8
+gaps outer 4
+smart_gaps on
+smart_borders on
+hide_edge_borders smart
 
-exec --no-startup-id swayidle -w \
-    timeout 300 'swaylock -f -i $lock_bg --effect-blur 7x5 -c 000000' \
-    timeout 600 'swaymsg "output * power off"' \
-        resume 'swaymsg "output * power on"' \
-    before-sleep 'swaylock -f -i $lock_bg --effect-blur 7x5 -c 000000'
+default_border pixel 2
+default_floating_border pixel 2
+
+#                       border  bg      text    indicator child_border
+client.focused          $base0B $base0B $base00 $base0E   $base0B
+client.focused_inactive $base02 $base02 $base05 $base02   $base02
+client.unfocused        $base01 $base01 $base04 $base01   $base01
+client.urgent           $base0A $base0A $base00 $base0A   $base0A
+client.placeholder      $base01 $base01 $base05 $base01   $base01
+client.background       $base00
+
+
+# ── Outputs ───────────────────────────────────────────────────────────────
+# Left / primary:    DP-2      (MSI MP223 E2, 0,0)
+# Right / secondary: HDMI-A-1  (Lenovo L22-4e, 1920,0)
+#
+# The wildcard comes first so a newly plugged-in or unknown output still gets
+# a usable background. The named outputs below override it for the real setup.
+output * bg $base00 solid_color
+
+output DP-2     mode 1920x1080@100Hz position 0,0    scale 1 transform normal bg $wallpaper_a fill
+output HDMI-A-1 mode 1920x1080@100Hz position 1920,0 scale 1 transform normal bg $wallpaper_b fill
+
+# Keep a fixed workspace set on each monitor.
+workspace 1  output DP-2
+workspace 2  output DP-2
+workspace 3  output DP-2
+workspace 4  output DP-2
+
+workspace 5 output HDMI-A-1
+workspace 6 output HDMI-A-1
+workspace 7 output HDMI-A-1
+workspace 8 output HDMI-A-1
+
+workspace_auto_back_and_forth yes
+focus_follows_mouse no
+mouse_warping output
+floating_modifier $mod normal
 
 
 input type:touchpad {
@@ -53,72 +90,57 @@ input type:touchpad {
 }
 
 input type:keyboard {
-    xkb_layout gb
+    xkb_layout us
 }
 
 
-gaps inner 10
-gaps outer 6
-smart_gaps on
+assign [app_id="discord"] workspace number 5
+assign [class="Spotify"] workspace number 6
+assign [app_id="firefox"] workspace number 2
 
-default_border none
-default_floating_border none
+# Wayland-native (app_id) and XWayland (class) variants
+for_window [app_id="pinentry.*"] floating enable
+for_window [class="(?i)pinentry"] floating enable
+for_window [app_id="pcmanfm"] floating enable
+for_window [app_id="solaar"] floating enable
+for_window [app_id="cr.fr.bionus.Grabber"] floating enable
+for_window [class="net-runelite-launcher-Launcher"] floating enable
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="dialog"] floating enable
 
-# swayfx only!!
+for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable, sticky enable
 
-titlebar_separator disable
-scratchpad_minimize disable
+for_window [class="Steam" title="^(?!Steam$).*"] floating enable
+for_window [class="steam_app_*"] floating enable
 
-default_dim_inactive 0.08
-dim_inactive_colors.unfocused #000000FF
-dim_inactive_colors.urgent #900000FF
+# exec wl-paste --watch cliphist store
+# exec nm-applet
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
+exec fnott
+exec vicinae server
+exec foot -s
+exec solaar --window=hide
+exec autotiling-rs
+exec grabit --tray
 
-animation_duration_ms 100
-
-corner_radius 10
-
-blur enable
-blur_xray disable
-blur_passes 2
-blur_radius 4
-blur_noise 0.015
-blur_brightness 1.0
-blur_contrast 1.0
-blur_saturation 1.05
-
-shadows enable
-shadows_on_csd enable
-shadow_blur_radius 14
-shadow_color #00000099
-shadow_inactive_color #00000055
-shadow_offset 0 4
-
-layer_effects "waybar" {
-    blur enable;
-    blur_xray disable;
-    blur_ignore_transparent enable;
-    shadows enable;
-    corner_radius 10;
-}
-
-# end swayfx
-
-client.focused          $base0B $base0B $base00 $base0E $base0B
-client.focused_inactive $base02 $base02 $base05 $base02 $base02
-client.unfocused        $base01 $base01 $base04 $base01 $base01
-client.urgent            $base0A $base0A $base00 $base0A $base0A
-client.placeholder      $base01 $base01 $base05 $base01 $base01
-client.background       $base00
+exec swayidle -w \
+    timeout 300 '$lock' \
+    timeout 600 'swaymsg "output * power off"' \
+        resume 'swaymsg "output * power on"' \
+    before-sleep '$lock' \
+    lock '$lock'
 
 
 bindsym $mod+t exec $term
 bindsym $mod+d exec $menu
+bindsym $mod+e exec $files
+bindsym $mod+Tab exec "vicinae cmd launch wm:switch-windows"
+# bindsym $mod+Shift+v exec 'cliphist list | fuzzel --dmenu | cliphist decode | wl-copy'
+bindsym $mod+Shift+v exec 'vicinae vicinae://launch/clipboard/history'
+
 bindsym $mod+q kill
-
-for_window [class="(?i)pinentry"] floating enable
-
-floating_modifier $mod normal
+bindsym $mod+Shift+x exec $lock
 
 
 bindsym $mod+$left  focus left
@@ -141,18 +163,28 @@ bindsym $mod+Shift+Down  move down
 bindsym $mod+Shift+Up    move up
 bindsym $mod+Shift+Right move right
 
+bindsym $mod+Shift+o move workspace to output right
+
+# Jump the cursor/focus between monitors without moving a window.
+bindsym $mod+Ctrl+h focus output left
+bindsym $mod+Ctrl+l focus output right
+bindsym $mod+Ctrl+Left  focus output left
+bindsym $mod+Ctrl+Right focus output right
+
 
 bindsym $mod+b splith
 bindsym $mod+v splitv
 
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+s layout toggle stacking split
+bindsym $mod+w layout toggle tabbed split
 
 bindsym $mod+f fullscreen
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
+
+bindsym $mod+minus scratchpad show
+bindsym $mod+Shift+minus move scratchpad
 
 
 bindsym $mod+1 workspace number 1
@@ -178,15 +210,16 @@ bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 
 
-bindsym $mod+minus scratchpad show
-bindsym $mod+Shift+minus move scratchpad
-
-
 mode "resize" {
     bindsym $left  resize shrink width 10px
     bindsym $down  resize grow height 10px
     bindsym $up    resize shrink height 10px
     bindsym $right resize grow width 10px
+
+    bindsym Left  resize shrink width 10px
+    bindsym Down  resize grow height 10px
+    bindsym Up    resize shrink height 10px
+    bindsym Right resize grow width 10px
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -195,48 +228,51 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
-bindsym $mod+Shift+v exec 'cliphist list | fuzzel --dmenu | cliphist decode | wl-copy'
-
-
 bindsym --locked XF86AudioMute        exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym --locked XF86AudioMicMute     exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
-bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym --locked XF86AudioPlay  exec playerctl play-pause
 bindsym --locked XF86AudioPause exec playerctl play-pause
-bindsym --locked XF86AudioPrev exec playerctl previous
-bindsym --locked XF86AudioNext exec playerctl next
-bindsym --locked XF86AudioStop exec playerctl stop
-
+bindsym --locked XF86AudioPrev  exec playerctl previous
+bindsym --locked XF86AudioNext  exec playerctl next
+bindsym --locked XF86AudioStop  exec playerctl stop
 
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym --locked XF86MonBrightnessUp   exec brightnessctl set 5%+
 
+# ── Captures (grabit) ─────────────────────────────────────────────────────
+# Shift uploads to zipline, Ctrl targets the focused window, Alt picks a
+# monitor, $mod opens the annotation editor, $mod+Ctrl reuses the last region.
+# Names and local copies come from grabit itself: `grabit set filename
+# '%Y-%m-%d_%H-%M-%S_%r[4]'` and `grabit set also_save true`.
+bindsym Print            exec grabit -c        # region → clipboard
+bindsym Shift+Print      exec grabit -u        # region → upload
+bindsym Ctrl+Print       exec grabit -w -c     # window → clipboard
+bindsym Ctrl+Shift+Print exec grabit -w -u     # window → upload
+bindsym Alt+Print        exec grabit -F -c     # monitor picker → clipboard
+bindsym $mod+Print       exec grabit -e -c     # annotate region → clipboard
+bindsym $mod+Shift+Print exec grabit -e -u     # annotate region → upload
+bindsym $mod+Ctrl+Print  exec grabit -L -c     # last region → clipboard
+# bindsym $mod+Ctrl+d   exec grabit --delay 3 -c  # catch menus/tooltips
 
-bindsym Print exec $shot full
-bindsym $mod+Print exec $shot region
-bindsym $mod+Ctrl+Print exec $shot window
+bindsym $mod+o           exec grabit --tesseract --show
+# bindsym $mod+Alt+o     exec grabit --tesseract --translate --show
+
+bindsym $mod+Shift+r     exec grabit --record    # start/stop recording
+bindsym $mod+Alt+r       exec grabit --pause     # pause/resume recording
+
+bindsym $mod+Shift+p     exec grabit --pin
+bindsym $mod+Alt+p       exec grabit --close-all
 
 
 bindsym $mod+Shift+c reload
-bindsym $mod+Shift+e exit
+bindsym $mod+Shift+e exec swaynag -t warning -m 'Exit sway?' -B 'Yes, exit' 'swaymsg exit'
 
 
 bar {
-    position top
     swaybar_command waybar
-
-    colors {
-        background $base00
-        statusline $base05
-        separator $base02
-
-        focused_workspace  $base0B $base0B $base00
-        active_workspace   $base02 $base02 $base05
-        inactive_workspace $base01 $base01 $base04
-        urgent_workspace   $base0A $base0A $base00
-    }
 }
 
 

@@ -1,113 +1,43 @@
-{
-"layer": "top",
-"position": "top",
-"height": 34,
-"margin-top": 5,
-"margin-bottom": 4,
-"margin-left": 10,
-"margin-right": 10,
-"spacing": 0,
-"modules-left": ["sway/workspaces", "sway/mode"],
-"modules-center": ["clock"],
-"modules-right": [
-"idle_inhibitor",
-"backlight",
-"pulseaudio",
-"network",
-"bluetooth",
-"battery",
-"cpu",
-"memory",
-"tray"
-],
-
-"idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-        "activated": "󰅶",
-        "deactivated": "󰾪"
-    }
-},
-
-"sway/workspaces": {
-    "disable-scroll": true,
-    "all-outputs": true,
-    "format": "{name}"
-},
-
-"sway/mode": {
-    "format": "{}"
-},
-
-"clock": {
-    "format": "{:%H:%M   %a %d %b}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-},
-
-"backlight": {
-    "format": "{icon} {percent}%",
-    "format-icons": ["󰃞", "󰃟", "󰃠", "󰃠", "󰃠"],
-    "on-scroll-up": "brightnessctl set 5%+",
-    "on-scroll-down": "brightnessctl set 5%-"
-},
-
-"pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-muted": "󰖁  muted",
-    "format-icons": {
-        "default": ["󰕿", "󰖀", "󰕾"]
-    },
-    "scroll-step": 1,
-    "on-click": "pamixer -t",
-    "on-click-right": "pavucontrol"
-},
-
-"network": {
-    "format-wifi": "󰖩  {signalStrength}%",
-    "format-ethernet": "󰈀  wired",
-    "format-disconnected": "󰖪  offline",
-    "tooltip-format-wifi": "{essid} ({signalStrength}%)  {ipaddr}/{cidr}",
-    "tooltip-format-ethernet": "{ifname}  {ipaddr}/{cidr}",
-    "tooltip-format-disconnected": "Disconnected",
-    "on-click": "nm-connection-editor"
-},
-
-"bluetooth": {
-    "format": "󰂯",
-    "format-disabled": "󰂲",
-    "format-connected": "󰂱  {num_connections}",
-    "tooltip-format": "{controller_alias}\t{controller_address}",
-    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
-    "on-click": "blueman-manager"
-},
-
-"battery": {
-    "format": "{icon} {capacity}%",
-    "format-charging": "󰂄  {capacity}%",
-    "format-plugged": "󰂄  {capacity}%",
-    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁹"],
-    "format-alt": "{icon} {time}",
-    "states": {
-        "warning": 30,
-        "critical": 15
-    },
-    "tooltip-format": "{timeTo}"
-},
-
-"cpu": {
-    "format": "󰻠  {usage}%",
-    "states": {
-        "warning": 70,
-        "critical": 90
-    }
-},
-
-"memory": {
-    "format": "󰍛  {used:0.1f}G"
-},
-
-"tray": {
-    "icon-size": 16,
-    "spacing": 10
-}
-}
+[
+  {
+    // Primary display: full bar.
+    "output": "DP-2",
+    "layer": "top",
+    "position": "top",
+    "height": 32,
+    "margin-top": 6,
+    "margin-bottom": 6,
+    "margin-left": 8,
+    "margin-right": 8,
+    "spacing": 0,
+    "include": ["modules.jsonc"],
+    "modules-left": ["sway/workspaces", "sway/scratchpad", "sway/mode", "sway/window"],
+    "modules-center": ["clock"],
+    "modules-right": [
+      "mpris",
+      "idle_inhibitor",
+      "pulseaudio",
+      "network",
+      "cpu",
+      "memory",
+      "temperature",
+      "tray"
+    ]
+  },
+  {
+    // Secondary display: minimal bar.
+    "output": "HDMI-A-1",
+    "layer": "top",
+    "position": "top",
+    "height": 32,
+    "margin-top": 6,
+    "margin-bottom": 6,
+    "margin-left": 8,
+    "margin-right": 8,
+    "spacing": 0,
+    "include": ["modules.jsonc"],
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["clock"],
+    "modules-right": ["pulseaudio", "cpu", "memory", "temperature"]
+  }
+]

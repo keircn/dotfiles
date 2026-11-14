@@ -1,17 +1,13 @@
 @define-color background #161616;
 @define-color foreground #f2f4f8;
+@define-color muted      #8b93a1;
+@define-color dim        #525252;
+@define-color surface    #262626;
 
-@define-color surface #262626;
-@define-color surface2 #393939;
-@define-color muted #525252;
-
-@define-color blue #78a9ff;
-@define-color cyan #82cfff;
-@define-color green #42be65;
-@define-color magenta #ee5396;
-@define-color pink #ff7eb6;
-@define-color teal #3ddbd9;
-
+@define-color accent     #78a9ff;
+@define-color teal       #3ddbd9;
+@define-color warning    #ff7eb6;
+@define-color critical   #ee5396;
 
 * {
     border: none;
@@ -20,92 +16,116 @@
     margin: 0;
     padding: 0;
 
-    font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font Mono", sans-serif;
+    font-family: "CommitMono Nerd Font", "Inter Nerd Font Propo", sans-serif;
     font-size: 10pt;
+    font-weight: 500;
 }
 
-
 window#waybar {
-    background: transparent;
+    background: alpha(@background, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 7px;
     color: @foreground;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
 }
 
 #workspaces,
 #mode,
+#window,
 #clock,
+#scratchpad,
+#mpris,
 #idle_inhibitor,
 #pulseaudio,
+#network,
 #cpu,
 #memory,
-#network,
-#bluetooth,
-#battery,
-#backlight,
+#temperature,
 #tray {
-    margin: 4px 4px;
-    padding: 0 12px;
-
-    background: alpha(@surface, 0.94);
-    border: 1px solid alpha(@surface2, 0.65);
-    border-radius: 10px;
-
-    transition:
-        background-color 160ms ease,
-        color 160ms ease;
+    margin: 0 1px;
+    padding: 0 9px;
+    background: transparent;
 }
 
-
+/* Workspaces: compact pills, accent only for the focused one. */
 #workspaces {
     padding: 0 3px;
 }
 
 #workspaces button {
-    margin: 3px 2px;
-    padding: 0 9px;
-
+    min-width: 20px;
+    margin: 4px 2px;
+    padding: 2px 7px;
     border-radius: 7px;
-    color: alpha(@foreground, 0.45);
+    background: transparent;
+    color: @dim;
 
     transition:
-        background-color 160ms ease,
-        color 160ms ease;
+        background-color 140ms ease,
+        color 140ms ease;
+}
+
+#workspaces button.empty {
+    color: alpha(@dim, 0.55);
+}
+
+#workspaces button.visible {
+    color: @muted;
 }
 
 #workspaces button:hover {
-    background: alpha(@blue, 0.15);
+    background: rgba(255, 255, 255, 0.06);
     color: @foreground;
 }
 
 #workspaces button.focused {
-    background: @blue;
-    color: @background;
-    font-weight: bold;
+    background: alpha(@accent, 0.16);
+    color: @accent;
+    font-weight: 700;
 }
 
 #workspaces button.urgent {
-    background: @magenta;
+    background: @critical;
     color: @background;
 }
 
-
 #mode {
-    padding: 0 14px;
+    margin: 4px;
+    padding: 0 10px;
+    border-radius: 7px;
+    background: alpha(@warning, 0.12);
+    color: @warning;
+    font-weight: 600;
+}
 
-    background: @magenta;
-    color: @background;
-    font-weight: bold;
+#window {
+    color: @muted;
 }
 
 #clock {
-    padding: 0 16px;
-
-    color: @cyan;
-    font-weight: bold;
+    padding: 0 14px;
+    color: @foreground;
+    font-weight: 600;
 }
 
+#scratchpad {
+    color: @muted;
+}
+
+#mpris {
+    color: @muted;
+}
+
+#mpris.playing {
+    color: @accent;
+}
+
+#mpris.paused {
+    color: @dim;
+}
 
 #idle_inhibitor {
-    color: @foreground;
+    color: @muted;
 }
 
 #idle_inhibitor.activated {
@@ -113,84 +133,70 @@ window#waybar {
 }
 
 #pulseaudio {
-    color: @green;
+    color: @muted;
 }
 
 #pulseaudio.muted {
-    color: @muted;
-    background: alpha(@muted, 0.18);
-}
-
-#cpu {
-    color: @pink;
-}
-
-#cpu.warning {
-    color: @pink;
-}
-
-#cpu.critical {
-    color: @magenta;
-    background: alpha(@magenta, 0.15);
-}
-
-#memory {
-    color: @blue;
+    color: @critical;
 }
 
 #network {
-    color: @teal;
-}
-
-#network.disconnected {
-    color: @magenta;
-    background: alpha(@magenta, 0.15);
-}
-
-#bluetooth {
-    color: @cyan;
-}
-
-#bluetooth.disabled {
     color: @muted;
 }
 
-#backlight {
-    color: @pink;
+#network.disconnected {
+    color: @critical;
 }
 
-
-#battery {
-    color: @green;
+#cpu,
+#memory,
+#temperature {
+    color: @muted;
 }
 
-#battery.charging {
-    color: @blue;
+#cpu.warning,
+#memory.warning,
+#temperature.warning {
+    color: @warning;
 }
 
-#battery.warning:not(.charging) {
-    color: @pink;
+#cpu.critical,
+#memory.critical,
+#temperature.critical {
+    color: @critical;
 }
-
-#battery.critical:not(.charging) {
-    color: @magenta;
-    background: alpha(@magenta, 0.15);
-}
-
 
 #tray {
-    padding: 0 10px;
+    padding: 0 6px;
 }
 
+#tray > widget {
+    margin-left: 6px;
+}
+
+#tray menu {
+    background: @surface;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 7px;
+}
 
 tooltip {
-    padding: 4px 8px;
-
-    background: @surface;
-    border: 1px solid @surface2;
-    border-radius: 8px;
+    padding: 6px 10px;
+    background: alpha(@surface, 0.98);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 7px;
 }
 
 tooltip label {
     color: @foreground;
+}
+
+tooltip calendar {
+    color: @foreground;
+}
+
+tooltip calendar:selected {
+    background: alpha(@accent, 0.35);
+    color: @foreground;
+    border-radius: 4px;
 }

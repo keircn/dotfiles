@@ -32,4 +32,4 @@
 [checkout]
 	defaultRemote = origin
 [commit]
-	gpgsign = true
+	; gpgsign = true

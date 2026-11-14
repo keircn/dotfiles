@@ -1,0 +1,145 @@
+{
+  // Shared module definitions used by both bars.
+  // Included from ~/.config/waybar/modules.jsonc.
+
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "disable-auto-back-and-forth": true,
+    "all-outputs": false,
+    "format": "{name}",
+    // Keep the pinned layout visible, but let empty workspaces fade out in CSS.
+    "persistent-workspaces": {
+      "1": ["DP-2"],
+      "2": ["DP-2"],
+      "3": ["DP-2"],
+      "4": ["DP-2"],
+      "5": ["HDMI-A-1"],
+      "6": ["HDMI-A-1"],
+      "7": ["HDMI-A-1"],
+      "8": ["HDMI-A-1"],
+      "9": ["DP-2"],
+      "10": ["DP-2"]
+    }
+  },
+
+  "sway/mode": {
+    "format": "{}",
+    "tooltip": false
+  },
+
+  "sway/window": {
+    "format": "{title}",
+    "max-length": 42,
+    "tooltip": false
+  },
+
+  "sway/scratchpad": {
+    "format": "󰒲 {count}",
+    "show-empty": false,
+    "tooltip-format": "{app}: {title}"
+  },
+
+  "clock": {
+    "format": "{:%H:%M}",
+    "tooltip-format": "<big>{:%A, %d %B %Y}</big>\n\n<tt>{calendar}</tt>"
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "󰅶",
+      "deactivated": "󰾪"
+    },
+    "tooltip-format-activated": "Idle inhibited",
+    "tooltip-format-deactivated": "Idle enabled"
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰖁",
+    "format-icons": {
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "scroll-step": 2,
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +2%",
+    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -2%"
+  },
+
+  "network": {
+    "interval": 5,
+    "format-ethernet": "󰈀",
+    "format-wifi": "󰖩 {signalStrength}%",
+    "format-linked": "󰈀",
+    "format-disconnected": "󰖪",
+    "tooltip-format-ethernet": "{ifname}\n{ipaddr}/{cidr}",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ipaddr}/{cidr}",
+    "tooltip-format-disconnected": "Disconnected"
+  },
+
+  "cpu": {
+    "interval": 2,
+    "format": "󰻠 {usage}%",
+    "states": {
+      "warning": 70,
+      "critical": 90
+    },
+    "on-click": "footclient -e btop"
+  },
+
+  "memory": {
+    "interval": 5,
+    "format": "󰍛 {used:0.1f}G",
+    "tooltip-format": "RAM  {used:0.1f}G / {total:0.1f}G\nSwap {swapUsed:0.1f}G / {swapTotal:0.1f}G",
+    "states": {
+      "warning": 80,
+      "critical": 95
+    },
+    "on-click": "footclient -e btop"
+  },
+
+  "temperature": {
+    "hwmon-by-name": "coretemp",
+    "input-filename": "temp1_input",
+    "interval": 5,
+    "format": "󰔏 {temperatureC}°C",
+    "warning-threshold": 75,
+    "critical-threshold": 90,
+    "on-click": "footclient -e btop"
+  },
+
+  "mpris": {
+    "player": "playerctld",
+    "format": "{player_icon} {dynamic}",
+    "format-paused": "{status_icon} {dynamic}",
+    "format-stopped": "",
+    "player-icons": {
+      "default": "󰎆",
+      "spotify": "󰓇",
+      "Spotify": "󰓇",
+      "feishin": "󰎆",
+      "Feishin": "󰎆",
+      "firefox": "󰈹"
+    },
+    "status-icons": {
+      "paused": "󰏤",
+      "stopped": "󰓛"
+    },
+    "dynamic-order": ["title", "artist"],
+    "dynamic-separator": " · ",
+    "dynamic-len": 34,
+    "max-length": 42,
+    "ellipsis": "…",
+    "tooltip-format": "{player} — {title}\n{artist}",
+    "on-click": "playerctl play-pause",
+    "on-click-middle": "playerctl previous",
+    "on-click-right": "playerctl next"
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8,
+    "tooltip": true
+  }
+}
